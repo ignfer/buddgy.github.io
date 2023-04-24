@@ -5,7 +5,7 @@
 
 Actualmente Buddgy abarca solo la parte front-end ya que es un proyecto personal de desarrollo, a la fecha (9 de abril de 2023) el primer acercamiento se ve de la siguiente manera 
 
-![Alt text]( https://raw.githubusercontent.com/ignfer/didactic-enigma/main/buddgy/sources/figma_preview00.png "primer diseño de la pagina")
+![Alt text]( https://raw.githubusercontent.com/ignfer/buddgy/main/figma_preview00.png "primer diseño de la pagina")
 
 ## Descripcion:
   Como podemos ver la pagina llevara registro de los gastos e ingresos del usuario, generando asi tarjetas o 'cards' que veremos en la izquierda de la pantalla, ademas de poder añadir categorias personalizables tambien se espera que se pueda ver un resumen de los gastos mensuales.
