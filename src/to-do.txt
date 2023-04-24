@@ -1,0 +1,5 @@
+24/4/23: 
+#Lograr hacer un layout con flex-box que no solo sea un boceto
+basico y abstracto de la interfaz, si no investigar para lograr hacerlo adaptativo a distintos tamaños.
+
+#Investigar sobre el boilerplate y convenciones a la hora de armar un HTML
