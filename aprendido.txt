@@ -1,0 +1,8 @@
+#Instalacion y utilizacion de la extension 'live server' para poder previsualizar facilmente los cambios en la pagina
+#Uso correcto y contenido de la etiqueta 'head':
+    #lang tag
+    #meta tag
+#Wrappers en diseño web
+#Unidades de medidas en CSS
+#calc()
+#profundizacion en flex
