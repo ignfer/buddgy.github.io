@@ -3,7 +3,11 @@
     <head>
         <title> Buddgy - Ahorra con nosotros </title>
         <link rel = "icon" type = "image/x-icon" href = "../favicon.png">
-        <link rel = "stylesheet" href = "styles.css"> 
+        <link rel = "stylesheet" href = "styles.css">
+        <script src = "index.js"></script> 
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+        </style>
         <meta charset = "utf-8">
         <meta name = "keywords" content = "HTML, CSS, JavaScript, project, portfolio, buddget, UX Design">
         <meta name = "description" content = "Desarrollo de una pagina web para ayudarte a ahorrar">
@@ -14,11 +18,21 @@
     <body> 
         <div class = "container">
             <div class = "header">
-               <img id= "if_logo" src = "../IF_logo.png" alt = "Ignacio Fernandez Junior Developer">
+               <img id= "if_logo" src = "../IF_logo.png" onclick="ir_a_github()">
             </div>
             
             <div class = "main">
                 <div class = "side_bar">
+                    <div class = "side_bar_search">
+                    
+                        <input class = "side_bar_search_bar" type = "text" placeholder = "Busca un gasto o un ingreso...">
+                    </div>
+
+                    <div class = "side_bar_content">
+                        <div class = "side_bar_panel" id = "xnv234"></div>
+                
+
+                    </div>
                 
                 </div>
 
