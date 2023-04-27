@@ -2,6 +2,9 @@
 #Se deja funcionando el scroll infinito en el 'side_bar' y se simplifica mucho el 
 codigo css ya que habia propiedades innecesarias.
 
+#Pensar en como podria quedar el layout en una pantalla de celular, intentar que la pagina se adapte a distintos
+tamaños
+
 26/4/23:
 #Hacer funcionar el scroll infinito en el 'side_bar'
 
