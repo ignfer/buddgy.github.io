@@ -9,3 +9,4 @@ en la pagina
 #calc()
 #profundizacion en flex
 #redireccionar paginas con javascript
+#casos de uso tanto para grid como para flex

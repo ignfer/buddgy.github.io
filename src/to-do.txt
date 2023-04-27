@@ -1,3 +1,7 @@
+27/4/23:
+#Se deja funcionando el scroll infinito en el 'side_bar' y se simplifica mucho el 
+codigo css ya que habia propiedades innecesarias.
+
 26/4/23:
 #Hacer funcionar el scroll infinito en el 'side_bar'
 
