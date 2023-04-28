@@ -11,3 +11,5 @@ en la pagina
 #redireccionar paginas con javascript
 #casos de uso tanto para grid como para flex
 #hover y como suavizar la animacion
+#diversificacion de css, pros y contras de separar archivos css o dejarlos todo en uno
+#vmin y su ventaja sobre medir con porcentajes

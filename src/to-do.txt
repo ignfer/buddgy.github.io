@@ -1,3 +1,7 @@
+28/4/23:
+#Antes de seguir añadiendo estilos o funcionalidades habria que atacar el tema de la adaptavilidad a distintas
+resoluciones
+
 27/4/23:
 #Se deja funcionando el scroll infinito en el 'side_bar' y se simplifica mucho el 
 codigo css ya que habia propiedades innecesarias.

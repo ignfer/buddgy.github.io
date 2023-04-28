@@ -1,57 +1,3 @@
-html,body{
-    min-height: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
-}
-
-h1{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 48px;
-    line-height: 58px;
-    color: #D3350D;
-}
-
-h2{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 64px;
-    line-height: 77px;
-    text-align: center;
-    color: #E0F2E9;
-}
-
-.container{
-    width:100%;
-    height: 100%;
-}
-
-.header{
-    width: 100%;
-    height: 15%;
-    background-color: #080E07;
-}
-
-#if_logo{
-    cursor: pointer;
-    position: absolute;
-    top: 10px;
-    left: 10px;
-}
-
-.main{
-    width: 100%;
-    height: 85%;
-    background-color: #080E07;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
 .side_bar{
     width: 20%;
     height: calc(100% - 20px);
@@ -59,6 +5,7 @@ h2{
     border-radius: 5px;
     margin-left: 10px;
     margin-top:10px;
+    overflow: hidden;
 }
 
 .side_bar_search{
@@ -98,11 +45,13 @@ h2{
     padding: 10px;
     scale: 1.0;
     transition-duration: 0.25s;
+    
 }
 
 .side_bar_card:hover{
     scale: 1.05;
     transition-duration: 0.25s;
+
 }
 
 .card_date{
@@ -159,41 +108,3 @@ h2{
 
     color: #D3350D;
 }
-
-.new{
-    width: 50%;
-    height: calc(60% - 20px);
-    background-color: #191C18;
-    border-radius: 5px;
-    margin-top: 10px;
-}
-
-.balance{
-   width: calc(30% - 40px);
-    height: calc(50% - 20px);
-    background-color: #191C18;
-    border-radius: 5px;
-    margin-top: 10px;
-    margin-right: 10px;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.graph{
-    width: 50%;
-    height: calc(40% - 10px);
-    background-color: #191C18;
-    border-radius: 5px;
-}
-
-.trends{
-    width: calc(30% - 40px);
-    height: calc(50% - 10px);
-    background-color: #191C18;
-    border-radius: 5px;
-    margin-right: 10px;
-}
-
-
