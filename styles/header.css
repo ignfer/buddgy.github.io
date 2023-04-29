@@ -1,0 +1,18 @@
+.header{
+    width: 100%;
+    height: 15%;
+    background-color: #080E07;
+    overflow: hidden;
+}
+
+#if_logo{
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 30vmin;
+    height: 13vmin;
+}
+
+.header_logo{
+    overflow: hidden;
+}

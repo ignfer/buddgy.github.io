@@ -1,3 +1,3 @@
-function ir_a_github(){
+function to_github(){
     window.location.href = "https://github.com/ignfer";
 }

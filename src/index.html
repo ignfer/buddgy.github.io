@@ -7,11 +7,14 @@
         <link rel = "stylesheet" href = "/styles/styles.css">
         <link rel = "stylesheet" href = "/styles/side_bar.css">
         <link rel = "stylesheet" href = "/styles/balance.css">
+        <link rel = "stylesheet" href = "/styles/header.css">
+        <link rel = "stylesheet" href = "/styles/new.css">
 
         <script src = "index.js"></script> 
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-        </style>
+        
+        <style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');</style>
+        <style>@import url('https://fonts.googleapis.com/css2?family=Lily+Script+One&display=swap');</style>
+        
         <meta charset = "utf-8">
         <meta name = "keywords" content = "HTML, CSS, JavaScript, project, portfolio, buddget, UX Design">
         <meta name = "description" content = "Desarrollo de una pagina web para ayudarte a ahorrar">
@@ -22,7 +25,9 @@
     <body> 
         <div class = "container">
             <div class = "header">
-               <img id= "if_logo" src = "../IF_logo.png" onclick="ir_a_github()">
+                    <div class = "header_logo">
+                        <img id= "if_logo" src = "../IF_logo.png" onclick="to_github()">     
+                    </div>
             </div>
             
             <div class = "main">
@@ -47,33 +52,21 @@
                             <div class = "card_desc">Vendi muebles que estaban en deshuso por casa.</div>
                             <div class = "card_amount">+$2000</div>
                         </div>
-                        <div class = "side_bar_card" id = "xbx2">
-                            <div class = "card_date">12/3/23</div>
-                            <div class = "card_tittle">Venta de mobiliario</div>
-                            <div class = "card_tags"></div>
-                            <div class = "card_desc">Vendi muebles que estaban en deshuso por casa.</div>
-                            <div class = "card_amount">+$2000</div>
-                        </div>
-                        <div class = "side_bar_card" id = "xbx2">
-                            <div class = "card_date">12/3/23</div>
-                            <div class = "card_tittle">Venta de mobiliario</div>
-                            <div class = "card_tags"></div>
-                            <div class = "card_desc">Vendi muebles que estaban en deshuso por casa.</div>
-                            <div class = "card_amount">+$2000</div>
-                        </div>
-                        <div class = "side_bar_card" id = "xbx2">
-                            <div class = "card_date">12/3/23</div>
-                            <div class = "card_tittle">Venta de mobiliario</div>
-                            <div class = "card_tags"></div>
-                            <div class = "card_desc">Vendi muebles que estaban en deshuso por casa.</div>
-                            <div class = "card_amount">+$2000</div>
-                        </div>
                     </div>
                 
                 </div>
 
                 <div class = "new">
-
+                    <div class = "new_tittle">
+                        <input class = "new_tittle_input" type = "text" placeholder = "Ingresa un titulo...">
+                    </div>
+                    <div class = "add_tag"></div>
+                    <div class = "new_tag">
+                        <div class = "new_tag_btn"> </div>
+                    </div>   
+                    <div class = "new_descr">
+                        <textarea class = "new_descr_input" type = "text" placeholder = "Añade una descripcion corta."></textarea>
+                    </div>
                 </div>
 
                 <div class = "graph">
