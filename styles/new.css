@@ -1,9 +1,12 @@
-.new{
-    width: 50%;
-    height: calc(60% - 20px);
+.grid_new {
+    grid-area: new;
     background-color: #191C18;
-    border-radius: 5px;
+
+    padding: 10px;
     margin-top: 10px;
+    margin-right: 10px;
+
+    border-radius: 5px;
     overflow: hidden;
 }
 

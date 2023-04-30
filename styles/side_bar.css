@@ -1,10 +1,10 @@
-.side_bar{
-    width: 20%;
-    height: calc(100% - 20px);
+.grid_side_bar {
+    grid-area: side_bar;
     background-color: #191C18;
+    
+    margin:10px;
+
     border-radius: 5px;
-    margin-left: 10px;
-    margin-top:10px;
     overflow: hidden;
 }
 
@@ -16,40 +16,42 @@
     width: calc(100% - 30px);
     height: 45px;
     margin: 10px;
+
     border-radius: 50px;
     border-style: none;
+
     font-family: 'Inter', sans-serif;
     font-style: bold;
     font-weight: 700;
     font-size: 20px;
     text-align: left;
     padding-left: 10px;
+
     background-color: #E0F0F5;
     color: #9FA8A3;
 }
 
 .side_bar_content{
-    width: calc(100% - 20px);
+    width: 100%;
     height: calc(90% - 20px);
-    padding: 10px;
     overflow: scroll;
     scrollbar-width: none;
 }
 
 .side_bar_card{
-    width: calc(100% - 20px);
+    width: calc(100% - 40px);
+    margin-left: 10px;
     height: auto;
     background-color: #2D312D;
     border-radius: 5px;
-    margin-bottom: 10px;
+    margin-top: 10px;
     padding: 10px;
     scale: 1.0;
-    transition-duration: 0.25s;
-    
+    transition-duration: 0.25s;  
 }
 
 .side_bar_card:hover{
-    scale: 1.05;
+    scale: 1.03;
     transition-duration: 0.25s;
 
 }

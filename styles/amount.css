@@ -1,14 +1,16 @@
-.balance{
-   width: calc(30% - 40px);
-    height: calc(40% - 20px);
+.grid_amount {
+    grid-area: amount;
     background-color: #191C18;
-    border-radius: 5px;
+    
+    padding: 10px;
     margin-top: 10px;
     margin-right: 10px;
+    
+    border-radius: 5px;
     overflow: hidden;
 }
 
-.balance h1{
+.grid_amount h1{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
@@ -17,7 +19,7 @@
     color: #D3350D;
 }
 
-.balance h2{
+.grid_amount h2{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
