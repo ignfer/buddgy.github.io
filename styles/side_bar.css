@@ -1,11 +1,16 @@
-.grid_side_bar {
-    grid-area: side_bar;
-    background-color: #191C18;
-    
-    margin:10px;
+.side_bar {
+    height: 100%;
+    width: 450px;
 
-    border-radius: 5px;
-    overflow: hidden;
+    flex-shrink: 0;
+    flex-grow: 0;
+    flex-basis: auto;
+
+    background-color: #191C18;
+
+    max-width: 1000px;
+    max-height: 2000px;
+
 }
 
 .side_bar_search{

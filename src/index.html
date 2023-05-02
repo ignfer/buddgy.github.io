@@ -23,67 +23,72 @@
     </head>
 
     <body> 
-        <div class = "grid_container">
-            <div class = "grid_header">
+        <div class = "container">
+            <div class = "header">
                     <div class = "header_logo">
                         <img id= "if_logo" src = "../IF_logo.png" onclick="to_github()">     
                     </div>
             </div>
-            
-            <div class = "grid_side_bar">
-                <div class = "side_bar_search">
+            <div class = "main">
+                <div class = "side_bar">
+                    <div class = "side_bar_search">
+                    
+                        <input class = "side_bar_search_bar" type = "text" placeholder = "Busca un gasto o un ingreso...">
+                    </div>
+    
+                    <div class = "side_bar_content">
+                        <div class = "side_bar_card" id = "xbx1">
+                            <div class = "card_date">28/4/23</div>
+                            <div class = "card_tittle">Almuerzo en restaurante</div>
+                            <div class = "card_tags"></div>
+                            <div class = "card_desc">Almuerzo de trabajo con colegas en el restaurante "La viña".</div>
+                            <div class = "card_amount">-$593</div>
+                        </div>
+                        <div class = "side_bar_card" id = "xbx2">
+                            <div class = "card_date">12/3/23</div>
+                            <div class = "card_tittle">Venta de mobiliario</div>
+                            <div class = "card_tags"></div>
+                            <div class = "card_desc">Vendi muebles que estaban en deshuso por casa.</div>
+                            <div class = "card_amount">+$2000</div>
+                        </div>
+                    </div>
                 
-                    <input class = "side_bar_search_bar" type = "text" placeholder = "Busca un gasto o un ingreso...">
                 </div>
-
-                <div class = "side_bar_content">
-                    <div class = "side_bar_card" id = "xbx1">
-                        <div class = "card_date">28/4/23</div>
-                        <div class = "card_tittle">Almuerzo en restaurante</div>
-                        <div class = "card_tags"></div>
-                        <div class = "card_desc">Almuerzo de trabajo con colegas en el restaurante "La viña".</div>
-                        <div class = "card_amount">-$593</div>
+                <div class = "row2">
+                    <div class = "grid_new">
+                        <div class = "new_tittle">
+                            <input class = "new_tittle_input" type = "text" placeholder = "Ingresa un titulo...">
+                        </div>
+                        <div class = "add_tag"></div>
+                        <div class = "new_tag">
+                            <div class = "new_tag_btn"> </div>
+                        </div>   
+                        <div class = "new_descr">
+                            <textarea class = "new_descr_input" type = "text" placeholder = "Añade una descripcion corta."></textarea>
+                        </div>
                     </div>
-                    <div class = "side_bar_card" id = "xbx2">
-                        <div class = "card_date">12/3/23</div>
-                        <div class = "card_tittle">Venta de mobiliario</div>
-                        <div class = "card_tags"></div>
-                        <div class = "card_desc">Vendi muebles que estaban en deshuso por casa.</div>
-                        <div class = "card_amount">+$2000</div>
+
+                    <div class = "grid_graph">
+            
                     </div>
                 </div>
-            
-            </div>
-
-            <div class = "grid_new">
-                <div class = "new_tittle">
-                    <input class = "new_tittle_input" type = "text" placeholder = "Ingresa un titulo...">
-                </div>
-                <div class = "add_tag"></div>
-                <div class = "new_tag">
-                    <div class = "new_tag_btn"> </div>
-                </div>   
-                <div class = "new_descr">
-                    <textarea class = "new_descr_input" type = "text" placeholder = "Añade una descripcion corta."></textarea>
-                </div>
-            </div>
-
-            <div class = "grid_graph">
-            
-            </div>
-            
-            <div class = "grid_amount">
-                <div class = "amount_tittle">
-                    <h1>Balance actual:</h1>
-                </div>
-                <div class = "amount_subtittle">
-                    <h2>$ 37,358</h2>
+                <div class = "row3">
+                    <div class = "grid_amount">
+                        <div class = "amount_tittle">
+                            <h1>Balance actual:</h1>
+                        </div>
+                        <div class = "amount_subtittle">
+                            <h2>$ 37,358</h2>
+                        </div>
+        
+                    </div>         
+                    
+                    <div class = "grid_trends">
+                    
+                    </div>
                 </div>
 
-            </div>         
-            
-            <div class = "grid_trends">
-            
+                
             </div>
         </div>
     </body>
