@@ -1,16 +1,18 @@
-.grid_amount {
-    grid-area: amount;
+.amount {
     background-color: #191C18;
     
     padding: 10px;
     margin-top: 10px;
     margin-right: 10px;
+
+    width: calc(100% - 30px);
+    height: 50%;
     
     border-radius: 5px;
     overflow: hidden;
 }
 
-.grid_amount h1{
+.amount h1{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
@@ -19,7 +21,7 @@
     color: #D3350D;
 }
 
-.grid_amount h2{
+.amount h2{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;

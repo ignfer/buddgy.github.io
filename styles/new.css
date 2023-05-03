@@ -1,10 +1,11 @@
-.grid_new {
-    grid-area: new;
+.new {
     background-color: #191C18;
 
     padding: 10px;
-    margin-top: 10px;
-    margin-right: 10px;
+    margin:10px;
+
+    width: calc(100% - 40px);
+    height: 50%;
 
     border-radius: 5px;
     overflow: hidden;

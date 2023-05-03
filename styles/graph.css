@@ -1,0 +1,12 @@
+.graph {
+    background-color: #191C18;
+
+    padding: 10px;
+    margin:10px;
+
+    width: calc(100% - 40px);
+    height: calc(50% - 40px);
+
+    border-radius: 5px;
+    overflow: hidden;
+}

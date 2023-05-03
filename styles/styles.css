@@ -28,7 +28,7 @@ html,body{
     justify-content: center;
 }
 
-.row2{
+.content_row_1{
     height: 100%;
     width: calc(50% - 225px);
 
@@ -37,17 +37,14 @@ html,body{
     flex-basis: auto;
 
     background-color: #080E07;
-
-    font-size: 25px;
 
     min-width: 300px;
     max-width: 1000px;
     max-height: 2000px;
 
-    overflow: hidden;   
 }
 
-.row3{
+.content_row_2{
     height: 100%;
     width: calc(50% - 225px);
 
@@ -56,8 +53,6 @@ html,body{
     flex-basis: auto;
 
     background-color: #080E07;
-
-    font-size: 25px;
 
     min-width: 300px;
     max-width: 1000px;
