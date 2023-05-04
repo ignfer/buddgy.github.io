@@ -12,3 +12,4 @@ Actualmente Buddgy abarca solo la parte front-end ya que es un proyecto personal
 
 ## Futura implementacion:
   Lo que se tiene hasta ahora (9/4/23) es solamente la idea, queda ponerse manos a la obra en la implementacion que tambien quedara documentada en este readme a medida que pase el tiempo.
+
