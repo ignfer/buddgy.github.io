@@ -20,17 +20,38 @@ html,body{
 }
 
 .main {
-    height: calc(100% - 75px);
+    height: calc(100vh - 10px);
     background-color: #080E07;
 
     display: flex;
     flex-direction: row;
     justify-content: center;
+  
+    overflow: hidden;
+    max-height: 1500px;
+}
+
+.content_row_0 {
+    height: 100%;
+    width: 440px;
+
+    flex-shrink: 0;
+    flex-grow: 0;
+    flex-basis: auto;
+
+    background-color: #080E07;
+
+    border-radius: 5px;
+
+    max-width: 700px;
+    max-height: 1500px;
+
+    overflow: hidden;
 }
 
 .content_row_1{
     height: 100%;
-    width: calc(50% - 225px);
+    width: calc(60% - 225px);
 
     flex-shrink: 0;
     flex-grow: 0;
@@ -39,14 +60,15 @@ html,body{
     background-color: #080E07;
 
     min-width: 300px;
-    max-width: 1000px;
-    max-height: 2000px;
+    max-width: 700px;
+    max-height: 1500px;
 
+    overflow: hidden;
 }
 
 .content_row_2{
     height: 100%;
-    width: calc(50% - 225px);
+    width: calc(40% - 225px);
 
     flex-shrink: 0;
     flex-grow: 0;
@@ -55,8 +77,14 @@ html,body{
     background-color: #080E07;
 
     min-width: 300px;
-    max-width: 1000px;
-    max-height: 2000px;
+    max-width: 500px;
+    max-height: 1500px;
 
     overflow: hidden;
+}
+
+.footer{
+    height: 100%;
+    background-color: #080E07;
+    width: 100%;
 }

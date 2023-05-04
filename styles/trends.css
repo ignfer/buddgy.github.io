@@ -6,8 +6,9 @@
     margin-right: 10px;
 
     width: calc(100% - 30px);
-    height: 50%;
+    height: calc(70% - 40px);
     
+    min-height: 200px;
     border-radius: 5px;
     overflow: hidden;
 }
