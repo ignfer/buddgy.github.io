@@ -1,14 +1,14 @@
 .trends {
     background-color: #191C18;
     
-    padding: 10px;
+    width: calc(100% - 30px);
+    height: calc(100% - 20px);
     margin-top: 10px;
     margin-right: 10px;
+    margin-left: 20px;
 
-    width: calc(100% - 30px);
-    height: calc(70% - 40px);
-    
-    min-height: 200px;
     border-radius: 5px;
     overflow: hidden;
-}
+
+    min-height: 50px;
+} 

@@ -3,10 +3,10 @@
 
     padding: 10px;
     margin-top: 10px;
-    margin-left: 10px;
+    margin-left: 20px;
 
     width: calc(100% - 40px);
-    height: calc(60% - 40px);
+    height: calc(100% - 30px);
 
     min-height: 200px;
     border-radius: 5px;

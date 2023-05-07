@@ -3,12 +3,15 @@ function to_github(){
 }
 
 function main_height(){
-    let altura = document.documentElement.clientHeight;
-    let altura2 = altura -= 60;
-    const main_element = document.getElementsByClassName('main')[0];
+    const max_height = 1500;
+    const altura_header = 60; //altura en px del header
+    let altura = document.documentElement.clientHeight; //altura inicial de los elementos
+    let new_altura = altura -= altura_header; //resultado de restarle el alto del header
+    const main_element = document.getElementsByClassName('main')[0]; //elemento 'main'
+    const main_area_element = document.getElementsByClassName('main_area')[0]; //elemento 'main_area'
 
-    if(altura < 1500){
-        main_element.style.height = altura2 +'px';
-        console.log("nueva altura = " + altura2 + "/" + altura);
+    if(altura < max_height){
+        main_element.style.height = new_altura +'px';
+        main_area_element.style.height = new_altura +'px';
     }
 }
