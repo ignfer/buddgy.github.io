@@ -1,3 +1,6 @@
+08/5/23:
+#Mejorar el diseño cuando se cambia el tamaño horizontalmente
+
 28/4/23:
 #Antes de seguir añadiendo estilos o funcionalidades habria que atacar el tema de la adaptavilidad a distintas
 resoluciones
