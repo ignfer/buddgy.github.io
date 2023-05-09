@@ -20,7 +20,7 @@
     font-style: normal;
     font-weight: 700;
     text-align: center;
-    font-size: 200%;
+    font-size: 40px;
     color: #D3350D;
 
     display: flex;
@@ -36,6 +36,10 @@
     font-style: normal;
     font-weight: 700;
     text-align: center;
-    font-size: 200%;
+    font-size: 40px;
     color: #E0F2E9;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

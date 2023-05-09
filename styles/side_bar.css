@@ -43,11 +43,14 @@
 .side_bar_card{
     width: calc(100% - 40px);
     margin-left: 10px;
+    margin-top: 10px;
+
     height: auto;
+
     background-color: #2D312D;
     border-radius: 5px;
-    margin-top: 10px;
     padding: 10px;
+
     scale: 1.0;
     transition-duration: 0.25s;  
 }

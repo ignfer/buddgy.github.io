@@ -15,3 +15,12 @@ function main_height(){
         main_area_element.style.height = new_altura +'px';
     }
 }
+
+function ingresar_gasto(){
+    const titulo = document.getElementsByClassName('new_tittle_input')[0].value;
+    const cuerpo = document.getElementsByClassName('new_descr_input')[0].value;
+
+    console.log(titulo + cuerpo);
+}
+
+
