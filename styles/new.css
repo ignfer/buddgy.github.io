@@ -35,7 +35,13 @@
 }
 
 .new_descr{
-    height: 40%;
+    height: 30%;
+}
+
+.nuevo_monto{
+    height: 10%;
+    display: flex;
+    justify-content: right;
 }
 
 .new_submit_btn{
@@ -57,7 +63,6 @@
     font-size: 40px;
 
     color: #D3350D;
-    
 }
 
 .new_descr_input{
@@ -81,6 +86,24 @@
 
     color: #E0F2E9;
     white-space: pre-wrap;
+}
+
+.nuevo_monto_entrada{
+    border-style: none;
+    outline: none;
+    background-color: #191C18;
+    width: 100px;
+
+    text-align: right;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+
+    color: #D3350D;
+
+    margin-bottom: 10px;
+    margin-right: 10px;
 }
 
 button{
