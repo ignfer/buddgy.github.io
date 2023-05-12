@@ -1,62 +1,182 @@
 html,body{
     height: 100%;
-    margin: 0px;
-    padding: 0px;
+    margin:0px; padding: 0px;
 }
 
-.container{
-    height: 100%;
+body{
     background-color: #080E07;
-    overflow: hidden;
-}
-
-.main {
-    background-color: #080E07;
-
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
-  
-    max-height: 1500px;
-    min-height: 500px;
-    min-width: 560px;
+    
+    max-height: 1500px; /*permite que el main quede pegado al header cuando se hace zoom-out*/
 }
 
-.side_area{
-    height: 100%;
-    width: 450px;
-
-    min-width: 450px;
-    max-width: 700px;
-}
-
-.main_area{
-    width: calc(100% - 450px);
-    max-width: 1500px;
-    min-height: 500px;
-    min-width: 500px;
-    overflow: hidden;
-
-}
-
-.main_area_0{
-    height: 80%;
-    width: 60%;
-
-    float:left;
-}
-
-.main_area_1{
-    height: 80%;
-    width: 40%;
-
-    float:right;
-
-}
-
-.main_area_2{
-    height: 20%;
+main{
     width: 100%;
-    min-width: 600px;
+    height: calc(100% - 75px); /*75 px = header fixed height*/
+
+    background-color: #191C18;
+    
+    min-height: 500px; /*limita el tamaño minimo vertical, puede provocar que se pierda el margen de abajo cuando se activa*/
+    max-height: 1500px; /*permite que el main quede pegado al header cuando se hace zoom-out*/
+    
+    max-width: 2000px; /*limita el tamaño maximo horizontal*/
+}
+
+h2{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    text-align: center;
+    font-size: 40px;
+    color: #D3350D;
+    margin-top:0px;
+    padding:0px;
+}
+
+h3{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    text-align: center;
+    font-size: 36px;
+    color: #E0F2E9;
+    margin:0px;
+    padding:0px;
+}
+
+/*estilos de secciones*/
+section{
+    height: 100%;
+    background-color: #080E07;
+}
+
+#seccion_lateral{
+    width: 25%;
+    float: left;
+}
+
+#seccion_contenido{
+    width: 75%;
+    float: right;
+}
+
+#seccion_grafica{
+    width: 60%;
+    height: 80%;
     float:left;
+}
+
+#seccion_nuevo{
+    width: 40%;
+    height: 60%;
+    float:right;
+}
+
+#seccion_monto{
+    width: 40%;
+    height: 20%;
+    float:right;
+}
+
+#seccion_tendencias{
+    width: 100%;
+    height: 20%;
+    float:right;
+}
+
+/*estilos de cartas o paneles*/
+
+.panel{
+    background-color: #191C18;
+    border-radius: 5px;
+    
+    margin-right: 10px;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+
+}
+
+#panel_lateral{
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    margin-top: 10px;
+    margin-left:10px;
+}
+
+#panel_grafica{
+    height: calc(100% - 20px);
+    margin-top: 10px;
+}
+
+#panel_nuevo{
+    height: calc(100% - 20px);
+    margin-top: 10px;
+}
+
+
+@media screen and (max-width: 1000px){
+    main{
+        width: 900px;
+        height: 1920px;
+    }
+
+    #seccion_lateral{
+        width: 100%;
+        height: 30%;
+    }
+
+    #seccion_contenido{
+        width: 100%;
+        height: 70%;
+    }
+
+    #seccion_grafica{
+        width: 100%;
+        height: 35%;
+    }
+
+    #seccion_nuevo{
+        width: 100%;
+        height: 30%;
+    }
+
+    #seccion_monto{
+        width: 100%;
+        height: 15%;
+    }
+
+    #seccion_tendencias{
+        width: 100%;
+        height: 20%;
+    }
+    
+    #panel_grafica{
+        height: calc(100% - 10px);
+        width: calc(100% - 20px);
+        margin-left: 10px;
+        margin-top:0px;
+    }
+    
+    #panel_nuevo{
+        height: calc(100% - 10px);
+        width: calc(100% - 20px);
+        margin-left: 10px;
+        margin-top:0px;
+    }
+
+    #panel_monto{
+        height: calc(100% - 10px);
+        width: calc(100% - 20px);
+        margin-left: 10px;
+        margin-top:0px;
+    }
+
+    #panel_tendencias{
+        height: calc(100% - 10px);
+        width: calc(100% - 20px);
+        margin-left: 10px;
+        margin-top:0px;
+    }
 }

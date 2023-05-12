@@ -5,10 +5,10 @@
         <link rel = "icon" type = "image/x-icon" href = "../favicon.png">
 
         <link rel = "stylesheet" href = "../styles/styles.css">
-        <link rel = "stylesheet" href = "../styles/side_bar.css">
-        <link rel = "stylesheet" href = "../styles/amount.css">
+        <link rel = "stylesheet" href = "../styles/lateral.css">
+        <link rel = "stylesheet" href = "../styles/monto.css">
         <link rel = "stylesheet" href = "../styles/header.css">
-        <link rel = "stylesheet" href = "../styles/new.css">
+        <link rel = "stylesheet" href = "../styles/nuevo.css">
         <link rel = "stylesheet" href = "../styles/graph.css">
         <link rel = "stylesheet" href = "../styles/trends.css">
 
@@ -24,101 +24,126 @@
         <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
     </head>
 
-    <body onload="main_height()" onresize="main_height()"> 
-        <div class = "container">
-            <div class = "header">
-                    <div class = "header_logo">
-                        <img id= "if_logo" src = "../IF_logo.png" onclick="to_github()">     
-                    </div>
-            </div>
-            <div class = "main">
-                <div class = "side_area">
-                    <div class = "side_bar">
-                        <div class = "side_bar_search">
-                        
-                            <input class = "side_bar_search_bar" type = "text" placeholder = "Busca un gasto o un ingreso...">
-                        </div>
-        
-                        <div class = "side_bar_content">
-                            <div class = "side_bar_card" id = "xbx1">
-                                <div class = "card_date">28/4/23</div>
-                                <div class = "card_tittle">Almuerzo en restaurante</div>
-                                <div class = "card_tags"></div>
-                                <div class = "card_desc">Almuerzo de trabajo con colegas en el restaurante "La viña".</div>
-                                <div class = "card_amount">-$593</div>
-                            </div>
-                            <div class = "side_bar_card" id = "xbx1">
-                                <div class = "card_date">28/4/23</div>
-                                <div class = "card_tittle">Almuerzo en restaurante</div>
-                                <div class = "card_tags"></div>
-                                <div class = "card_desc">Almuerzo de trabajo con colegas en el restaurante "La viña".</div>
-                                <div class = "card_amount">-$593</div>
-                            </div>
-                            <div class = "side_bar_card" id = "xbx1">
-                                <div class = "card_date">28/4/23</div>
-                                <div class = "card_tittle">Almuerzo en restaurante</div>
-                                <div class = "card_tags"></div>
-                                <div class = "card_desc">Almuerzo de trabajo con colegas en el restaurante "La viña".</div>
-                                <div class = "card_amount">-$593</div>
-                            </div>
-                            <div class = "side_bar_card" id = "xbx1">
-                                <div class = "card_date">28/4/23</div>
-                                <div class = "card_tittle">Almuerzo en restaurante</div>
-                                <div class = "card_tags"></div>
-                                <div class = "card_desc">Almuerzo de trabajo con colegas en el restaurante "La viña".</div>
-                                <div class = "card_amount">-$593</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class = "main_area">
-                    <div class = "main_area_0">
-                        <div class = "graph">
+    <header>
+        <div class = "header_logo">
+            <img id= "if_logo" src = "../IF_logo.png" onclick="to_github()">     
+        </div>
+    </header>
 
-                        </div>
+    <body>
+        <main>
+            <section id = "seccion_lateral">
+                <div class = "panel" id = "panel_lateral">
+                    <div class = "lateral_search">
+                        <input class = "lateral_search_bar" type = "text" placeholder = "Busca un gasto o un ingreso...">
+                    </div> 
+                </div>
+            </section>
+
+            <section id="seccion_contenido">
+                <section id = "seccion_grafica"> 
+                    <div class = "panel" id = "panel_grafica">
+                        <h2>Mensual</h2>
                     </div>
-                    <div class = "main_area_1">
-                        <div class = "new">
-                            <div class = "new_tittle">
-                                <input maxlength="50" class = "new_tittle_input" type = "text" placeholder = "Ingresa un titulo...">
-                            </div>
-                            <div class = "new_tag">
-                                <div class = "new_tag_btn">
-                                    <button>agregar categorias</button>
-                                </div>
-                                <div class = "add_tag">
-                                    <button>+</button>
-                                </div>
-                            </div>   
-                            <div class = "new_descr">
-                                <textarea maxlength="150" class = "new_descr_input" type = "text" placeholder = "Añade una 
-descripcion
-corta."></textarea>
-                            </div>
-                            <div class = "nuevo_monto">
-                                <input maxlength = "6" class = "nuevo_monto_entrada" type = "text" placeholder = "monto...">
-                            </div>
-                            <div class = "new_submit_btn">
-                                <button onclick="ingresar_gasto()">enviar</button>
-                            </div>
-                        </div>
+                </section>
     
-                        <div class = "amount">
-                            <div class = "amount_tittle">
-                                Balance actual:
-                            </div>
-                            <div class = "amount_subtittle">
-                                $37,358
-                            </div>
-                        </div>
+                <section id = "seccion_nuevo">
+                    <div class = "panel" id = "panel_nuevo">
                     </div>
-                    <div class = "main_area_2">
-                        <div class = "trends">
+                </section>
 
-                        </div>
+                <section id = "seccion_monto">
+                    <div class = "panel" id = "panel_monto">
+                            <h2>Balance actual:</h2>
+                            <h3>$37,358</h3>
                     </div>
-                </div>
-            </div>
-            </div>
+                </section>
+    
+                <section id = "seccion_tendencias">
+                    <div class = "panel" id = "panel_tendencias">
+                        <h2>Tendencias</h2>
+                    </div>
+                </section>
+            </section>       
+        </main>
     </body>
 </html>
+
+<!-- <div class = "main">
+
+                        <div class = "lateral">
+                            <div class = "lateral_search">
+                                <input class = "lateral_search_bar" type = "text" placeholder = "Busca un gasto o un ingreso...">
+                            </div>
+            
+                            <div class = "lateral_content">
+                                <div class = "lateral_card" id = "xbx1">
+                                    <div class = "card_date">28/4/23</div>
+                                    <div class = "card_tittle">Almuerzo en restaurante</div>
+                                    <div class = "card_tags"></div>
+                                    <div class = "card_desc">Almuerzo de trabajo con colegas en el restaurante "La viña".</div>
+                                    <div class = "card_amount">-$593</div>
+                                </div>
+                                <div class = "lateral_card" id = "xbx1">
+                                    <div class = "card_date">28/4/23</div>
+                                    <div class = "card_tittle">Almuerzo en restaurante</div>
+                                    <div class = "card_tags"></div>
+                                    <div class = "card_desc">Almuerzo de trabajo con colegas en el restaurante "La viña".</div>
+                                    <div class = "card_amount">-$593</div>
+                                </div>
+                                <div class = "lateral_card" id = "xbx1">
+                                    <div class = "card_date">28/4/23</div>
+                                    <div class = "card_tittle">Almuerzo en restaurante</div>
+                                    <div class = "card_tags"></div>
+                                    <div class = "card_desc">Almuerzo de trabajo con colegas en el restaurante "La viña".</div>
+                                    <div class = "card_amount">-$593</div>
+                                </div>
+                                <div class = "lateral_card" id = "xbx1">
+                                    <div class = "card_date">28/4/23</div>
+                                    <div class = "card_tittle">Almuerzo en restaurante</div>
+                                    <div class = "card_tags"></div>
+                                    <div class = "card_desc">Almuerzo de trabajo con colegas en el restaurante "La viña".</div>
+                                    <div class = "card_amount">-$593</div>
+                                </div>
+                            </div>
+
+                    <div class = "main_area">
+                        <div class = "main_area_0">
+                            <div class = "graph">
+
+                            </div>
+                        </div>
+                        <div class = "main_area_1">
+                            <div class = "nuevo">
+                                <div class = "nuevo_tittle">
+                                    <input maxlength="50" class = "nuevo_tittle_input" type = "text" placeholder = "Ingresa un titulo...">
+                                </div>
+                                <div class = "nuevo_tag">
+                                    <div class = "nuevo_tag_btn">
+                                        <button>agregar categorias</button>
+                                    </div>
+                                    <div class = "add_tag">
+                                        <button>+</button>
+                                    </div>
+                                </div>   
+                                <div class = "nuevo_descr">
+                                    <textarea maxlength="150" class = "nuevo_descr_input" type = "text" placeholder = "Añade una 
+    descripcion
+    corta."></textarea>
+                                </div>
+                                <div class = "nuevo_monto">
+                                    <input maxlength = "6" class = "nuevo_monto_entrada" type = "text" placeholder = "monto...">
+                                </div>
+                                <div class = "nuevo_submit_btn">
+                                    <button onclick="ingresar_gasto()">enviar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "main_area_2">
+                            <div class = "trends">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
