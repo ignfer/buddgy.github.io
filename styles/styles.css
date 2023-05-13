@@ -18,7 +18,7 @@ main{
 
     background-color: #191C18;
     
-    min-height: 500px; /*limita el tamaño minimo vertical, puede provocar que se pierda el margen de abajo cuando se activa*/
+    min-height: 600px; /*limita el tamaño minimo vertical, puede provocar que se pierda el margen de abajo cuando se activa*/
     max-height: 1500px; /*permite que el main quede pegado al header cuando se hace zoom-out*/
     
     max-width: 2000px; /*limita el tamaño maximo horizontal*/
@@ -29,10 +29,10 @@ h2{
     font-style: normal;
     font-weight: 700;
     text-align: center;
-    font-size: 40px;
+    font-size: 38px;
     color: #D3350D;
     margin-top:0px;
-    padding:0px;
+    padding:0px;   
 }
 
 h3{
@@ -44,6 +44,7 @@ h3{
     color: #E0F2E9;
     margin:0px;
     padding:0px;
+    line-height: 0px;
 }
 
 /*estilos de secciones*/
@@ -116,7 +117,7 @@ section{
 }
 
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 1100px){
     main{
         width: 900px;
         height: 1920px;
