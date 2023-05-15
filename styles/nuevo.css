@@ -1,41 +1,20 @@
-.nuevo_tittle{
-    height: 25%;
-    margin-left: 10px;
+#nuevo_titulo{
+    height: 20%;
 
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: left;
-}
-
-.nuevo_tag{
-    width: 100%;
-    height: 25%;
-
-    display: flex;
-    justify-content: space-around;
     
-    margin-right: 10px;
+    padding: 0px;
+    margin: 0px;
 }
 
-.nuevo_descr{
-    height: 30%;
-}
+/*corresponde con la seccion nuevo_titulo*/
+input{
+    width: calc(100% - 30px);
+    margin-left: 20px;
+    margin-top: 20px;
 
-.nuevo_monto{
-    height: 10%;
-    display: flex;
-    justify-content: right;
-}
-
-.nuevo_submit_btn{
-    height: 10%;
-    display: flex;
-    justify-content: right;
-    margin-right: 10px;
-}
-
-.nuevo_tittle_input{
-    width: 80%;
     border-style: none;
     outline: none;
     background-color: #191C18;
@@ -43,14 +22,33 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
-    font-size: 40px;
+    font-size: 38px;
+
+    line-height: 0px;
 
     color: #D3350D;
 }
 
-.nuevo_descr_input{
-    width: calc(100% - 20px);
-    height: 100%;
+#nuevo_tag{
+    height: 15%;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+#nuevo_descr{
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+/*corresponde con la seccion nuevo_descr*/
+textarea{
+    width: calc(100% - 30px);
+    height: 90%;
     
     border-style: none;
     outline: none;
@@ -62,51 +60,68 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 550;
-    font-size: 30px;
-    margin-left: 10px;
-    padding-right: 10px;
-    
+    font-size: 28px;
+    margin-left: 20px;
 
     color: #E0F2E9;
     white-space: pre-wrap;
 }
 
+#nuevo_monto{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+
+}
+/*corresponde con la seccion nuevo_monto*/
 .nuevo_monto_entrada{
     border-style: none;
     outline: none;
     background-color: #191C18;
-    width: 100px;
+    width: 200px;
 
     text-align: right;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 28px;
 
     color: #D3350D;
 
-    margin-bottom: 10px;
-    margin-right: 10px;
+}
+
+#nuevo_enviar{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 button{
     border-style: none;
     border-radius: 50px;
     background-color: #D3350D;
+
+
     font-size: 20px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
-    padding-left: 25px;
-    padding-right: 25px;
+    color: #191C18;
+
+    padding-left: 10px;
+    padding-right: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
-    color: #191C18;
+
     transition-duration: 0.2s;
 }
 
 button:hover{
     background-color: #d14b29;
-    scale:1.1;
     transition-duration: 0.2s;
 }
+
