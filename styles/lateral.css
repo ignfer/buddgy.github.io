@@ -3,7 +3,7 @@
     height: 45px;
     margin: 10px;
 
-    border-radius: 5px;
+    border-radius: 10px;
     border-style: none;
     outline: none;
 
@@ -15,7 +15,7 @@
     padding-left: 10px;
 
     background-color: #E0F0F5;
-    color: #9FA8A3;
+    color:black;
 }
 
 .lateral_contenido{
@@ -25,7 +25,7 @@
     scrollbar-width: none;
 }
 
-.lateral_tarjeta{
+.nueva_tarjeta{
     width: calc(100% - 40px);
     margin-left: 10px;
     margin-top: 10px;
@@ -40,7 +40,7 @@
     transition-duration: 0.25s;  
 }
 
-.lateral_tarjeta:hover{
+.nueva_tarjeta:hover{
     scale: 1.01;
     transition-duration: 0.25s;
     background-color: #414641;
@@ -76,7 +76,7 @@
     height: 10%;
 }
 
-.tarjeta_desc{
+.tarjeta_descr{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;

@@ -47,6 +47,20 @@ h3{
     line-height: 0px;
 }
 
+h4{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    text-align: center;
+    line-height: 39px;
+    font-size: 22px;
+    color: #E0F2E9;
+    margin:0px;
+    padding:0px;
+    line-height: 0px;
+    opacity: 0.75;
+}
+
 /*estilos de secciones*/
 section{
     height: 100%;

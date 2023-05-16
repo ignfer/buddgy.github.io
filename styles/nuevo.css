@@ -31,10 +31,10 @@ input{
 
 #nuevo_tag{
     height: 15%;
-
     display: flex;
-    justify-content: space-around;
+    justify-content: left;
     align-items: center;
+    margin-left: 20px;
 
 }
 
@@ -73,7 +73,6 @@ textarea{
     display: flex;
     justify-content: right;
     align-items: center;
-
 }
 /*corresponde con la seccion nuevo_monto*/
 .nuevo_monto_entrada{
@@ -87,6 +86,8 @@ textarea{
     font-style: normal;
     font-weight: 700;
     font-size: 28px;
+
+    margin-right: 20px;
 
     color: #D3350D;
 
@@ -122,6 +123,7 @@ button{
 
 button:hover{
     background-color: #d14b29;
+    transform: translatey(-5px);
     transition-duration: 0.2s;
 }
 

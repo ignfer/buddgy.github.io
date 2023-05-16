@@ -10,7 +10,7 @@
         <link rel = "stylesheet" href = "../styles/header.css">
         <link rel = "stylesheet" href = "../styles/nuevo.css">
         <link rel = "stylesheet" href = "../styles/graph.css">
-        <link rel = "stylesheet" href = "../styles/trends.css">
+        <link rel = "stylesheet" href = "../styles/tendencia.css">
 
         <script src = "index.js"></script> 
         
@@ -36,16 +36,9 @@
                 <div class = "panel" id = "panel_lateral">
                     <div class = "lateral_search">
                         <input class = "lateral_busqueda" type = "text" placeholder = "Busca un gasto o un ingreso...">
-                        <div class = "lateral_contenido">
-                            <div class = "lateral_tarjeta" id = "xbx1">
-                                <div class = "tarjeta_fecha">28/4/23</div>
-                                <div class = "tarjeta_titulo">Almuerzo en restaurante</div>
-                                <div class = "tarjeta_tags"></div>
-                                <div class = "tarjeta_desc">Almuerzo de trabajo con colegas en el restaurante "La viña".</div>
-                                <div class = "tarjeta_monto">-$593</div>
-                            </div>
-                        </div>
                     </div> 
+                    <div class = "lateral_contenido">
+                    </div>
                 </div>
             </section>
 
@@ -62,25 +55,25 @@
                     <div class = "panel" id = "panel_nuevo">
 
                         <div id = "nuevo_titulo">
-                            <input maxlength="50" type = "text" placeholder = "Ingresa un titulo...">
+                            <input maxlength="50" type = "text" placeholder = "Ingresa un titulo..." id = "gtt">
                         </div>
 
-                            <div id = "nuevo_tag"> 
+                            <div id = "nuevo_tag">
                                     <button>agregar categorias</button>
                                     <button>+</button>
                             </div>
 
                                 <div id = "nuevo_descr">
-                                    <textarea maxlength = "150"  type = "text" placeholder = "Añade una descripcion corta."></textarea>
+                                    <textarea maxlength = "150"  type = "text" placeholder = "Añade una descripcion corta." id = "gdt"></textarea>
                                 </div>
 
                                     <div id = "nuevo_monto">
-                                        <input maxlength = "6" class = "nuevo_monto_entrada" type = "text" placeholder = "monto...">
+                                        <input maxlength = "6" class = "nuevo_monto_entrada" type = "text" placeholder = "$0.00" id = "gmt">
                                     </div>
 
                                         <div id = "nuevo_enviar">
-                                            <button onclick="ingresar_gasto()">fue un gasto</button>
-                                            <button onclick="ingresar_gasto()">fue un ingreso</button>
+                                            <button onclick="nuevo_gasto()">fue un gasto</button>
+                                            <button onclick="nuevo_ingreso()">fue un ingreso</button>
                                         </div>
                     </div>
                 </section>
@@ -91,44 +84,21 @@
                             <h2>Balance actual:</h2>                       
                         </div>
                         <div class = "cuerpo_panel">
-                            <h3>$37,358</h3>
+                            <h3>$</h3>
+                            <h3 id = "gbjs">37358</h3>
                         </div>
                     </div>
                 </section>
     
                 <section id = "seccion_tendencias">
                     <div class = "panel" id = "panel_tendencias">
-                        <div class = "titulo_panel">
                             <h2>Tendencias</h2>
-                        </div>
+                            <div class = "tendencias_contenido">
+                                <h4>Usualmente tus gastos incrementan hasta un 15% los fines de semanas.</h4>
+                            </div>   
                     </div>
                 </section>
             </section>       
         </main>
     </body>
 </html>
-
-<!--                                         
-                                <div class = "nuevo_tag">
-                                    <div class = "nuevo_tag_btn">
-                                        <button>agregar categorias</button>
-                                    </div>
-                                    <div class = "add_tag">
-                                        <button>+</button>
-                                    </div>
-                                </div>   
-                                <div class = "nuevo_descr">
-                                    <textarea maxlength="150" class = "nuevo_descr_input" type = "text" placeholder = "Añade una 
-    descripcion
-    corta."></textarea>
-                                </div>
-                                <div class = "nuevo_monto">
-                                    <input maxlength = "6" class = "nuevo_monto_entrada" type = "text" placeholder = "monto...">
-                                </div>
-                                <div class = "nuevo_submit_btn">
-                                    <button onclick="ingresar_gasto()">enviar</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-            </div> -->
