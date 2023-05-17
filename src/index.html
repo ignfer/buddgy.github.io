@@ -6,10 +6,10 @@
 
         <link rel = "stylesheet" href = "../styles/styles.css">
         <link rel = "stylesheet" href = "../styles/lateral.css">
-        <link rel = "stylesheet" href = "../styles/monto.css">
+        <link rel = "stylesheet" href = "../styles/balance.css">
         <link rel = "stylesheet" href = "../styles/header.css">
         <link rel = "stylesheet" href = "../styles/nuevo.css">
-        <link rel = "stylesheet" href = "../styles/graph.css">
+        <link rel = "stylesheet" href = "../styles/grafica.css">
         <link rel = "stylesheet" href = "../styles/tendencia.css">
 
         <script src = "index.js"></script> 
@@ -24,36 +24,26 @@
         <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
     </head>
 
-    <header>
-        <div class = "header_logo">
-            <img id= "if_logo" src = "../IF_logo.png" onclick="to_github()">     
-        </div>
-    </header>
-
     <body>
+        <header>
+                <img src = "../IF_logo.png" onclick="to_github()">     
+        </header>
         <main>
-            <section id = "seccion_lateral">
-                <div class = "panel" id = "panel_lateral">
-                    <div class = "lateral_search">
-                        <input class = "lateral_busqueda" type = "text" placeholder = "Busca un gasto o un ingreso...">
-                    </div> 
-                    <div class = "lateral_contenido">
-                    </div>
-                </div>
-            </section>
+            <aside class="panel" id="seccion_lateral">
+                    <input type="text" placeholder="Busca un gasto o un ingreso...">
+                    <div class="lateral_contenido"></div>
+            </aside>
 
             <section id="seccion_contenido">
-                <section id = "seccion_grafica"> 
-                    <div class = "panel" id = "panel_grafica">
-                        <div class = "titulo_panel">
-                            <h2>Mensual</h2>
-                        </div>
-                    </div>
+
+                <section class="panel" id="grafica">           
+                        <h2>Mensual</h2>
+                        <section class="panel" id="grafica-contenido">
+
+                        </section> 
                 </section>
     
-                <section id = "seccion_nuevo">
-                    <div class = "panel" id = "panel_nuevo">
-
+                <section class ="panel" id = "nuevo">
                         <div id = "nuevo_titulo">
                             <input maxlength="50" type = "text" placeholder = "Ingresa un titulo..." id = "gtt">
                         </div>
@@ -72,32 +62,23 @@
                                     </div>
 
                                         <div id = "nuevo_enviar">
-                                            <button onclick="nuevo_gasto()">fue un gasto</button>
-                                            <button onclick="nuevo_ingreso()">fue un ingreso</button>
+                                            <button onclick="nuevo_gasto()">gasto</button>
+                                            <button onclick="nuevo_ingreso()">ingreso</button>
                                         </div>
-                    </div>
                 </section>
 
-                <section id = "seccion_monto">
-                    <div class = "panel" id = "panel_monto">
-                        <div class = "titulo_panel">
-                            <h2>Balance actual:</h2>                       
-                        </div>
-                        <div class = "cuerpo_panel">
-                            <h3>$</h3>
-                            <h3 id = "gbjs">37358</h3>
-                        </div>
-                    </div>
+                <section class="panel" id = "balance">                                
+                    <section class="panel-titulo"><h2>Balance actual:</h2></section>                       
+                    <h3 id = "gbjs">$37358</h3>
                 </section>
     
-                <section id = "seccion_tendencias">
-                    <div class = "panel" id = "panel_tendencias">
-                            <h2>Tendencias</h2>
+                <section class="panel" id="tendencias">        
+                    <section class="panel-titulo"><h2>Tendencias</h2></section>
                             <div class = "tendencias_contenido">
                                 <h4>Usualmente tus gastos incrementan hasta un 15% los fines de semanas.</h4>
                             </div>   
-                    </div>
                 </section>
+
             </section>       
         </main>
     </body>

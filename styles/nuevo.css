@@ -1,3 +1,21 @@
+#nuevo{
+    width: calc(40% - 10px);
+    height: 60%;
+    float:right;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 1000px){
+    #nuevo{
+        width: calc(100% - 20px);
+        height: 30%;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top:0px;
+    }
+}
+
 #nuevo_titulo{
     height: 20%;
 
@@ -115,8 +133,8 @@ button{
 
     padding-left: 10px;
     padding-right: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+
+    margin-right: 10px;
 
     transition-duration: 0.2s;
 }

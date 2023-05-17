@@ -1,4 +1,26 @@
-.lateral_busqueda{
+#seccion_lateral{
+    width: calc(25% - 10px);
+    height: calc(100% - 20px);
+    float:left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    background-color: #191C18;
+}
+
+@media screen and (max-width: 1000px){
+    #seccion_lateral{
+        width: calc(100% - 20px);
+        height: 30%;
+        margin-left: 10px;
+        margin-top: 10px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #e0f2e90a;
+    }
+}
+
+aside input{
     width: calc(100% - 30px);
     height: 45px;
     margin: 10px;

@@ -1,14 +1,36 @@
-#panel_tendencias{
+#tendencias{
+    width: calc(100% - 20px);
+    height: calc(20% - 10px);
+    float:right;
+    margin-right:10px;
+    
     display:flex;
     flex-wrap: wrap;
     justify-content: center;
 }
+
+@media screen and (max-width: 1000px){
+    #tendencias{
+        width: calc(100% - 20px);
+        height: 20%;
+        margin: 10px;
+    }
+}
+
 .tendencias_contenido{
     width: calc(100% - 20px);
     height: calc(70% - 20px);
     border-radius: 5px;
+    margin-bottom: 10px;
     background-color: #080E07;
-    display:flex;
+
+    display: flex;
     justify-content: center;
     align-items: center;
+
+}
+
+#tendencias h4{
+    line-height: 1.3em;
+    font-weight: 500;
 }

@@ -10,18 +10,20 @@ body{
     justify-content: center;
     
     max-height: 1500px; /*permite que el main quede pegado al header cuando se hace zoom-out*/
+
 }
 
 main{
     width: 100%;
     height: calc(100% - 75px); /*75 px = header fixed height*/
 
-    background-color: #191C18;
+    background-color: #080E07;
     
     min-height: 600px; /*limita el tamaño minimo vertical, puede provocar que se pierda el margen de abajo cuando se activa*/
     max-height: 1500px; /*permite que el main quede pegado al header cuando se hace zoom-out*/
     
     max-width: 2000px; /*limita el tamaño maximo horizontal*/
+
 }
 
 h2{
@@ -29,10 +31,10 @@ h2{
     font-style: normal;
     font-weight: 700;
     text-align: center;
-    font-size: 38px;
+    font-size: 34px;
     color: #D3350D;
     margin:0px;
-    padding:0px;  
+    padding:0px; 
 }
 
 h3{
@@ -40,7 +42,7 @@ h3{
     font-style: normal;
     font-weight: 700;
     text-align: center;
-    font-size: 42px;
+    font-size: 34px;
     color: #E0F2E9;
     margin:0px;
     padding:0px;
@@ -52,7 +54,6 @@ h4{
     font-style: normal;
     font-weight: 600;
     text-align: center;
-    line-height: 39px;
     font-size: 22px;
     color: #E0F2E9;
     margin:0px;
@@ -62,43 +63,15 @@ h4{
 }
 
 /*estilos de secciones*/
+
 section{
     height: 100%;
     background-color: #080E07;
 }
 
-#seccion_lateral{
-    width: 25%;
-    float: left;
-}
-
 #seccion_contenido{
-    width: 75%;
+    width: calc(75%);
     float: right;
-}
-
-#seccion_grafica{
-    width: 60%;
-    height: 80%;
-    float:left;
-}
-
-#seccion_nuevo{
-    width: 40%;
-    height: 60%;
-    float:right;
-}
-
-#seccion_monto{
-    width: 40%;
-    height: 20%;
-    float:right;
-}
-
-#seccion_tendencias{
-    width: 100%;
-    height: 20%;
-    float:right;
 }
 
 /*estilos de cartas o paneles*/
@@ -107,10 +80,19 @@ section{
     background-color: #191C18;
     border-radius: 5px;
     
-    margin-right: 10px;
-    width: calc(100% - 10px);
-    height: calc(100% - 10px);
+    width: calc(100% - 12px); /* 10px de margen + 2px de borde*/
+    height: calc(100% - 12px);
+    
+    box-sizing: border-box;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #e0f2e90a;
+}
 
+.panel-titulo{
+    width: 100%;
+    height: auto;
+    background-color: #191C18;
 }
 
 #panel_lateral{
@@ -120,91 +102,14 @@ section{
     margin-left:10px;
 }
 
-#panel_grafica{
-    height: calc(100% - 20px);
-    margin-top: 10px;
-}
-
-#panel_nuevo{
-    height: calc(100% - 20px);
-    margin-top: 10px;
-}
-
-
-@media screen and (max-width: 1100px){
+@media screen and (max-width: 1000px){
     main{
         width: 1100px;
         height: 1920px;
-    }
-
-    #seccion_lateral{
-        width: 100%;
-        height: 30%;
     }
 
     #seccion_contenido{
         width: 100%;
         height: 70%;
     }
-
-    #seccion_grafica{
-        width: 100%;
-        height: 35%;
-    }
-
-    #seccion_nuevo{
-        width: 100%;
-        height: 30%;
-    }
-
-    #seccion_monto{
-        width: 100%;
-        height: 15%;
-    }
-
-    #seccion_tendencias{
-        width: 100%;
-        height: 20%;
-    }
-    
-    #panel_grafica{
-        height: calc(100% - 10px);
-        width: calc(100% - 20px);
-        margin-left: 10px;
-        margin-top:0px;
-    }
-    
-    #panel_nuevo{
-        height: calc(100% - 10px);
-        width: calc(100% - 20px);
-        margin-left: 10px;
-        margin-top:0px;
-    }
-
-    #panel_monto{
-        height: calc(100% - 10px);
-        width: calc(100% - 20px);
-        margin-left: 10px;
-        margin-top:0px;
-    }
-
-    #panel_tendencias{
-        height: calc(100% - 10px);
-        width: calc(100% - 20px);
-        margin-left: 10px;
-        margin-top:0px;
-    }
-}
-
-.titulo_panel{
-    width: 100%;
-    height: 40%;
-}
-
-.cuerpo_panel{
-    width: 100%;
-    height: 60%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
