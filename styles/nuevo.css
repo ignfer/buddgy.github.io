@@ -1,5 +1,5 @@
 #nuevo{
-    width: calc(40% - 10px);
+    width: calc(30% - 10px);
     height: 60%;
     float:right;
     margin-top: 10px;
@@ -16,7 +16,7 @@
     }
 }
 
-#nuevo_titulo{
+#gtt{
     height: 20%;
 
     display: flex;
@@ -24,7 +24,7 @@
     justify-content: left;
     
     padding: 0px;
-    margin: 0px;
+    margin-left: 20px;
 }
 
 /*corresponde con la seccion nuevo_titulo*/
@@ -40,7 +40,7 @@ input{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
-    font-size: 38px;
+    font-size: 32px;
 
     line-height: 0px;
 
