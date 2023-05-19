@@ -1,6 +1,6 @@
 #balance{
     width: calc(30% - 10px);
-    height: calc(20% - 30px);
+    height: calc(25% - 30px);
     float:right;
     margin-top: 10px;
     margin-right:10px;
@@ -9,9 +9,10 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    word-wrap:normal;
 }
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 900px){
     #balance{
         width: calc(100% - 20px);
         height: 15%;

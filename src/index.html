@@ -26,7 +26,8 @@
 
     <body>
         <header>
-                <img src = "../IF_logo.png" onclick="to_github()">     
+                <img id="header1" src ="../IF_logo.png" height=50px onclick="to_github()">
+                <img id="header2" src ="../buddgy_logo.png" height=50px>
         </header>
         <main>
             <aside class="panel" id="seccion_lateral">
@@ -36,18 +37,18 @@
 
             <section id="seccion_contenido">
 
-                <section class="panel" id="grafica">           
-                        <h2>Mensual</h2>
+                <section class="panel" id="grafica">       
+                    <section class="panel-titulo"><h2>Mensual</h2></section>    
                         <section class="panel" id="grafica-contenido">
 
                         </section> 
                 </section>
     
                 <section class ="panel" id = "nuevo">
-                            <input maxlength="50" type = "text" placeholder = "Ingresa un titulo..." id = "gtt">
+                            <input maxlength="50" type = "text" placeholder = "Titulo..." id = "gtt">
 
                             <div id = "nuevo_tag">
-                                    <button>agregar categorias</button>
+                                    <button>categorias</button>
                                     <button>+</button>
                             </div>
 
@@ -55,18 +56,16 @@
                                     <textarea maxlength = "150"  type = "text" placeholder = "Añade una descripcion corta." id = "gdt"></textarea>
                                 </div>
 
-                                    <div id = "nuevo_monto">
-                                        <input maxlength = "6" class = "nuevo_monto_entrada" type = "text" placeholder = "$0.00" id = "gmt">
-                                    </div>
+                                    <input maxlength = "6" class = "nuevo_monto_entrada" type = "text" placeholder = "$0.00" id = "gmt">                                  
 
                                         <div id = "nuevo_enviar">
-                                            <button onclick="nuevo_gasto()">gasto</button>
-                                            <button onclick="nuevo_ingreso()">ingreso</button>
+                                            <div class="nuevo_enviar_btn" id="gasto" onclick="nuevo_gasto()">gasto -</div>
+                                            <div class="nuevo_enviar_btn" id="ingreso" onclick="nuevo_ingreso()">ingreso +</div>
                                         </div>
                 </section>
 
                 <section class="panel" id = "balance">                                
-                    <section class="panel-titulo"><h2>Balance actual:</h2></section>                       
+                    <section class="panel-titulo"><h2>Balance:</h2></section>                      
                     <h3 id = "gbjs">$37,358</h3>
                 </section>
     

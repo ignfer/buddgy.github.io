@@ -9,7 +9,7 @@
     justify-content: center;
 }
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 900px){
     #tendencias{
         width: calc(100% - 20px);
         height: 20%;

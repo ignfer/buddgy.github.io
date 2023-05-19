@@ -2,10 +2,17 @@ header{
     width: 100%;
     height: 60px; /*60 px = altura fija del header*/
     background-color: #080E07;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
 }
 
 header img{
-    cursor: pointer;
     margin-top: 10px;
     margin-left: 10px;
+}
+
+#header1{
+    cursor: pointer;
+    transition-duration: 1s;
 }
