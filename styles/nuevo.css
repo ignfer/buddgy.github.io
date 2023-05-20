@@ -2,17 +2,14 @@
     width: calc(30% - 10px);
     height: 55%;
     float:right;
-    margin-top: 10px;
-    margin-right: 10px;
+    margin: var(--margin-default-width) var(--margin-default-width) 0px 0px;
 }
 
 @media screen and (max-width: 900px){
     #nuevo{
-        width: calc(100% - 20px);
+        width: 100%;
         height: 30%;
-        margin-left: 10px;
-        margin-right: 10px;
-        margin-top:0px;
+        margin: 0px 0px 0px var(--margin-default-width);
     }
 }
 
@@ -33,7 +30,6 @@
     justify-content: left;
     align-items: center;
     margin-left: 20px;
-
 }
 
 #nuevo_descr{
@@ -45,8 +41,11 @@
 
 #nuevo_enviar{
     width: 100%;
-    height: 10%;
-    background-color: #191C18;
+    height:10%;
+
+    background-color: var(--color-1);
+
+    border-radius: 0px 0px var(--border-radius-default) var(--border-radius-default);
 }
 
 /*corresponde con la seccion nuevo_titulo*/
@@ -55,7 +54,7 @@ input{
 
     border-style: none;
     outline: none;
-    background-color: #191C18;
+    background-color: var(--color-1);
 
     font-family: 'Inter';
     font-style: normal;
@@ -64,7 +63,7 @@ input{
 
     line-height: 0px;
 
-    color: #D3350D;
+    color: var(--color-2);
 }
 
 /*corresponde con la seccion nuevo_descr*/
@@ -77,16 +76,16 @@ textarea{
     scrollbar-width: none;
     resize: none;
 
-    background-color: #191C18;
+    background-color: var(--color-1);
 
     font-family: 'Inter';
     font-style: normal;
     font-weight: 550;
-    font-size: 28px;
+    font-size: clamp(20px, 2vw, 25px);
     margin-left: 20px;
     margin-right: 10px;
 
-    color: #E0F2E9;
+    color: var(--color-3);
     word-wrap:normal;
 }
 
@@ -101,7 +100,7 @@ textarea{
 
     border-style: none;
     outline: none;
-    background-color: #191C18;
+    background-color: var(--color-1);
 
     text-align: right;
     font-family: 'Inter';
@@ -109,13 +108,14 @@ textarea{
     font-weight: 700;
     font-size: 28px;
 
-    color: #D3350D;
+    color: var(--color-2);
 }
 
 .nuevo_enviar_btn{
+    cursor: pointer;
     width: 50%;
     height: 100%;
-    background-color: #D3350D;
+    background-color: var(--color-2);
 
     display: flex;
     justify-content: center;
@@ -125,7 +125,7 @@ textarea{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
-    color: #191C18;
+    color: var(--color-1);
 
     transition-duration: 0.2s;
 }
@@ -146,22 +146,20 @@ textarea{
     border-bottom-right-radius: 5px;
 }
 
-
-
 button{
+    cursor: pointer;
     border-style: none;
     border-radius: 50px;
-    background-color: #D3350D;
+    background-color: var(--color-2);
 
 
     font-size: clamp(20px, 2vw, 25px);
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
-    color: #191C18;
+    color: var(--color-1);
 
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 2px var(--margin-default-width) 4px var(--margin-default-width);
 
     margin-right: 5px;
 

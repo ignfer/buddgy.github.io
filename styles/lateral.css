@@ -1,19 +1,16 @@
 #seccion_lateral{
-    width: calc(25% - 10px);
+    width: calc(25% - var(--margin-default-width));
     height: calc(100% - 20px);
     float:left;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    background-color: #191C18;
+    margin:var(--margin-default-width) 0px var(--margin-default-width) var(--margin-default-width);
+    background-color: var(--color-1);
 }
 
 @media screen and (max-width: 900px){
     #seccion_lateral{
         width: calc(100% - 20px);
         height: 30%;
-        margin-left: 10px;
-        margin-top: 10px;
+        margin: var(--margin-default-width) 0px 0px var(--margin-default-width);
         border-style: solid;
         border-width: 1px;
         border-color: #e0f2e90a;
@@ -23,7 +20,7 @@
 aside input{
     width: calc(100% - 30px);
     height: 45px;
-    margin: 10px;
+    margin: var(--margin-default-width);
 
     border-radius: 55px;
     border-style:solid;
@@ -36,7 +33,7 @@ aside input{
     font-weight: 700;
     font-size: 20px;
     text-align: left;
-    padding-left: 10px;
+    padding-left: var(--margin-default-width);
 
     background-color: #191C18;
     color:#e0f2e9c1;
@@ -50,10 +47,9 @@ aside input{
     scrollbar-width: none;
 }
 
-.nueva_tarjeta{
+.nueva-tarjeta{
     width: calc(100% - 40px);
-    margin-left: 10px;
-    margin-top: 10px;
+    margin: var(--margin-default-width) 0px 0px var(--margin-default-width);
 
     height: auto;
 
@@ -65,14 +61,14 @@ aside input{
     transition-duration: 0.25s;  
 }
 
-.nueva_tarjeta:hover{
+.nueva-tarjeta:hover{
     scale: 1.01;
     transition-duration: 0.25s;
     background-color: #414641;
 
 }
 
-.tarjeta_fecha{
+.tarjeta-fecha{
     width: 100%;
     height: 10%;
     text-align: right;
@@ -86,7 +82,7 @@ aside input{
     color: #E0F2E9;
 }
 
-.tarjeta_titulo{
+.tarjeta-titulo{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
@@ -96,12 +92,12 @@ aside input{
     color: #D3350D;
 }
 
-.tarjeta_tags{
+.tarjeta-tags{
     width: 100%;
     height: 10%;
 }
 
-.tarjeta_descr{
+.tarjeta-descr{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -111,11 +107,11 @@ aside input{
     color: #E0F2E9;
 }
 
-.tarjeta_monto{
+.tarjeta-monto{
     width: 100%;
     height: 10%;
     text-align: right;
-    padding-top: 10px;
+    padding-top: var(--margin-default-width);
 
     font-family: 'Inter';
     font-style: normal;
@@ -124,5 +120,5 @@ aside input{
     line-height: 24px;
     text-align: right;
 
-    color: #D3350D;
+    color: var(--color-2);
 }

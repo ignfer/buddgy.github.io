@@ -1,10 +1,21 @@
+:root{
+    --margin-default-width:10px;
+    --border-default-width:1px;
+    --border-radius-default:5px;
+    --header-height:60px;
+    --color-0:#080E07;
+    --color-1:#191C18;
+    --color-2:#D3350D;
+    --color-3:#E0F2E9;
+}
 html,body{
     height: 100%;
     margin:0px; padding: 0px;
+    scrollbar-width: none;
 }
 
 body{
-    background-color: #080E07;
+    background-color: var(--color-0);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -15,11 +26,11 @@ body{
 
 main{
     width: 100%;
-    height: calc(100% - 60px); /*60 px altura fija del header*/
+    height: calc(100% - var(--header-height)); /*60 px altura fija del header*/
 
-    background-color: #080E07;
+    background-color: var(--color-0);
 
-    min-height: 600px; /*limita el tamaño minimo vertical, puede provocar que se pierda el margen de abajo cuando se activa*/
+    min-height: 500px; /*limita el tamaño minimo vertical, puede provocar que se pierda el margen de abajo cuando se activa*/
     max-height: 1500px; /*permite que el main quede pegado al header cuando se hace zoom-out*/
     
     max-width: 2000px; /*limita el tamaño maximo horizontal*/
@@ -32,7 +43,7 @@ h2{
     font-weight: 700;
     text-align: center;
     font-size: clamp(30px, 3vw, 40px);
-    color: #D3350D;
+    color: var(--color-2);
     margin:0px;
     padding:0px; 
 }
@@ -43,7 +54,7 @@ h3{
     font-weight: 700;
     text-align: center;
     font-size: clamp(35px, 3vw, 50px);
-    color: #E0F2E9;
+    color: var(--color-3);
     margin:0px;
     padding:0px;
     line-height: 0px;
@@ -54,8 +65,8 @@ h4{
     font-style: normal;
     font-weight: 600;
     text-align: center;
-    font-size: 22px;
-    color: #E0F2E9;
+    font-size: clamp(15px, 1.5vw, 25px);
+    color: var(--color-3);
     margin:0px;
     padding:0px;
     line-height: 0px;
@@ -66,19 +77,20 @@ h4{
 
 section{
     height: 100%;
-    background-color: #080E07;
+    background-color: var(--color-0);
 }
 
 #seccion_contenido{
-    width: calc(75%);
+    width: calc(75% - var(--margin-default-width));
     float: right;
+    margin-right: var(--margin-default-width);
 }
 
 /*estilos de cartas o paneles*/
 
 .panel{
-    background-color: #191C18;
-    border-radius: 5px;
+    background-color: var(--color-1);
+    border-radius: var(--border-radius-default);
     
     width: calc(100% - 12px); /* 10px de margen + 2px de borde*/
     height: calc(100% - 12px);
@@ -92,14 +104,13 @@ section{
 .panel-titulo{
     width: 100%;
     height: auto;
-    background-color: #191C18;
+    background-color: var(--color-1);
 }
 
 #panel_lateral{
     width: calc(100% - 20px);
     height: calc(100% - 20px);
-    margin-top: 10px;
-    margin-left:10px;
+    margin: var(--margin-default-width) 0px 0px var(--margin-default-width);
 }
 
 @media screen and (max-width: 900px){
@@ -109,14 +120,8 @@ section{
     }
 
     #seccion_contenido{
-        width: 100%;
+        width: calc(100% - 20px);
+        margin-left: var(--margin-default-width);
         height: 70%;
-    }
-}
-
-@media screen and (max-width: 760px){
-    #header1{
-        transform: translateX(-110%);
-        transition-duration: 1s;
     }
 }

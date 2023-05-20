@@ -1,18 +1,19 @@
 header{
     width: 100%;
-    height: 60px; /*60 px = altura fija del header*/
-    background-color: #080E07;
+    height: var(--header-height);
+    background-color: var(--color-0);
+
     display: flex;
-    justify-content: center;
-    overflow: hidden;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 0px var(--margin-default-width) 0px var(--margin-default-width);
 }
 
 header img{
-    margin-top: 10px;
-    margin-left: 10px;
+    height: clamp(20px, 1.5vw + 1.3rem, 60px);
 }
 
 #header1{
     cursor: pointer;
-    transition-duration: 1s;
 }
