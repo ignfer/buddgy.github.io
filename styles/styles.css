@@ -7,6 +7,11 @@
     --color-1:#191C18;
     --color-2:#D3350D;
     --color-3:#E0F2E9;
+    --tag-color-0:#C6C013;
+    --tag-color-1:#FF0035;
+    --tag-color-2:#487246;
+    --tag-color-3:#7A28CB;
+    --tag-color-4:#154866;
 }
 html,body{
     height: 100%;
