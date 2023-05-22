@@ -85,4 +85,16 @@ function ingresar_gasto(){
     console.log(titulo + cuerpo);
 }
 
+function estado(id){
+    const punto = document.getElementById(id);
+    const puntos = document.getElementsByClassName('punto-on');
+
+    for (var i = 0; i < puntos.length; i++) {
+        puntos[i].className = 'punto-off';
+    }
+    
+    if(punto.className='punto-off'){
+        punto.className = 'punto-on';
+    }
+}
 

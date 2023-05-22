@@ -1,6 +1,6 @@
 #tendencias{
     width: calc(100% - 20px);
-    height: calc(20% - 10px);
+    height: calc(20% - var(--margin-default-width));
     float:right;
     margin-right:var(--margin-default-width);
     
@@ -26,12 +26,39 @@
     background-color: #080E07;
 
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-
 }
 
 #tendencias h4{
-    line-height: 1.3em;
     font-weight: 500;
+    width: 100%;
+}
+
+span{
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    border-radius: 100px;
+    background-color: var(--color-2);
+    margin-left: 10px;
+}
+
+span:hover{
+    width: 20px;
+    height: 20px;
+    transition-duration: 0.25s;
+}
+
+.punto-on{
+    width: 20px;
+    height: 20px;
+    opacity: 1;
+    transition-duration: 0.25s;
+}
+
+.punto-off{
+    opacity: 0.5;
+    transition-duration: 0.25s;
 }
