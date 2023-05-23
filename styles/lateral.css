@@ -4,6 +4,7 @@
     float:left;
     margin:var(--margin-default-width) 0px var(--margin-default-width) var(--margin-default-width);
     background-color: var(--color-1);
+    overflow:hidden;
 }
 
 @media screen and (max-width: 900px){
@@ -35,9 +36,8 @@ aside input{
     text-align: left;
     padding-left: var(--margin-default-width);
 
-    background-color: #191C18;
+    background-color: var(--color-1);
     color:#e0f2e9c1;
-    
 }
 
 .lateral_contenido{
@@ -65,7 +65,6 @@ aside input{
     scale: 1.01;
     transition-duration: 0.25s;
     background-color: #414641;
-
 }
 
 .tarjeta-fecha{

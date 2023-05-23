@@ -47,7 +47,7 @@ h2{
     font-style: normal;
     font-weight: 700;
     text-align: center;
-    font-size: clamp(30px, 3vw, 40px);
+    font-size: clamp(20px, 2.5vw, 40px);
     color: var(--color-2);
     margin:0px;
     padding:0px; 

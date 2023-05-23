@@ -66,9 +66,36 @@
             <section id="seccion_contenido">
 
                 <section class="panel" id="grafica">       
-                    <section class="panel-titulo"><h2>Mensual</h2></section>    
+                    <h2>Mensual</h2>
                         <section class="panel" id="grafica-contenido">
-
+                            <section id="grafica-col-1">
+                                <div class="barra"></div>
+                                <div class="grafica-monto">$3,950</div>
+                            </section>
+                            <section id="grafica-col-2">
+                                
+                                <div class="grafica-monto">$5,800</div>
+                            </section>
+                            <section id="grafica-col-3">
+                                <div class="grafica-barra"></div>
+                                <div class="grafica-monto">$4,600</div>
+                            </section>
+                            <section id="grafica-col-4">
+                                <div class="grafica-barra"></div>
+                                <div class="grafica-monto">$7,320</div>
+                            </section>
+                            <section id="grafica-col-5">
+                                <div class="grafica-barra"></div>
+                                <div class="grafica-monto">$1,400</div>
+                            </section>
+                            <section id="grafica-col-6">
+                                <div class="grafica-barra"></div>
+                                <div class="grafica-monto">$4,100</div>
+                            </section>
+                            <section id="grafica-col-7">
+                                <div class="grafica-barra"></div>
+                                <div class="grafica-monto">$4,790</div>
+                            </section>
                         </section> 
                 </section>
     
@@ -77,7 +104,6 @@
 
                             <div id = "nuevo_tag">
                                     <button>categorias</button>
-                                    <button>+</button>
                             </div>
 
                                 <div id = "nuevo_descr">
@@ -97,13 +123,13 @@
                     <h3 id = "gbjs">$37,358</h3>
                 </section>
     
-                <section class="panel" id="tendencias">
-                            <div class = "tendencias_contenido">
-                                <h4>Usualmente tus gastos incrementan hasta un 15% los fines de semanas.</h4>
-                                <span class="punto-off" id="punto-1" onclick="estado(id)"></span>
-                                <span class="punto-off" id="punto-2" onclick="estado(id)"></span>
-                                <span class="punto-off" id="punto-3" onclick="estado(id)"></span>
-                                <span class="punto-off" id="punto-4"onclick="estado(id)"></span>   
+                <section class="panel" id="tendencias" onload="tendencias()">
+                            <div class = "tendencias-contenido">
+                                <h4 class ="tendencias-mensaje"></h4>
+                                <span class="punto-off" id="punto-0" onclick="estado(0)"></span>
+                                <span class="punto-off" id="punto-1" onclick="estado(1)"></span>
+                                <span class="punto-off" id="punto-2" onclick="estado(2)"></span>
+                                <span class="punto-off" id="punto-3" onclick="estado(3)"></span>   
                             </div>
                 </section>
 

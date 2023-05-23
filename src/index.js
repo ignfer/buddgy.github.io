@@ -86,7 +86,8 @@ function ingresar_gasto(){
 }
 
 function estado(id){
-    const punto = document.getElementById(id);
+    let id_concatenada = "punto-" + id;
+    const punto = document.getElementById(id_concatenada);
     const puntos = document.getElementsByClassName('punto-on');
 
     for (var i = 0; i < puntos.length; i++) {
@@ -96,5 +97,21 @@ function estado(id){
     if(punto.className='punto-off'){
         punto.className = 'punto-on';
     }
+
+    tendencias(id);
+
 }
 
+function tendencias(id){
+    const contenido = [
+    'Usualmente tus gastos incrementan hasta un 15% los fines de semanas',
+    'Sueles ahorrar 5% mas en los primeros 15 dias del mes',
+    'La categoria en la que mas gastas actualmente es: comida',
+    'Tus gastos aumentan hasta un 50% cuando sales con amigos'];
+
+    const elemento = document.getElementsByClassName('tendencias-mensaje')[0];
+    
+    elemento.style.transform = "translateX(-200%)";
+    elemento.innerHTML = contenido[id];
+    elemento.style.transform = "translateX(+200%)";
+}
