@@ -90,7 +90,7 @@ textarea{
 }
 
 /*corresponde con la seccion nuevo_monto*/
-.nuevo_monto_entrada{
+.nuevo-monto-entrada{
     height: 25%;
     width: calc(100% - 10px);
 

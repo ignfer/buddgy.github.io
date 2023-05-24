@@ -6,7 +6,7 @@ function nuevo_gasto(){
 
 
     let balance = document.getElementById('gbjs').innerText; //gbjs = get balance java script
-    let monto = document.getElementsByClassName('nuevo_monto_entrada')[0].value;
+    let monto = document.getElementsByClassName('nuevo-monto-entrada')[0].value;
     let resultado = balance - monto;
     let lateral = document.getElementsByClassName('lateral_contenido')[0];
 
@@ -23,22 +23,22 @@ function nuevo_gasto(){
     /* creacion y asignacion de valores de la nueva tarjeta */
 
     let nueva_tarjeta = document.createElement("div");
-    nueva_tarjeta.className = "nueva_tarjeta";
+    nueva_tarjeta.className = "nueva-tarjeta";
 
     let nuevo_fecha = document.createElement("div");
-    nuevo_fecha.className = "tarjeta_fecha";
+    nuevo_fecha.className = "tarjeta-fecha";
     nuevo_fecha.innerHTML = tarjeta_dia + "/" + tarjeta_mes + "/" + tarjeta_anio; 
 
     let nuevo_titulo = document.createElement("div");
-    nuevo_titulo.className = "tarjeta_titulo";
+    nuevo_titulo.className = "tarjeta-titulo";
     nuevo_titulo.innerHTML = tarjeta_titulo;
 
     let nuevo_descr = document.createElement("div");
-    nuevo_descr.className = "tarjeta_descr";
+    nuevo_descr.className = "tarjeta-descr";
     nuevo_descr.innerHTML = tarjeta_descr;
 
     let nuevo_monto = document.createElement("div");
-    nuevo_monto.className = "tarjeta_monto";
+    nuevo_monto.className = "tarjeta-monto";
     nuevo_monto.innerHTML = "-$" + tarjeta_monto;
 
     /* appendear datos a la nueva tarjeta y esta ultima al panel lateral */
@@ -68,7 +68,7 @@ function limpiar_campos(){
 
 function nuevo_ingreso(){
     let balance = parseInt(document.getElementById('gmjs').innerText);
-    let monto = parseInt(document.getElementsByClassName('nuevo_monto_entrada')[0].value);
+    let monto = parseInt(document.getElementsByClassName('nuevo-monto-entrada')[0].value);
     let resultado = balance + monto;
 
     document.getElementById('gmjs').innerText = resultado;
@@ -99,11 +99,10 @@ function estado(id){
     }
 
     tendencias(id);
-
 }
 
 function tendencias(id){
-    const contenido = [
+    var contenido = [
     'Usualmente tus gastos incrementan hasta un 15% los fines de semanas',
     'Sueles ahorrar 5% mas en los primeros 15 dias del mes',
     'La categoria en la que mas gastas actualmente es: comida',
@@ -112,6 +111,8 @@ function tendencias(id){
     const elemento = document.getElementsByClassName('tendencias-mensaje')[0];
     
     elemento.style.transform = "translateX(-200%)";
-    elemento.innerHTML = contenido[id];
-    elemento.style.transform = "translateX(+200%)";
+    setTimeout(function actualizar(){
+        elemento.style.transform = "translateX(+0%)";
+        elemento.innerHTML = contenido[id];
+    },250);
 }
