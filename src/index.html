@@ -24,7 +24,7 @@
         <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
     </head>
 
-    <body>
+    <body onload="tendencias()">
         <header>
                 <img id="header1" src="../IF_logo.png" height=40px>
                 <img id="header2" src="../buddgy_logo.png" height=40px>       
@@ -145,13 +145,13 @@
                     <h3>$</h3><h3 id = "gbcjs">37358</h3>
                 </section>
     
-                <section class="panel" id="tendencias" onload="tendencias()">
+                <section class="panel" id="tendencias">
                             <div class = "tendencias-contenido">
                                 <h4 class ="tendencias-mensaje"></h4>
-                                <span class="punto-off" id="punto-0" onclick="estado(0)"></span>
-                                <span class="punto-off" id="punto-1" onclick="estado(1)"></span>
-                                <span class="punto-off" id="punto-2" onclick="estado(2)"></span>
-                                <span class="punto-off" id="punto-3" onclick="estado(3)"></span>   
+                                <span class="punto-off" id="punto-0"></span>
+                                <span class="punto-off" id="punto-1"></span>
+                                <span class="punto-off" id="punto-2"></span>
+                                <span class="punto-off" id="punto-3"></span>   
                             </div>
                 </section>
 

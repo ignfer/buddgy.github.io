@@ -102,11 +102,9 @@ function estado(id){
     if(punto.className='punto-off'){
         punto.className = 'punto-on';
     }
-
-    tendencias(id);
 }
 
-function tendencias(id){
+function tendencias(){
     var contenido = [
     'Usualmente tus gastos incrementan hasta un 15% los fines de semanas',
     'Sueles ahorrar 5% mas en los primeros 15 dias del mes',
@@ -114,10 +112,23 @@ function tendencias(id){
     'Tus gastos aumentan hasta un 50% cuando sales con amigos'];
 
     const elemento = document.getElementsByClassName('tendencias-mensaje')[0];
-    
-    elemento.style.transform = "translateX(-200%)";
-    setTimeout(function actualizar(){
+
+    let i = 0;
+    showSlides();
+
+    function showSlides() {
+        elemento.style.transform = "translateX(-150%)";
+        setTimeout(function actualizar(){
         elemento.style.transform = "translateX(+0%)";
-        elemento.innerHTML = contenido[id];
-    },250);
+        elemento.innerHTML = contenido[i];
+        },1000);
+        estado(i);
+
+        i++;
+        if (i >= 4){
+            i = 0
+        }
+        setTimeout(showSlides, 4000);
+    } 
 }
+

@@ -40,18 +40,11 @@
 }
 
 span{
-    cursor: pointer;
     width: 15px;
     height: 15px;
     border-radius: 100px;
     background-color: var(--color-2);
     margin-left: 10px;
-}
-
-span:hover{
-    width: 20px;
-    height: 20px;
-    transition-duration: 0.25s;
 }
 
 .punto-on{
