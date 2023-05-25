@@ -5,8 +5,8 @@ function nuevo_gasto(){
     ya que me parecio mejor practica */
 
 
-    let balance = document.getElementById('gbjs').innerText; //gbjs = get balance java script
-    let monto = document.getElementsByClassName('nuevo-monto-entrada')[0].value;
+    let balance = parseInt(document.getElementById('gbcjs').innerText); /* 'gbcjs' = get balance con java script */
+    let monto = parseInt(document.getElementsByClassName('nuevo-monto-entrada')[0].value);
     let resultado = balance - monto;
     let lateral = document.getElementsByClassName('lateral_contenido')[0];
 
@@ -49,12 +49,17 @@ function nuevo_gasto(){
     nueva_tarjeta.append(nuevo_monto);
 
     lateral.appendChild(nueva_tarjeta);
+    nueva_tarjeta.style.transform = "translateX(-200%)";
+    setTimeout(function actualizar(){
+        nueva_tarjeta.style.transform = "translateX(+0%)";
+        elemento.innerHTML = contenido[id];
+    },250);
 
     if( resultado < 0){
         alert("El balance no puede ser negativo! intente de nuevo.");
     }else{
         console.log(resultado);
-        document.getElementById('gbjs').innerText = resultado;
+        document.getElementById('gbcjs').innerText = resultado;
     }
 
     limpiar_campos();
@@ -67,7 +72,7 @@ function limpiar_campos(){
 }
 
 function nuevo_ingreso(){
-    let balance = parseInt(document.getElementById('gmjs').innerText);
+    let balance = parseInt(document.getElementById('gbjs').innerText);
     let monto = parseInt(document.getElementsByClassName('nuevo-monto-entrada')[0].value);
     let resultado = balance + monto;
 
