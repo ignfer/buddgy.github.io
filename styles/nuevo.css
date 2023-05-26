@@ -172,3 +172,17 @@ button:hover{
     transition-duration: 0.2s;
 }
 
+.panel-categorias{
+    position: absolute;
+    width: 500px;
+    height: 250px;
+    top: calc(50% - 125px);
+    left: calc(50% - 250px);
+    border-radius: var(--border-radius-default);
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--color-4);
+    background-color: var(--color-1);
+    visibility: hidden;
+}
+

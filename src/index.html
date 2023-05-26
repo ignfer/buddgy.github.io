@@ -29,7 +29,7 @@
                 <img id="header1" src="../IF_logo.png" height=40px>
                 <img id="header2" src="../buddgy_logo.png" height=40px>       
         </header>
-        <main>
+        <main id="container">
             <aside class="panel" id="seccion_lateral">
                     <input type="text" placeholder="Busca un gasto o un ingreso...">
                     <div class="lateral_contenido">
@@ -125,7 +125,10 @@
                             <input maxlength="50" type = "text" placeholder = "Titulo..." id = "gtt">
 
                             <div id = "nuevo_tag">
-                                    <button>categorias</button>
+                                    <button onclick="agregar_categorias()">categorias</button>
+                                    <div class="panel-categorias">
+                                        <h4>Agrega categorias</h4>
+                                    </div>
                             </div>
 
                                 <div id = "nuevo_descr">
@@ -135,8 +138,8 @@
                                     <input maxlength = "6" class = "nuevo-monto-entrada" type = "text" placeholder = "$0.00" id = "gmt">                                  
 
                                         <div id = "nuevo_enviar">
-                                            <div class="nuevo_enviar_btn" id="gasto" onclick="nuevo_gasto()">gasto -</div>
-                                            <div class="nuevo_enviar_btn" id="ingreso" onclick="nuevo_ingreso()">ingreso +</div>
+                                            <div class="nuevo_enviar_btn" id="gasto" onclick="nueva_tarjeta(0)">gasto -</div>
+                                            <div class="nuevo_enviar_btn" id="ingreso" onclick="nueva_tarjeta(1)">ingreso +</div>
                                         </div>
                 </section>
 

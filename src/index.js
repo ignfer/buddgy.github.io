@@ -1,5 +1,12 @@
 
-function nuevo_gasto(){
+function to_github(){
+    window.location.href = "https://github.com/ignfer";
+}
+
+function nueva_tarjeta(tipo){
+    /* el parametro 'tipo' nos indica si la tarjeta pertenece a un gasto o a un ingreso ya que
+    son muy pocas las cosas que cambian en cada caso y asi evitamos repetir codigo inecesario */
+
     /* si bien siempre es buena practica usar nombres de variables descriptivos, para las ids
     que se encuentran a simple vista en el documento html preferi no hacerlas tan explicitas
     ya que me parecio mejor practica */
@@ -7,7 +14,11 @@ function nuevo_gasto(){
 
     let balance = parseInt(document.getElementById('gbcjs').innerText); /* 'gbcjs' = get balance con java script */
     let monto = parseInt(document.getElementsByClassName('nuevo-monto-entrada')[0].value);
-    let resultado = balance - monto;
+    if( tipo === 0){
+        resultado = balance - monto;
+    }else{
+        resultado = balance + monto;
+    }
     let lateral = document.getElementsByClassName('lateral_contenido')[0];
 
     /* declaracion de datos para la nueva tarjeta */
@@ -39,7 +50,12 @@ function nuevo_gasto(){
 
     let nuevo_monto = document.createElement("div");
     nuevo_monto.className = "tarjeta-monto";
-    nuevo_monto.innerHTML = "-$" + tarjeta_monto;
+    if( tipo === 0){
+        nuevo_monto.innerHTML = "-$" + tarjeta_monto;
+    }else{
+        nuevo_monto.innerHTML = "+$" + tarjeta_monto;
+    }
+    
 
     /* appendear datos a la nueva tarjeta y esta ultima al panel lateral */
 
@@ -63,24 +79,6 @@ function nuevo_gasto(){
     }
 
     limpiar_campos();
-}
-
-function limpiar_campos(){
-    document.getElementById('gtt').value = "";
-    document.getElementById('gdt').value = "";
-    document.getElementById('gmt').value = ""; 
-}
-
-function nuevo_ingreso(){
-    let balance = parseInt(document.getElementById('gbjs').innerText);
-    let monto = parseInt(document.getElementsByClassName('nuevo-monto-entrada')[0].value);
-    let resultado = balance + monto;
-
-    document.getElementById('gmjs').innerText = resultado;
-}
-
-function to_github(){
-    window.location.href = "https://github.com/ignfer";
 }
 
 function ingresar_gasto(){
@@ -130,5 +128,10 @@ function tendencias(){
         }
         setTimeout(showSlides, 4000);
     } 
+}
+
+function agregar_categorias(){
+    let panel_categorias = document.getElementsByClassName("panel-categorias")[0];
+    panel_categorias.style.visibility = "visible";
 }
 
