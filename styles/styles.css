@@ -15,6 +15,7 @@
     --tag-color-4:#154866;
     --tag-color-5:#008DD5;
     --tag-color-6:#5C573E;
+    --tag-color-7:#14213D;
 }
 html,body{
     height: 100%;
@@ -132,4 +133,54 @@ section{
         margin-left: var(--margin-default-width);
         height: 70%;
     }
+}
+
+.tag{
+    margin-right: var(--margin-default-width);
+    border-radius: 100px;
+    float:left;
+}
+
+.tag h5{
+    margin:2px 5px 2px 5px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: clamp(5px, 1vw, 25px);
+    line-height: 23px;
+
+    color: var(--color-3);
+}
+
+#tag0{
+    background-color: var(--tag-color-0);
+}
+
+#tag1{
+    background-color: var(--tag-color-1);
+}
+
+#tag2{
+    background-color: var(--tag-color-2);
+}
+
+#tag3{
+    background-color: var(--tag-color-3);
+}
+
+#tag4{
+    background-color: var(--tag-color-4);
+}
+
+#tag5{
+    background-color: var(--tag-color-5);
+}
+
+#tag6{
+    background-color: var(--tag-color-6);
+}
+
+#tag7{
+    background-color: var(--tag-color-7);
 }

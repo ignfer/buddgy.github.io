@@ -4,13 +4,12 @@ function to_github(){
 }
 
 function nueva_tarjeta(tipo){
-    /* el parametro 'tipo' nos indica si la tarjeta pertenece a un gasto o a un ingreso ya que
-    son muy pocas las cosas que cambian en cada caso y asi evitamos repetir codigo inecesario */
+    /* @el parametro 'tipo' nos indica si la tarjeta pertenece a un gasto o a un ingreso ya que
+    son muy pocas las cosas que cambian en cada caso y asi evitamos repetir codigo inecesario.
 
-    /* si bien siempre es buena practica usar nombres de variables descriptivos, para las ids
+    @si bien siempre es buena practica usar nombres de variables descriptivos, para las ids
     que se encuentran a simple vista en el documento html preferi no hacerlas tan explicitas
-    ya que me parecio mejor practica */
-
+    ya que me parecio mejor practica. */
 
     let balance = parseInt(document.getElementById('gbcjs').innerText); /* 'gbcjs' = get balance con java script */
     let monto = parseInt(document.getElementsByClassName('nuevo-monto-entrada')[0].value);
@@ -56,7 +55,6 @@ function nueva_tarjeta(tipo){
         nuevo_monto.innerHTML = "+$" + tarjeta_monto;
     }
     
-
     /* appendear datos a la nueva tarjeta y esta ultima al panel lateral */
 
     nueva_tarjeta.append(nuevo_fecha);
@@ -79,13 +77,6 @@ function nueva_tarjeta(tipo){
     }
 
     limpiar_campos();
-}
-
-function ingresar_gasto(){
-    const titulo = document.getElementsByClassName('new_tittle_input')[0].value;
-    const cuerpo = document.getElementsByClassName('new_descr_input')[0].value;
-
-    console.log(titulo + cuerpo);
 }
 
 function estado(id){
@@ -130,8 +121,4 @@ function tendencias(){
     } 
 }
 
-function agregar_categorias(){
-    let panel_categorias = document.getElementsByClassName("panel-categorias")[0];
-    panel_categorias.style.visibility = "visible";
-}
 

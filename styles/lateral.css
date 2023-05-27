@@ -97,37 +97,6 @@ aside input{
     display: flex;
 }
 
-.tag{
-    margin-right: var(--margin-default-width);
-    border-radius: 100px;
-    float:left;
-
-}
-
-.tag h5{
-    margin:2px 5px 2px 5px;
-
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 23px;
-
-    color: var(--color-3);
-}
-
-#tag1{
-    background-color: var(--tag-color-0);
-}
-
-#tag2{
-    background-color: var(--tag-color-2);
-}
-
-#tag3{
-    background-color: var(--tag-color-1);
-}
-
 .tarjeta-descr{
     font-family: 'Inter';
     font-style: normal;

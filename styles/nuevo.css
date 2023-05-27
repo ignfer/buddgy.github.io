@@ -25,15 +25,17 @@
 }
 
 #nuevo_tag{
-    height: 15%;
+    height: 25%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: left;
     align-items: center;
     margin-left: 20px;
+    overflow: hidden;
 }
 
 #nuevo_descr{
-    height: 35%;
+    height: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -91,7 +93,7 @@ textarea{
 
 /*corresponde con la seccion nuevo_monto*/
 .nuevo-monto-entrada{
-    height: 25%;
+    height: 20%;
     width: calc(100% - 10px);
 
     display: flex;
