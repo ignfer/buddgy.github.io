@@ -32,33 +32,27 @@
         <main id="container">
             <aside class="panel" id="seccion_lateral">
                     <input type="text" placeholder="Busca un gasto o un ingreso...">
-                    <div class="lateral_contenido">
+                    <div class="lateral-contenido">
                         <div class="nueva-tarjeta">
                             <div class="tarjeta-fecha">20/05/23</div>
                             <div class="tarjeta-titulo">Desayuno</div>
-                            <div class="tarjeta-tags">
-                                <div class="tag" id="tag1"><h5>Comida<h5></div>
-                                <div class="tag" id="tag2"><h5>Ocio<h5></div>
-                            </div>
+                            <div class="tarjeta-tags"></div>
                             <div class="tarjeta-descr">Compra de un desayuno para llevar.</div>
-                            <div class="tarjeta-monto">$-350</div>
+                            <div class="tarjeta-monto">-$350</div>
                         </div>
                         <div class="nueva-tarjeta">
                             <div class="tarjeta-fecha">19/05/23</div>
                             <div class="tarjeta-titulo">Cena</div>
-                            <div class="tarjeta-tags">
-                                <div class="tag" id="tag2"><h5>Ocio<h5></div>
-                                <div class="tag" id="tag3"><h5>Trabajo<h5></div>
-                            </div>
+                            <div class="tarjeta-tags"></div>
                             <div class="tarjeta-descr">Pizza a domicilio.</div>
-                            <div class="tarjeta-monto">$-430</div>
+                            <div class="tarjeta-monto">-$430</div>
                         </div>
                         <div class="nueva-tarjeta">
                             <div class="tarjeta-fecha">20/05/23</div>
                             <div class="tarjeta-titulo">Comida varia</div>
                             <div class="tarjeta-tags"></div>
                             <div class="tarjeta-descr">Cosas para cocinar a la tarde.</div>
-                            <div class="tarjeta-monto">$-500</div>
+                            <div class="tarjeta-monto">-$500</div>
                         </div>
                     </div>
             </aside>
@@ -125,14 +119,14 @@
                             <input maxlength="50" type = "text" placeholder = "Titulo..." id = "gtt">
 
                             <div id = "nuevo_tag">
-                                <div class="tag" id="tag0"><h5>Comida<h5></div>
-                                <div class="tag" id="tag1"><h5>Trabajo<h5></div>
-                                <div class="tag" id="tag2"><h5>Ocio<h5></div>
-                                <div class="tag" id="tag3"><h5>Casa<h5></div>
-                                <div class="tag" id="tag4"><h5>Electrodomestico<h5></div>
-                                <div class="tag" id="tag5"><h5>Servicio<h5></div>
-                                <div class="tag" id="tag6"><h5>Subscripcion<h5></div>
-                                <div class="tag" id="tag7"><h5>Ingreso<h5></div>
+                                <div class="tag" id="n-tag0" onclick="agregar_tag(0)"><h5>Comida<h5></div>
+                                <div class="tag" id="n-tag1" onclick="agregar_tag(1)"><h5>Trabajo<h5></div>
+                                <div class="tag" id="n-tag2" onclick="agregar_tag(2)"><h5>Ocio<h5></div>
+                                <div class="tag" id="n-tag3" onclick="agregar_tag(3)"><h5>Casa<h5></div>
+                                <div class="tag" id="n-tag4" onclick="agregar_tag(4)"><h5>Electrodomestico<h5></div>
+                                <div class="tag" id="n-tag5" onclick="agregar_tag(5)"><h5>Servicio<h5></div>
+                                <div class="tag" id="n-tag6" onclick="agregar_tag(6)"><h5>Subscripcion<h5></div>
+                                <div class="tag" id="n-tag7" onclick="agregar_tag(7)"><h5>Ingreso<h5></div>
                             </div>
 
                                 <div id = "nuevo_descr">

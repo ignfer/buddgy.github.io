@@ -1,5 +1,5 @@
 #seccion_lateral{
-    width: calc(25% - var(--margin-default-width));
+    width: 25%;
     height: calc(100% - 20px);
     float:left;
     margin:var(--margin-default-width) 0px var(--margin-default-width) var(--margin-default-width);
@@ -13,8 +13,8 @@
         height: 30%;
         margin: var(--margin-default-width) 0px 0px var(--margin-default-width);
         border-style: solid;
-        border-width: 1px;
-        border-color: #e0f2e90a;
+        border-width: var(--border-default-width);
+        border-color: var(--color-4);
     }
 }
 
@@ -26,7 +26,7 @@ aside input{
     border-radius: 55px;
     border-style:solid;
     border-width: 2px;
-    border-color: #e0f2e90a;
+    border-color: var(--color-4);
     outline: none;
 
     font-family: 'Inter', sans-serif;
@@ -40,7 +40,7 @@ aside input{
     color:#e0f2e9c1;
 }
 
-.lateral_contenido{
+.lateral-contenido{
     width: 100%;
     height: calc(90% - 20px);
     overflow: scroll;
@@ -56,6 +56,10 @@ aside input{
     background-color: #2D312D;
     border-radius: 5px;
     padding: 10px;
+
+    border-style:solid;
+    border-width: 1px;
+    border-color: var(--color-4);
 
     scale: 1.0;
     transition-duration: 0.25s;  

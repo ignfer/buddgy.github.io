@@ -92,7 +92,6 @@ section{
 #seccion_contenido{
     width: calc(75% - var(--margin-default-width));
     float: right;
-    margin-right: var(--margin-default-width);
 }
 
 /*estilos de cartas o paneles*/
@@ -106,20 +105,14 @@ section{
     
     box-sizing: border-box;
     border-style: solid;
-    border-width: 1px;
-    border-color: #e0f2e90a;
+    border-width: var(--border-default-width);
+    border-color: var(--color-4);
 }
 
 .panel-titulo{
     width: 100%;
     height: auto;
     background-color: var(--color-1);
-}
-
-#panel_lateral{
-    width: calc(100% - 20px);
-    height: calc(100% - 20px);
-    margin: var(--margin-default-width) 0px 0px var(--margin-default-width);
 }
 
 @media screen and (max-width: 900px){
@@ -139,6 +132,9 @@ section{
     margin-right: var(--margin-default-width);
     border-radius: 100px;
     float:left;
+    cursor: pointer;
+    opacity: 0.5;
+    transition-duration: 0.5s;
 }
 
 .tag h5{
@@ -153,34 +149,34 @@ section{
     color: var(--color-3);
 }
 
-#tag0{
+#n-tag0{
     background-color: var(--tag-color-0);
 }
 
-#tag1{
+#n-tag1{
     background-color: var(--tag-color-1);
 }
 
-#tag2{
+#n-tag2{
     background-color: var(--tag-color-2);
 }
 
-#tag3{
+#n-tag3{
     background-color: var(--tag-color-3);
 }
 
-#tag4{
+#n-tag4{
     background-color: var(--tag-color-4);
 }
 
-#tag5{
+#n-tag5{
     background-color: var(--tag-color-5);
 }
 
-#tag6{
+#n-tag6{
     background-color: var(--tag-color-6);
 }
 
-#tag7{
+#n-tag7{
     background-color: var(--tag-color-7);
 }

@@ -1,3 +1,16 @@
+let tags_seleccionados = [];
+
+function agregar_tag(id){
+    if(!tags_seleccionados.includes(id)){
+        tags_seleccionados.push(id);
+        document.getElementById('n-tag'+ id).style.opacity = "1";
+    }else{
+        tags_seleccionados.splice(tags_seleccionados.indexOf(id),1);
+        document.getElementById('n-tag'+ id).style.opacity = "0.5";
+
+    }
+    console.log(tags_seleccionados);
+}
 
 function to_github(){
     window.location.href = "https://github.com/ignfer";
@@ -18,7 +31,7 @@ function nueva_tarjeta(tipo){
     }else{
         resultado = balance + monto;
     }
-    let lateral = document.getElementsByClassName('lateral_contenido')[0];
+    let lateral = document.getElementsByClassName('lateral-contenido')[0];
 
     /* declaracion de datos para la nueva tarjeta */
 
@@ -66,17 +79,24 @@ function nueva_tarjeta(tipo){
     nueva_tarjeta.style.transform = "translateX(-200%)";
     setTimeout(function actualizar(){
         nueva_tarjeta.style.transform = "translateX(+0%)";
-        elemento.innerHTML = contenido[id];
+        //elemento.innerHTML = contenido[id];
     },250);
 
     if( resultado < 0){
         alert("El balance no puede ser negativo! intente de nuevo.");
     }else{
-        console.log(resultado);
         document.getElementById('gbcjs').innerText = resultado;
     }
 
     limpiar_campos();
+}
+
+function limpiar_campos(){
+    tags_seleccionados.forEach(element => document.getElementById('n-tag' + element).style.opacity = "0.5");
+    tags_seleccionados = [];
+    document.getElementById('gdt').value = "";
+    document.getElementById('gtt').value = "";
+    document.getElementById('gmt').value = "";
 }
 
 function estado(id){
