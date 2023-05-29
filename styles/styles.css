@@ -8,6 +8,7 @@
     --color-2:#D3350D;
     --color-3:#E0F2E9;
     --color-4:#e0f2e90a;
+    --color-5:#414641;
     --tag-color-0:#C6C013;
     --tag-color-1:#FF0035;
     --tag-color-2:#487246;
@@ -123,7 +124,7 @@ section{
 
     #seccion_contenido{
         width: calc(100% - 20px);
-        margin-left: var(--margin-default-width);
+        margin-right: var(--margin-default-width);
         height: 70%;
     }
 }

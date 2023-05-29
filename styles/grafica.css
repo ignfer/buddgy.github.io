@@ -22,7 +22,11 @@
 #grafica-contenido{
     width: calc(100% - 20px);
     height: 90%;
-    background-color: #080E07;
+    background-color: var(--color-0);
+    
+    border-style: solid;
+    border-width: var(--border-default-width);
+    border-color: var(--color-4);
     margin-bottom: var(--margin-default-width);
 
     display:flex;

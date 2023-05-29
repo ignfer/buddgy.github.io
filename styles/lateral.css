@@ -45,11 +45,15 @@ aside input{
     height: calc(90% - 20px);
     overflow: scroll;
     scrollbar-width: none;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .nueva-tarjeta{
     width: calc(100% - 40px);
-    margin: var(--margin-default-width) 0px 0px var(--margin-default-width);
+    margin: var(--margin-default-width) 0px 0px 0px;
 
     height: auto;
 
@@ -62,7 +66,7 @@ aside input{
     border-color: var(--color-4);
 
     scale: 1.0;
-    transition-duration: 0.25s;  
+    transition-duration: 0.25s;
 }
 
 .nueva-tarjeta:hover{
