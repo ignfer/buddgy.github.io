@@ -60,9 +60,10 @@ function nueva_tarjeta(tipo){
     let tarjeta_titulo = document.getElementById('gtt').value; //gtt = get titulo tarjeta
     let tarjeta_descr = document.getElementById('gdt').value; //gtd = get descr tarjeta
     let tarjeta_monto = document.getElementById('gmt').value; //gmt = get monto tarjeta
-    let tarjeta_date = new Date();
-    let tarjeta_dia = tarjeta_date.getDay();
+    const tarjeta_date = new Date();
+    let tarjeta_dia = tarjeta_date.getDate();
     let tarjeta_mes = tarjeta_date.getMonth();
+    tarjeta_mes += 1;
     let tarjeta_anio = tarjeta_date.getFullYear();
 
     /* creacion y asignacion de valores de la nueva tarjeta */
