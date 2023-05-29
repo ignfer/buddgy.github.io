@@ -1,15 +1,37 @@
-let tags_seleccionados = [];
+/* @almacena las 'id_de_tags_seleccionados' para cada tarjeta
+@cada id corresponde con un lugar de 'tags_texto' */
+let id_de_tags_seleccionados = []; 
+let tags_texto = ['Comida','Trabajo','Ocio','Casa','Electrodomestico','Servicio','Subscripcion','Ingreso'];
 
 function agregar_tag(id){
-    if(!tags_seleccionados.includes(id)){
-        tags_seleccionados.push(id);
-        document.getElementById('n-tag'+ id).style.opacity = "1";
+    if(!id_de_tags_seleccionados.includes(id)){
+        /*agrega el valor 'id' a la lista de 'id_de_tags_seleccionados' */
+        id_de_tags_seleccionados.push(id);
+        /*obtiene todos los tags que pertenecen al panel 'nuevo' y omite los
+        tags que pueden estar por ejemplo en el panel lateral */
+        let tags_nuevo = document.getElementsByClassName('tag');
+        for (let i = 0; i < tags_nuevo.length; i++) {
+            const element = tags_nuevo[i];
+            if(element.id === 'n-tag' + id){
+                element.style.opacity = '1';
+            }
+        }
     }else{
-        tags_seleccionados.splice(tags_seleccionados.indexOf(id),1);
-        document.getElementById('n-tag'+ id).style.opacity = "0.5";
+        /*remueve el valor 'id' de la lista de 'id_de_tags_seleccionados' */
+        id_de_tags_seleccionados.splice(id_de_tags_seleccionados.indexOf(id),1);
 
+        /*obtiene todos los tags que pertenecen al panel 'nuevo' y omite los
+        tags que pueden estar por ejemplo en el panel lateral */
+        let tags_nuevo = document.getElementsByClassName('tag');
+        for (let i = 0; i < tags_nuevo.length; i++) {
+            const element = tags_nuevo[i];
+            if(element.id === 'n-tag' + id){
+                element.style.opacity = '0.5';
+            }
+        }
+        
     }
-    console.log(tags_seleccionados);
+
 }
 
 function to_github(){
@@ -56,6 +78,23 @@ function nueva_tarjeta(tipo){
     nuevo_titulo.className = "tarjeta-titulo";
     nuevo_titulo.innerHTML = tarjeta_titulo;
 
+    /* creacion de tags */
+    let nuevo_tags = document.createElement("div");
+    nuevo_tags.className = "tarjeta-tags";
+    
+    for (let i = 0; i < id_de_tags_seleccionados.length; i++) {
+        let tag_individual = document.createElement("div");
+        /* 'solid-tag' hace referencia a todos aquellos tags a los que no se le cambiara
+        su opacidad una vez terminada esta operacion, permite reutilizar estilos manteniendo
+        el control individual de cada uno */
+        tag_individual.className = "solid-tag";
+        /* le asigna la id que se encuentre en la posicion i dentro del array
+        de ids seleccionadas */
+        tag_individual.id = "n-tag" + id_de_tags_seleccionados[i];
+        tag_individual.innerHTML = "<h5>" + tags_texto[id_de_tags_seleccionados[i]] + "</h5>";
+        nuevo_tags.appendChild(tag_individual);
+    }
+
     let nuevo_descr = document.createElement("div");
     nuevo_descr.className = "tarjeta-descr";
     nuevo_descr.innerHTML = tarjeta_descr;
@@ -72,6 +111,7 @@ function nueva_tarjeta(tipo){
 
     nueva_tarjeta.append(nuevo_fecha);
     nueva_tarjeta.append(nuevo_titulo);
+    nueva_tarjeta.append(nuevo_tags);
     nueva_tarjeta.append(nuevo_descr);
     nueva_tarjeta.append(nuevo_monto);
 
@@ -79,7 +119,6 @@ function nueva_tarjeta(tipo){
     nueva_tarjeta.style.transform = "translateX(-200%)";
     setTimeout(function actualizar(){
         nueva_tarjeta.style.transform = "translateX(+0%)";
-        //elemento.innerHTML = contenido[id];
     },250);
 
     if( resultado < 0){
@@ -92,8 +131,12 @@ function nueva_tarjeta(tipo){
 }
 
 function limpiar_campos(){
-    tags_seleccionados.forEach(element => document.getElementById('n-tag' + element).style.opacity = "0.5");
-    tags_seleccionados = [];
+    let reset_opacidad = document.getElementsByClassName('tag');
+    for (let i = 0; i < reset_opacidad.length; i++) {
+        const element = reset_opacidad[i];
+        element.style.opacity = "0.5";
+    }
+    id_de_tags_seleccionados = [];
     document.getElementById('gdt').value = "";
     document.getElementById('gtt').value = "";
     document.getElementById('gmt').value = "";

@@ -138,7 +138,14 @@ section{
     transition-duration: 0.5s;
 }
 
-.tag h5{
+.solid-tag{
+    margin-right: var(--margin-default-width);
+    border-radius: 100px;
+    float:left;
+    transition-duration: 0.5s;
+}
+
+.tag h5, .solid-tag h5{
     margin:2px 5px 2px 5px;
 
     font-family: 'Inter';
