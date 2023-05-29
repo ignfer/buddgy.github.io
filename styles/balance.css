@@ -1,6 +1,6 @@
 #balance{
     width: calc(30% - 10px);
-    height: calc(25% - 30px);
+    height: calc(20% - 30px);
     float: right;
     margin: var(--margin-default-width) var(--margin-default-width) 0px 0px;
     

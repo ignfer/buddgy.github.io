@@ -75,7 +75,7 @@ h4{
     font-style: normal;
     font-weight: 600;
     text-align: center;
-    font-size: clamp(15px, 1.5vw, 25px);
+    font-size: clamp(10px, 1.5vw, 25px);
     color: var(--color-3);
     margin:0px;
     padding:0px;
@@ -144,7 +144,7 @@ section{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
-    font-size: clamp(5px, 1vw, 25px);
+    font-size: clamp(15px, 1vw, 25px);
     line-height: 23px;
 
     color: var(--color-3);
