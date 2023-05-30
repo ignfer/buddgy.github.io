@@ -13,7 +13,7 @@
 @media screen and (max-width: 900px){
     #tendencias{
         width: 100%;
-        height: 20%;
+        height: 10%;
         margin: var(--margin-default-width) 0px var(--margin-default-width) 0px;
     }
 }

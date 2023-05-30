@@ -13,7 +13,7 @@
 @media screen and (max-width: 900px){
     #grafica{
         width: 100%;
-        height: 35%;
+        height: 40%;
         margin: var(--margin-default-width) var(--margin-default-width) var(--margin-default-width) 0px;
         float:none;
     }
@@ -30,11 +30,12 @@
     margin-bottom: var(--margin-default-width);
 
     display:flex;
+    justify-content: center;
     flex-direction: row;
 }
 
 #grafica-contenido section{
-    width:calc(100% / 7);
+    width:calc(90% / 8);
     height: 100%;
     border-radius: var(--border-radius-default);
 }
@@ -59,7 +60,7 @@
     font-style: normal;
     font-weight: 600;
     text-align: center;
-    font-size: clamp(15px, 1.5vw, 25px);
+    font-size: clamp(10px, 1.3vw, 25px);
 }
 
 .barra{
@@ -135,4 +136,12 @@
 
 #grafica-col-6 > .seccion-barra > .barra{ 
     background-color: var(--tag-color-6);
+}
+
+#grafica-col-7 > .seccion-texto{
+    color: var(--tag-color-7);
+}
+
+#grafica-col-7 > .seccion-barra > .barra{ 
+    background-color: var(--tag-color-7);
 }
