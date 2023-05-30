@@ -80,6 +80,7 @@
     font-size: clamp(25px, 1.5vw, 35px);
     color:var(--color-3);
 
+    transition-duration: 0.5s;
 }
 
 #grafica-col-0 > .seccion-texto{

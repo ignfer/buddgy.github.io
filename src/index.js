@@ -137,23 +137,24 @@ function nueva_tarjeta(tipo){
     /* inserta la nueva tarjeta al principio de la lista de nodos hijo de 'lateral'*/ 
     lateral.insertBefore(nueva_tarjeta, lateral.firstChild); 
     
-    nueva_tarjeta.style.transform = "translateX(-200%)";
+    nueva_tarjeta.style.transform = 'translateX(-200%)';
     setTimeout(function actualizar(){
-        nueva_tarjeta.style.transform = "translateX(+0%)";
+        nueva_tarjeta.style.transform = 'translateX(+0%)';
     },250);
 
     if(resultado < 0){
-        alert("El balance no puede ser negativo! intente de nuevo.");
+        alert('El balance no puede ser negativo! intente de nuevo.');
     }else{
         document.getElementById('gbcjs').innerText = resultado;
     }
 
     calcular_monto(monto);
     actualizar_monto();
+    actualizar_barras();
     limpiar_campos();
 }
 
-/* @le suma a los 'tags_monto' involucrados en la transaccion, el monto que fue usado*/
+/* @le suma a los 'tags_monto' involucrados en la transaccion, el monto que fue usado */
 function calcular_monto(monto){
     id_de_tags_seleccionados.forEach(element => {
         tags_monto[element] += monto;
@@ -161,29 +162,70 @@ function calcular_monto(monto){
     console.log(tags_monto);
 }
 
-/* @actualiza uno a uno las distintas barras de gasto con su precio*/
+/* @actualiza uno a uno las distintas barras de gasto con su precio */
 function actualizar_monto(){
     const montos_a_actualizar = document.getElementsByClassName('seccion-texto');
     for (let i = 0; i < montos_a_actualizar.length; i++) {
         const element = montos_a_actualizar[i];
-        element.innerHTML = "$" + tags_monto[i];
+        element.innerHTML = '$' + tags_monto[i];
     }  
+}
+
+/* @actualiza la altura de las barras de la grafica proporcionalmente 
+
+@definir el o los valores maximos como el 90% (el 100% ocupa demasiado espacio),
+hacerle regla de tres al resto de valores para sacar su altura en porcentaje.
+
+*/
+function actualizar_barras(){
+    const barras_a_actualizar = document.getElementsByClassName('barra');
+    let alturas = [];
+    let maximo = 0;
+
+    /* busco el maximo */
+    tags_monto.forEach(element => {
+        if(element >= maximo){
+            maximo = element;
+        }
+    });
+
+    /* defino el porcentaje de cada valor relativo al maximo y asi su altura en barra*/
+    tags_monto.forEach(element => {
+        let altura_individual;
+        altura_individual = parseInt((element * 100) / maximo);
+
+        /* limito los rangos que puede representar una altura, no puede ser mayor que 90% ni menor que 1% principalmente
+        por motivos esteticos */
+        if(altura_individual > 90){
+            altura_individual = 90;
+        }else if(altura_individual < 1){
+            altura_individual = 1;
+        }
+        alturas.push(altura_individual);
+    });
+
+    console.log(alturas);
+
+    for (let i = 0; i < barras_a_actualizar.length; i++) {
+        const element = barras_a_actualizar[i];
+        element.style.height = alturas[i] + "%";
+    } 
 }
 
 function limpiar_campos(){
     let reset_opacidad = document.getElementsByClassName('tag');
     for (let i = 0; i < reset_opacidad.length; i++) {
         const element = reset_opacidad[i];
-        element.style.opacity = "0.5";
+        element.style.opacity = '0.5';
     }
     id_de_tags_seleccionados = [];
-    document.getElementById('gdt').value = "";
-    document.getElementById('gtt').value = "";
-    document.getElementById('gmt').value = "";
+    document.getElementById('gdt').value = '';
+    document.getElementById('gtt').value = '';
+    document.getElementById('gmt').value = '';
 }
 
 function estado(id){
-    let id_concatenada = "punto-" + id;
+    let id_concatenada = 'punto-' + id;
     const punto = document.getElementById(id_concatenada);
     const puntos = document.getElementsByClassName('punto-on');
 
@@ -209,9 +251,9 @@ function tendencias(){
     showSlides();
 
     function showSlides() {
-        elemento.style.transform = "translateX(-150%)";
+        elemento.style.transform = 'translateX(-150%)';
         setTimeout(function actualizar(){
-        elemento.style.transform = "translateX(+0%)";
+        elemento.style.transform = 'translateX(+0%)';
         elemento.innerHTML = contenido[i];
         },1000);
         estado(i);

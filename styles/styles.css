@@ -63,7 +63,7 @@ h3{
     font-style: normal;
     font-weight: 700;
     text-align: center;
-    font-size: clamp(35px, 4vw, 70px);
+    font-size: clamp(35px, 4vw, 55px);
     color: var(--color-3);
     margin:0px;
     padding:0px;
