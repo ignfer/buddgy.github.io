@@ -116,7 +116,9 @@ function nueva_tarjeta(tipo){
     nueva_tarjeta.append(nuevo_descr);
     nueva_tarjeta.append(nuevo_monto);
 
-    lateral.appendChild(nueva_tarjeta);
+    /* inserta la nueva tarjeta al principio de la lista de nodos hijo de 'lateral'*/ 
+    lateral.insertBefore(nueva_tarjeta, lateral.firstChild); 
+    
     nueva_tarjeta.style.transform = "translateX(-200%)";
     setTimeout(function actualizar(){
         nueva_tarjeta.style.transform = "translateX(+0%)";
