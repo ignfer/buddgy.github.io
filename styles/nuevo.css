@@ -25,11 +25,11 @@
 }
 
 #nuevo_tag{
-    height: 25%;
+    height: 35%;
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
-    align-items: center; 
+    align-items: flex-start; 
     margin-left: 20px;
     overflow: hidden;
 }
@@ -39,6 +39,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#gmt{
+    height: 10%;
 }
 
 #nuevo_enviar{

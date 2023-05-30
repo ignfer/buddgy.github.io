@@ -103,6 +103,7 @@ aside input{
     width: 100%;
     padding: var(--margin-default-width) 0px var(--margin-default-width) 0px;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .tarjeta-descr{

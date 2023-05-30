@@ -159,7 +159,6 @@ function calcular_monto(monto){
     id_de_tags_seleccionados.forEach(element => {
         tags_monto[element] += monto;
     });
-    console.log(tags_monto);
 }
 
 /* @actualiza uno a uno las distintas barras de gasto con su precio */
@@ -203,8 +202,6 @@ function actualizar_barras(){
         }
         alturas.push(altura_individual);
     });
-
-    console.log(alturas);
 
     for (let i = 0; i < barras_a_actualizar.length; i++) {
         const element = barras_a_actualizar[i];

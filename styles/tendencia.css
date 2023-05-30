@@ -35,6 +35,7 @@
     align-items: center;
 
     overflow: hidden;
+
 }
 
 #tendencias h4{
@@ -44,16 +45,16 @@
 }
 
 span{
-    width: 5px;
-    height: 5px;
+    width: 10px;
+    height: 10px;
     border-radius: 100px;
     background-color: var(--color-2);
     margin-left: 10px;
 }
 
 .punto-on{
-    width: 10px;
-    height: 10px;
+    width: 15px;
+    height: 15px;
     opacity: 1;
     transition-duration: 0.25s;
 }
