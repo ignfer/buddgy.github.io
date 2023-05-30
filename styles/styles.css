@@ -160,8 +160,7 @@ section{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
-    font-size: clamp(15px, 1vw, 25px);
-    line-height: 23px;
+    font-size: clamp(15px, 1vw, 20px);
 
     color: var(--color-3);
 }

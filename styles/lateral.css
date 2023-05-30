@@ -93,7 +93,7 @@ aside input{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
-    font-size: clamp(20px, 1vw, 40px);
+    font-size: clamp(25px, 1vw, 30px);
     line-height: 23px;
 
     color: var(--color-2);
