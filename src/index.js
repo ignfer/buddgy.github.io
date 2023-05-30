@@ -1,7 +1,23 @@
+/* 
+ /$$                      /$$$$$$                   
+|__/                     /$$__  $$                  
+ /$$  /$$$$$$  /$$$$$$$ | $$  \__//$$$$$$   /$$$$$$ 
+| $$ /$$__  $$| $$__  $$| $$$$   /$$__  $$ /$$__  $$
+| $$| $$  \ $$| $$  \ $$| $$_/  | $$$$$$$$| $$  \__/
+| $$| $$  | $$| $$  | $$| $$    | $$_____/| $$      
+| $$|  $$$$$$$| $$  | $$| $$    |  $$$$$$$| $$      
+|__/ \____  $$|__/  |__/|__/     \_______/|__/      
+     /$$  \ $$                                      
+    |  $$$$$$/                                      
+     \______/                                       
+*/
+
 /* @almacena las 'id_de_tags_seleccionados' para cada tarjeta
 @cada id corresponde con un lugar de 'tags_texto' */
 let id_de_tags_seleccionados = []; 
 let tags_texto = ['Comida','Trabajo','Ocio','Casa','Electrodomestico','Servicio','Subscripcion','Ingreso'];
+/* @el monto que hay gastado en cada uno de los tags, cada posicion se corresponde con un tag unico */
+let tags_monto = [0,0,0,0,0,0,0,0];
 
 function agregar_tag(id){
     if(!id_de_tags_seleccionados.includes(id)){
@@ -39,12 +55,14 @@ function to_github(){
 }
 
 function nueva_tarjeta(tipo){
-    /* @el parametro 'tipo' nos indica si la tarjeta pertenece a un gasto o a un ingreso ya que
+    /*
+    @el parametro 'tipo' nos indica si la tarjeta pertenece a un gasto o a un ingreso ya que
     son muy pocas las cosas que cambian en cada caso y asi evitamos repetir codigo inecesario.
 
     @si bien siempre es buena practica usar nombres de variables descriptivos, para las ids
     que se encuentran a simple vista en el documento html preferi no hacerlas tan explicitas
-    ya que me parecio mejor practica. */
+    ya que me parecio mejor practica. 
+    */
 
     let balance = parseInt(document.getElementById('gbcjs').innerText); /* 'gbcjs' = get balance con java script */
     let monto = parseInt(document.getElementsByClassName('nuevo-monto-entrada')[0].value);
@@ -124,13 +142,32 @@ function nueva_tarjeta(tipo){
         nueva_tarjeta.style.transform = "translateX(+0%)";
     },250);
 
-    if( resultado < 0){
+    if(resultado < 0){
         alert("El balance no puede ser negativo! intente de nuevo.");
     }else{
         document.getElementById('gbcjs').innerText = resultado;
     }
 
+    calcular_monto(monto);
+    actualizar_monto();
     limpiar_campos();
+}
+
+/* @le suma a los 'tags_monto' involucrados en la transaccion, el monto que fue usado*/
+function calcular_monto(monto){
+    id_de_tags_seleccionados.forEach(element => {
+        tags_monto[element] += monto;
+    });
+    console.log(tags_monto);
+}
+
+/* @actualiza uno a uno las distintas barras de gasto con su precio*/
+function actualizar_monto(){
+    const montos_a_actualizar = document.getElementsByClassName('seccion-texto');
+    for (let i = 0; i < montos_a_actualizar.length; i++) {
+        const element = montos_a_actualizar[i];
+        element.innerHTML = "$" + tags_monto[i];
+    }  
 }
 
 function limpiar_campos(){
