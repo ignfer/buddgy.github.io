@@ -18,6 +18,7 @@ let id_de_tags_seleccionados = [];
 let tags_texto = ['Comida','Trabajo','Ocio','Casa','Electrodomestico','Servicio','Subscripcion','Ingreso'];
 /* @el monto que hay gastado en cada uno de los tags, cada posicion se corresponde con un tag unico */
 let tags_monto = [0,0,0,0,0,0,0,0];
+const VALOR_MAXIMO = 999999;
 
 function agregar_tag(id){
     if(!id_de_tags_seleccionados.includes(id)){
@@ -66,6 +67,10 @@ function nueva_tarjeta(tipo){
 
     let balance = parseInt(document.getElementById('gbcjs').innerText); /* 'gbcjs' = get balance con java script */
     let monto = parseInt(document.getElementsByClassName('nuevo-monto-entrada')[0].value);
+    if(isNaN(balance) || isNaN(monto)){
+        alert('El titulo o el monto no pueden ser vacios!, intente nuevamente.');
+        return;
+    }
     if( tipo === 0){
         resultado = balance - monto;
     }else{
@@ -133,9 +138,6 @@ function nueva_tarjeta(tipo){
     nueva_tarjeta.append(nuevo_tags);
     nueva_tarjeta.append(nuevo_descr);
     nueva_tarjeta.append(nuevo_monto);
-
-    /* inserta la nueva tarjeta al principio de la lista de nodos hijo de 'lateral'*/ 
-    lateral.insertBefore(nueva_tarjeta, lateral.firstChild); 
     
     nueva_tarjeta.style.transform = 'translateX(-200%)';
     setTimeout(function actualizar(){
@@ -144,13 +146,17 @@ function nueva_tarjeta(tipo){
 
     if(resultado < 0){
         alert('El balance no puede ser negativo! intente de nuevo.');
-    }else{
+    }else if(resultado <= VALOR_MAXIMO){
+        /* inserta la nueva tarjeta al principio de la lista de nodos hijo de 'lateral'*/ 
+        lateral.insertBefore(nueva_tarjeta, lateral.firstChild); 
         document.getElementById('gbcjs').innerText = resultado;
+        calcular_monto(monto);
+        actualizar_monto();
+        actualizar_barras();
+    }else if(resultado > VALOR_MAXIMO){
+        alert('El balance no puede superar el monto de $999,999 (actualmente ;) ).');
     }
 
-    calcular_monto(monto);
-    actualizar_monto();
-    actualizar_barras();
     limpiar_campos();
 }
 
