@@ -67,6 +67,13 @@ function nueva_tarjeta(tipo){
 
     let balance = parseInt(document.getElementById('gbcjs').innerText); /* 'gbcjs' = get balance con java script */
     let monto = parseInt(document.getElementsByClassName('nuevo-monto-entrada')[0].value);
+    let empty = document.getElementById('if-empty-search');
+    
+    /* esconde el div que se muestra si no hay tarjetas aun */
+    if(empty.checkVisibility()){
+        empty.style.display = "none";
+    }
+
     if(isNaN(balance) || isNaN(monto)){
         alert('El titulo o el monto no pueden ser vacios!, intente nuevamente.');
         return;
