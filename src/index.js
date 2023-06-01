@@ -19,6 +19,7 @@ let tags_texto = ['Comida','Trabajo','Ocio','Casa','Electrodomestico','Servicio'
 /* @el monto que hay gastado en cada uno de los tags, cada posicion se corresponde con un tag unico */
 let tags_monto = [0,0,0,0,0,0,0,0];
 const VALOR_MAXIMO = 999999;
+let indice_tarjeta = 0; /* variable global que lleva la cuenta de tarjetas generadas*/
 
 function agregar_tag(id){
     if(!id_de_tags_seleccionados.includes(id)){
@@ -100,6 +101,7 @@ function nueva_tarjeta(tipo){
 
     let nueva_tarjeta = document.createElement("div");
     nueva_tarjeta.className = "nueva-tarjeta";
+    nueva_tarjeta.id = "tarjeta-" + indice_tarjeta;
 
     let nuevo_fecha = document.createElement("div");
     nuevo_fecha.className = "tarjeta-fecha";
@@ -137,6 +139,9 @@ function nueva_tarjeta(tipo){
     }else{
         nuevo_monto.innerHTML = "+$" + tarjeta_monto;
     }
+
+    let nuevo_boton_eliminar = document.createElement("button");
+    nuevo_boton_eliminar.onclick = function(){remover_tarjeta(nueva_tarjeta.id)};
     
     /* appendear datos a la nueva tarjeta y esta ultima al panel lateral */
 
@@ -145,6 +150,7 @@ function nueva_tarjeta(tipo){
     nueva_tarjeta.append(nuevo_tags);
     nueva_tarjeta.append(nuevo_descr);
     nueva_tarjeta.append(nuevo_monto);
+    nueva_tarjeta.append(nuevo_boton_eliminar);
     
     nueva_tarjeta.style.transform = 'translateX(-200%)';
     setTimeout(function actualizar(){
@@ -160,6 +166,7 @@ function nueva_tarjeta(tipo){
         calcular_monto(monto);
         actualizar_monto();
         actualizar_barras();
+        indice_tarjeta += 1;
     }else if(resultado > VALOR_MAXIMO){
         alert('El balance no puede superar el monto de $999,999 (actualmente ;) ).');
     }
@@ -276,4 +283,13 @@ function tendencias(){
     } 
 }
 
+function remover_tarjeta(id){
+    const tarjeta = document.getElementById(id);
+    tarjeta.style.transform = 'translateX(-200%)';
+    setTimeout(function actualizar(){
+        //tarjeta.style.transform = 'translateX(-0%)';
+        tarjeta.remove();
+    },250);
+    
+}
 
