@@ -140,8 +140,13 @@ function nueva_tarjeta(tipo){
         nuevo_monto.innerHTML = "+$" + tarjeta_monto;
     }
 
+    let nuevo_eliminar = document.createElement("div");
+    nuevo_eliminar.className = "tarjeta-eliminar";
+
     let nuevo_boton_eliminar = document.createElement("button");
+    nuevo_boton_eliminar.className = "boton-eliminar-tarjeta";
     nuevo_boton_eliminar.onclick = function(){remover_tarjeta(nueva_tarjeta.id)};
+    nuevo_eliminar.append(nuevo_boton_eliminar);
     
     /* appendear datos a la nueva tarjeta y esta ultima al panel lateral */
 
@@ -150,7 +155,8 @@ function nueva_tarjeta(tipo){
     nueva_tarjeta.append(nuevo_tags);
     nueva_tarjeta.append(nuevo_descr);
     nueva_tarjeta.append(nuevo_monto);
-    nueva_tarjeta.append(nuevo_boton_eliminar);
+    nueva_tarjeta.append(nuevo_eliminar);
+    
     
     nueva_tarjeta.style.transform = 'translateX(-200%)';
     setTimeout(function actualizar(){
