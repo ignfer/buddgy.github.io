@@ -75,6 +75,13 @@ function nueva_tarjeta(tipo){
         empty.style.display = "none";
     }
 
+    /* */
+    if(monto < 0){
+        alert("El monto ingresado no puede ser menor que 0!, intente nuevamente.")
+        limpiar_campos();
+        return;
+    }
+
     if(isNaN(balance) || isNaN(monto)){
         alert('El titulo o el monto no pueden ser vacios!, intente nuevamente.');
         return;
@@ -220,6 +227,10 @@ function actualizar_barras(){
         }
     });
 
+    if(maximo === 0){
+        maximo = 1;
+    }
+
     /* defino el porcentaje de cada valor relativo al maximo y asi su altura en barra*/
     tags_monto.forEach(element => {
         let altura_individual;
@@ -296,7 +307,10 @@ function tendencias(){
 }
 
 function remover_tarjeta(id){
+    limpiar_campos();
     const tarjeta = document.getElementById(id);
+    const tags_a_actualizar = [];
+    let monto;
     
     /* @recorro los hijos de la tarjeta eliminada para encontrar el monto que hay que 
     restar a las graficas y para saber a que tags pertenecen*/
@@ -304,20 +318,34 @@ function remover_tarjeta(id){
     let hijos = tarjeta.childNodes;
     for (let i = 0; i < hijos.length; i++) {
         const element = hijos[i];
+        /* una vez encontrado el div que contiene los tags, lo recorro y me guardo los ids de los 
+        tags usados*/
+        if(element.className === "tarjeta-tags"){
+            let tags = element.childNodes;
+            for (let j = 0; j < tags.length; j++) {
+                const element = tags[j];
+                id_de_tags_seleccionados.push(element.id[5]);
+            }
+        }
+        /* consigo el monto que tengo que restar */
         if(element.className === "tarjeta-monto"){
-            console.log(element.innerText[0]);
             if(element.innerText[0] === "-"){
-
-            }else if(element.innerText[0] === "+"){
-
+                monto = element.innerText;
+                monto = monto.slice(2);
+                console.log(monto);
             }
         }
     }
+
+    calcular_monto(monto,1);
+    actualizar_monto();
+    actualizar_barras();
 
     tarjeta.style.transform = 'translateX(-200%)';
     setTimeout(function actualizar(){
         tarjeta.remove();
     },250);
     
+    limpiar_campos();
 }
 
