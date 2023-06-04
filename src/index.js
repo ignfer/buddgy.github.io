@@ -332,7 +332,6 @@ function remover_tarjeta(id){
             if(element.innerText[0] === "-"){
                 monto = element.innerText;
                 monto = monto.slice(2);
-                console.log(monto);
             }
         }
     }
