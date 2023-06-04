@@ -15,7 +15,7 @@
 /* @almacena las 'id_de_tags_seleccionados' para cada tarjeta
 @cada id corresponde con un lugar de 'tags_texto' */
 let id_de_tags_seleccionados = []; 
-let tags_texto = ['Comida','Trabajo','Ocio','Casa','Electrodomestico','Servicio','Subscripcion','Ingreso'];
+let tags_texto = ['Comida','Trabajo','Ocio','Casa','Electrodomestico','Servicio','Subscripcion','Vestimenta'];
 /* @el monto que hay gastado en cada uno de los tags, cada posicion se corresponde con un tag unico */
 let tags_monto = [0,0,0,0,0,0,0,0];
 const VALOR_MAXIMO = 999999;
@@ -169,7 +169,7 @@ function nueva_tarjeta(tipo){
         /* inserta la nueva tarjeta al principio de la lista de nodos hijo de 'lateral'*/ 
         lateral.insertBefore(nueva_tarjeta, lateral.firstChild); 
         document.getElementById('gbcjs').innerText = resultado;
-        calcular_monto(monto);
+        calcular_monto(monto,tipo);
         actualizar_monto();
         actualizar_barras();
         indice_tarjeta += 1;
@@ -181,10 +181,16 @@ function nueva_tarjeta(tipo){
 }
 
 /* @le suma a los 'tags_monto' involucrados en la transaccion, el monto que fue usado */
-function calcular_monto(monto){
-    id_de_tags_seleccionados.forEach(element => {
-        tags_monto[element] += monto;
-    });
+function calcular_monto(monto,tipo){
+    if(tipo === 0){
+        id_de_tags_seleccionados.forEach(element => {
+            tags_monto[element] += monto;
+        });
+    }else if(tipo === 1){
+        id_de_tags_seleccionados.forEach(element => {
+            tags_monto[element] -= monto;
+        });
+    }
 }
 
 /* @actualiza uno a uno las distintas barras de gasto con su precio */
@@ -291,6 +297,23 @@ function tendencias(){
 
 function remover_tarjeta(id){
     const tarjeta = document.getElementById(id);
+    
+    /* @recorro los hijos de la tarjeta eliminada para encontrar el monto que hay que 
+    restar a las graficas y para saber a que tags pertenecen*/
+    
+    let hijos = tarjeta.childNodes;
+    for (let i = 0; i < hijos.length; i++) {
+        const element = hijos[i];
+        if(element.className === "tarjeta-monto"){
+            console.log(element.innerText[0]);
+            if(element.innerText[0] === "-"){
+
+            }else if(element.innerText[0] === "+"){
+
+            }
+        }
+    }
+
     tarjeta.style.transform = 'translateX(-200%)';
     setTimeout(function actualizar(){
         tarjeta.remove();

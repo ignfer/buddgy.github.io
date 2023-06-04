@@ -119,7 +119,7 @@ textarea{
 
 .nuevo_enviar_btn{
     cursor: pointer;
-    width: 50%;
+    width: 100%;
     height: 100%;
     background-color: var(--color-2);
 
@@ -145,10 +145,6 @@ textarea{
 #gasto{
     float:left;
     border-bottom-left-radius: 5px;
-}
-
-#ingreso{
-    float:right;
     border-bottom-right-radius: 5px;
 }
 
