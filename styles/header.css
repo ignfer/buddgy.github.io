@@ -10,10 +10,26 @@ header{
     /* margin: 0px var(--margin-default-width) 0px var(--margin-default-width); */
 }
 
-header img{
-    height: clamp(20px, 1.5vw + 1.3rem, 60px);
+#header-section-0{
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    padding: var(--margin-default-width) 0px 0px var(--margin-default-width);
 }
 
-#header1{
+#header-section-0 > img{
+    height: clamp(30px, 3.5vw, 50px);
     cursor: pointer;
+}
+
+#header-section-1{
+    height: var(--header-height);
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#header-section-1 > img{
+    height: clamp(40px, 4.5vw, 60px);
 }

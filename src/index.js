@@ -287,7 +287,6 @@ function remover_tarjeta(id){
     const tarjeta = document.getElementById(id);
     tarjeta.style.transform = 'translateX(-200%)';
     setTimeout(function actualizar(){
-        //tarjeta.style.transform = 'translateX(-0%)';
         tarjeta.remove();
     },250);
     

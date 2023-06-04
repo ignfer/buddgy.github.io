@@ -3,6 +3,7 @@
     height: calc(80% - 20px);
     float:left;
     margin: var(--margin-default-width);
+    padding-bottom: 10px;
     
     display: flex;
     flex-wrap: wrap;
@@ -27,8 +28,6 @@
     border-style: solid;
     border-width: var(--border-default-width);
     border-color: var(--color-4);
-
-    margin-bottom: var(--margin-default-width);
 
     display:flex;
     justify-content: center;
