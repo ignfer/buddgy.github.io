@@ -1,18 +1,29 @@
-![Alt text](https://raw.githubusercontent.com/ignfer/SinKsa/main/ignfer_2.png "ignfer logo")
-# Buddgy
+![Logo](https://raw.githubusercontent.com/ignfer/buddgy/main/img/buddgy_logo_v01.png)
 
-🇪🇸 ¿Que es Buddgy? es tu compañero para ahorrar, Buddgy que te permitira ahorrar facilmente llevando un claro registro de lo que gastaste, cuando lo gastaste y en que.
+## Objetivo: 👨‍🎓
+Buddgy es antes que nada un proyecto propio de desarrollo, dicho proyecto forma parte de mi portfolio personal y mediante este me propuse aprender y concretar conocimientos sobre el desarrollo web, sin duda fue un proyecto con el que aprendi una gran variedad de cosas con las que ahora me siento mucho mas confiado trabajando y se que me ayudan a crecer como desarrollador, entre ellas:
+- _Media queries_ con css y su uso en el diseño responsive.
+- _Clamp_ y sus usos para crear fuentes responsive.
+- _Variables_ en css para mantener un codigo mas prolijo y facil de mantener.
+- Manejo de elementos del documento mediante _JavaScript._
 
-Actualmente Buddgy abarca solo la parte front-end ya que es un proyecto personal de desarrollo, a la fecha (9 de abril de 2023) el primer acercamiento se ve de la siguiente manera 
+En caso de que encuentres algo que se podria hacer distinto o mejor no dudes en ponerte en contacto conmigo, estoy en constante aprendizaje!. Una vez aclarado el alcance y el motivo por el cual buddgy existe, continuemos a explicar que es y que funcionalidades tiene.
 
-![Alt text]( https://raw.githubusercontent.com/ignfer/buddgy/main/figma_preview00.png "primer diseño de la pagina")
+## 🇺🇾 ¿Que es Buddgy?💸
+Es tu compañero para ahorrar, Buddgy te permitira ahorrar facilmente llevando un claro registro visual mediante grafica de lo que gastaste, cuando lo gastaste y en que. Crea tarjetas a tu antojo y agregale etiquetas para poder llevar el registro de cuanto llevas gastado en esa area.
+_¿Una tarjeta no te gusta?_ no hay problema, posiciona el cursor sobre ella y eliminala, buddgy se encargara de actualizar la grafica de las etiquetas utilizadas.
 
-## Descripcion:
-  Como podemos ver la pagina llevara registro de los gastos e ingresos del usuario, generando asi tarjetas o 'cards' que veremos en la izquierda de la pantalla, ademas de poder añadir categorias personalizables tambien se espera que se pueda ver un resumen de los gastos mensuales.
+Actualmente Buddgy abarca solo la parte front-end y el stack de tecnologias que utiliza es el siguiente:
+- HTML
+- CSS
+- JavaScript
 
-## Futura implementacion:
-  Lo que se tiene hasta ahora (9/4/23) es solamente la idea, queda ponerse manos a la obra en la implementacion que tambien quedara documentada en este readme a medida que pase el tiempo.
-## Actualizacion 10/05/23:
-  Se crea lo que puede a ser un primer acercamiento a una version 'responsive' de la pagina, se hicieron variedad de cambios desde el primer boceto de la pagina pero espero que el diseño actual cumpla con mis propias expectativas.
 
-![Alt text]( https://raw.githubusercontent.com/ignfer/buddgy/main/figma_responsive_preview.png "idea de diseño responsive")
+
+diseño una vez implementado
+
+![implementacion](https://raw.githubusercontent.com/ignfer/buddgy/main/img/implementacion%201824x1026.png "implementacion de la pagina")
+
+diseño responsive
+
+![implementacion responsive](https://raw.githubusercontent.com/ignfer/buddgy/main/img/implementacion_responsive_01.png "implementacion del diseño responsive")
