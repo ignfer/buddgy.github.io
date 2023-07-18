@@ -51,6 +51,10 @@ aside input{
     align-items: center;
 }
 
+::-webkit-scrollbar{
+    display:none;
+}
+
 .nueva-tarjeta{
     width: calc(100% - 40px);
     margin: var(--margin-default-width) 0px 0px 0px;
