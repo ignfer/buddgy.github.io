@@ -4,33 +4,14 @@ header{
     background-color: var(--color-0);
 
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     overflow: hidden;
 
     /* margin: 0px var(--margin-default-width) 0px var(--margin-default-width); */
 }
 
-#header-section-0{
-    height: var(--header-height);
-    display: flex;
-    align-items: center;
-    padding: var(--margin-default-width) 0px 0px var(--margin-default-width);
-}
-
-#header-section-0 > img{
-    height: clamp(30px, 3.5vw, 50px);
-    cursor: pointer;
-}
-
-#header-section-1{
-    height: var(--header-height);
-    width: 100%;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-}
-
 #header-section-1 > img{
-    height: clamp(40px, 3.5vw, 60px);
+    margin-top: 10px;
+    cursor: pointer;
 }
