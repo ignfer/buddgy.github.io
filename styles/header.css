@@ -31,5 +31,5 @@ header{
 }
 
 #header-section-1 > img{
-    height: clamp(40px, 4.5vw, 60px);
+    height: clamp(40px, 3.5vw, 60px);
 }
