@@ -116,6 +116,7 @@ textarea{
     font-size: 28px;
 
     color: var(--color-2);
+    padding-right: 10px;
 }
 
 .nuevo_enviar_btn{

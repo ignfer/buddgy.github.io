@@ -6,6 +6,7 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    overflow: hidden;
 
     /* margin: 0px var(--margin-default-width) 0px var(--margin-default-width); */
 }
