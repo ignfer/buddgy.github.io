@@ -1,7 +1,7 @@
 ![Logo](https://raw.githubusercontent.com/ignfer/buddgy/main/img/buddgy_logo_v01.png)
 
 ## [ENG] What is Buddgy?: 👨‍🎓
-"Buddgy" is a self-developed web development project designed and created by me, a programming student looking to expand my **portfolio** and gain both knowledge and experience.
+"Buddgy" is a web development project designed and created by me, a programming student looking to expand my **portfolio** and gain both knowledge and experience.
 
 Regarding its functionality, "Buddgy" has the main objective of **helping you keep track of your economic expenses** in a simple and efficient way. With this tool, you can maintain a detailed record of your income and expenses to have better control over your personal finances.
 
