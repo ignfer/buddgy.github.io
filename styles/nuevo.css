@@ -25,7 +25,7 @@
 }
 
 #nuevo_tag{
-    height: 35%;
+    height: 30%;
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
@@ -35,7 +35,7 @@
 }
 
 #nuevo_descr{
-    height: 30%;
+    height: 35%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -57,7 +57,7 @@
 /*corresponde con la seccion nuevo_titulo*/
 input{
     width: calc(100% - 30px);
-
+    box-sizing: border-box;
     border-style: none;
     outline: none;
     background-color: var(--color-1);
@@ -65,9 +65,7 @@ input{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
-    font-size: clamp(25px, 2vw + 1rem, 40px);
-
-    line-height: 0px;
+    font-size: clamp(25px, 2vw, 40px);
 
     color: var(--color-2);
 }
@@ -97,10 +95,7 @@ textarea{
 
 /*corresponde con la seccion nuevo_monto*/
 .nuevo-monto-entrada{
-    height: 20%;
-    width: 100%;
-
-    box-sizing: border-box;
+    width: calc(100% - 10px);
     display: flex;
     justify-content: right;
     align-items: center;
@@ -133,11 +128,11 @@ textarea{
     transition-duration: 0.2s;
 }
 
-.nuevo_enviar_btn:hover{
+/* .nuevo_enviar_btn:hover{
     background-color: #d14b29;
     transform: translatey(-5px);
     transition-duration: 0.2s;
-}
+} */
 
 #gasto{
     float:left;
