@@ -12,10 +12,10 @@
         <link rel = "stylesheet" href = "styles/grafica.css">
         <link rel = "stylesheet" href = "styles/tendencia.css">
 
-        <script src = "index.js"></script> 
+        <script src = "index.js"></script>
+        <script src = "balance.js"></script> 
         
         <style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');</style>
-        <style>@import url('https://fonts.googleapis.com/css2?family=Lily+Script+One&display=swap');</style>
         
         <meta charset = "utf-8">
         <meta name = "keywords" content = "HTML, CSS, JavaScript, project, portfolio, buddget, UX Design">
@@ -132,9 +132,14 @@
                                         </div>
                 </section>
 
-                <section class="panel" id = "balance">                                
-                    <section class="panel-titulo"><h2>Balance:</h2></section>                      
-                    <h3>$</h3><h3 id = "gbcjs">37358</h3>
+                <section class="panel" id = "balance">
+                    <div id="balance-header">
+                        <div id="balance-header-tittle"><h2>Balance:</h2></div>
+                        <div id="balance-header-config" onclick="update_balance()"></div>
+                    </div>
+                    <div id="balance-main">             
+                        <h3 id = "gbcjs">37358</h3>
+                    </div>
                 </section>
     
                 <section class="panel" id="tendencias">

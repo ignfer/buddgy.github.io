@@ -123,6 +123,7 @@ textarea{
     width: 100%;
     height: 100%;
 
+    background-color: var(--color-2);
     font-size: clamp(15px, 1.5vw, 25px);
     font-family: 'Inter';
     font-style: normal;
@@ -142,24 +143,6 @@ textarea{
     float:left;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-}
-
-button{
-    cursor: pointer;
-    border-style: none;
-    background-color: var(--color-2);
-
-    font-size: clamp(20px, 2vw, 25px);
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    color: var(--color-1);
-
-    padding: 2px var(--margin-default-width) 4px var(--margin-default-width);
-
-    margin-right: 5px;
-
-    transition-duration: 0.2s;
 }
 
 /* #nuevo_tag > .tag{

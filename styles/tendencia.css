@@ -26,6 +26,8 @@
     background-color: var(--color-0);
 
     border-style: solid;
+    box-sizing: border-box;
+    padding: 10px;
     border-width: var(--border-default-width);
     border-color: var(--color-4);
 
@@ -44,16 +46,16 @@
 }
 
 span{
-    width: 10px;
-    height: 10px;
+    width: 5px;
+    height: 5px;
     border-radius: 100px;
     background-color: var(--color-2);
     margin-left: 10px;
 }
 
 .punto-on{
-    width: 15px;
-    height: 15px;
+    width: 10px;
+    height: 10px;
     opacity: 1;
     transition-duration: 0.25s;
 }

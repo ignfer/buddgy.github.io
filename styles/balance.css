@@ -3,12 +3,6 @@
     height: calc(20% - 30px);
     float: right;
     margin: var(--margin-default-width) var(--margin-default-width) 0px 0px;
-    
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    word-wrap:normal;
 }
 
 @media screen and (max-width: 900px){
@@ -19,7 +13,38 @@
     }
 }
 
-#balance h2,h3{
-    line-height: 1em;
+#balance-header{
+    width: 100%;
+    height: 30%;
+}
+
+#balance-header-tittle{
+    width: 80%;
+    height: 100%;
+    float:left;
+    margin-left: 10%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#balance-header-config{
+    width: 10%;
+    height: 100%;
+    cursor:pointer;
+    float:right;
+    background: url("../ico/settings-25px.png") no-repeat center;
+}
+
+
+#balance-main{
+    width: 100%;
+    height: 70%;
+
+    font-size: clamp(25px, 2vw, 55px);
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 
