@@ -2,35 +2,39 @@
 <html> 
     <head>
         <title> Buddgy - Ahorra con nosotros </title>
-        <link rel = "icon" type = "image/x-icon" href = "ico/favicon.png">
+        <link rel="icon" type="image/x-icon" href="ico/favicon.png">
 
-        <link rel = "stylesheet" href = "styles/styles.css">
-        <link rel = "stylesheet" href = "styles/lateral.css">
-        <link rel = "stylesheet" href = "styles/balance.css">
-        <link rel = "stylesheet" href = "styles/header.css">
-        <link rel = "stylesheet" href = "styles/nuevo.css">
-        <link rel = "stylesheet" href = "styles/grafica.css">
-        <link rel = "stylesheet" href = "styles/tendencia.css">
+        <link rel="stylesheet" href="styles/styles.css">
+        <link rel="stylesheet" href="styles/lateral.css">
+        <link rel="stylesheet" href="styles/balance.css">
+        <link rel="stylesheet" href="styles/header.css">
+        <link rel="stylesheet" href="styles/nuevo.css">
+        <link rel="stylesheet" href="styles/grafica.css">
+        <link rel="stylesheet" href="styles/tendencia.css">
+        <link rel="stylesheet" href="styles/dialog.css">
 
-        <script src = "index.js"></script>
-        <script src = "balance.js"></script> 
+        <script src="app.js/index.js"></script>
+        <script src="app.js/balance.js"></script>
         
         <style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');</style>
         
-        <meta charset = "utf-8">
-        <meta name = "keywords" content = "HTML, CSS, JavaScript, project, portfolio, buddget, UX Design">
-        <meta name = "description" content = "Desarrollo de una pagina web para ayudarte a ahorrar">
-        <meta name = "author" content = "Ignacio Fernandez">
-        <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <meta name="keywords" content="HTML, CSS, JavaScript, project, portfolio, buddget, UX Design">
+        <meta name="description" content="Desarrollo de una pagina web para ayudarte a ahorrar">
+        <meta name="author" content="Ignacio Fernandez">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
     <body onload="tendencias()">
+
         <header>
-            <div id="header-section-1"><img src="img/if_buddgy_banner.png" onclick="to_github()"></div>
+            <div id="header-logo"><img src="img/if_buddgy_banner.png" onclick="to_github()"></div>
         </header>
         
         <main id="container">
-
+            <dialog id="modal-welcome">Bienvenido!
+                <button id="btn-close-modal-welcome"></button>
+            </dialog>
             <aside class="panel" id="seccion_lateral">
                     <input type="text" placeholder="Busca un gasto o un ingreso...">
                     <div id="if-empty-search">
@@ -106,10 +110,10 @@
                         </section> 
                 </section>
     
-                <section class ="panel" id = "nuevo">
-                            <input maxlength="50" type = "text" placeholder = "Titulo..." id = "gtt">
+                <section class ="panel" id="nuevo">
+                            <input maxlength="50" type="text" placeholder="Titulo..." id="gtt">
 
-                            <div id = "nuevo_tag">
+                            <div id="nuevo_tag">
                                 <div class="tag" id="n-tag0" onclick="agregar_tag(0)"><h5>Comida<h5></div>
                                 <div class="tag" id="n-tag1" onclick="agregar_tag(1)"><h5>Trabajo<h5></div>
                                 <div class="tag" id="n-tag2" onclick="agregar_tag(2)"><h5>Ocio<h5></div>
@@ -120,29 +124,29 @@
                                 <div class="tag" id="n-tag7" onclick="agregar_tag(7)"><h5>Vestimenta<h5></div>
                             </div>
 
-                                <div id = "nuevo_descr">
-                                    <textarea maxlength = "150"  type = "text" placeholder = "Añade una descripcion corta." id = "gdt"></textarea>
+                                <div id="nuevo_descr">
+                                    <textarea maxlength="150"  type="text" placeholder="Añade una descripcion corta." id="gdt"></textarea>
                                 </div>
 
-                                    <input maxlength = "6" class = "nuevo-monto-entrada" type = "text" placeholder = "0.00" id = "gmt">                                  
+                                    <input maxlength="6" class="nuevo-monto-entrada" type="text" placeholder="0.00" id="gmt">                                  
 
-                                        <div id = "nuevo_enviar">
-                                            <button role=button class="nuevo_enviar_btn" id="gasto" onclick="nueva_tarjeta(0)">enviar</button>
+                                        <div id="nuevo_enviar">
+                                            <button class="nuevo_enviar_btn" id="gasto" onclick="nueva_tarjeta(0)">enviar</button>
                                         </div>
                 </section>
 
-                <section class="panel" id = "balance">
+                <section class="panel" id="balance">
                     <div id="balance-header">
                         <div id="balance-header-tittle"><h2>Balance:</h2></div>
                         <div id="balance-header-config" onclick="update_balance()"></div>
                     </div>
                     <div id="balance-main">             
-                        <h3 id = "gbcjs">37358</h3>
+                        <h3>$</h3><h3 id="gbcjs">37358</h3>
                     </div>
                 </section>
     
                 <section class="panel" id="tendencias">
-                            <div class = "tendencias-contenido">
+                            <div class="tendencias-contenido">
                                 <h4 class ="tendencias-mensaje"></h4>
                                 <span class="punto-off" id="punto-0"></span>
                                 <span class="punto-off" id="punto-1"></span>

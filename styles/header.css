@@ -11,7 +11,7 @@ header{
     /* margin: 0px var(--margin-default-width) 0px var(--margin-default-width); */
 }
 
-#header-section-1 > img{
+#header-logo > img{
     margin-top: 10px;
     cursor: pointer;
 }

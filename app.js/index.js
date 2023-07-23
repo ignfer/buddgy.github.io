@@ -303,7 +303,8 @@ function tendencias(){
             i = 0
         }
         setTimeout(showSlides, 4000);
-    } 
+    }
+    open_modal_welcome();
 }
 
 function remover_tarjeta(id){

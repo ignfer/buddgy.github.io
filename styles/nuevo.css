@@ -128,11 +128,11 @@ textarea{
     transition-duration: 0.2s;
 }
 
-/* .nuevo_enviar_btn:hover{
+.nuevo_enviar_btn:hover{
     background-color: #d14b29;
     transform: translatey(-5px);
     transition-duration: 0.2s;
-} */
+}
 
 #gasto{
     float:left;

@@ -19,6 +19,7 @@
 }
 
 #balance-header-tittle{
+    box-sizing: border-box;
     width: 80%;
     height: 100%;
     float:left;
@@ -26,14 +27,17 @@
     display:flex;
     justify-content: center;
     align-items: center;
+    padding-top: 10px;
 }
 
 #balance-header-config{
+    box-sizing: border-box;
     width: 10%;
     height: 100%;
     cursor:pointer;
     float:right;
     background: url("../ico/settings-25px.png") no-repeat center;
+    padding-top: 10px;
 }
 
 
