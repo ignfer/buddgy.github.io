@@ -85,25 +85,29 @@
 }
 
 .btn-card-delete{
+    float:left;
+    height: 30px;
+    width: 50px;
     opacity: 0;
+
     box-sizing: border-box;
     background-image: url("../ico/delete.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center; 
-    background-size: 20%;
+    background-size: 40%;
     
+    margin: 4px 0px 4px 0px;
+
     background-color: var(--color-2);
     border-style: solid;
     border-radius: 10px;
     border-width: var(--border-default-width);
     border-color:var(--color-1);
-    height: 70%;
-    width: 20%;
 }
 
 .card-date{
-    width: 30%;
+    width: 40%;
     float:right;
 
     text-align: right;
@@ -123,7 +127,7 @@
 }
 
 .card-tittle{
-    width: 70%;
+    width: 55%;
     float:left;
     font-family: 'Inter';
     font-style: normal;
@@ -157,15 +161,20 @@
     font-size: 20px;
     line-height: 1.2em;
 
-    padding: 5px 0px 5px 0px;
+    padding: 5px 0px 10px 0px;
 
     color: var(--color-3);
-    word-break: break-all;
+    word-break:keep-all;
+
+    border-bottom-style: solid;
+    border-width: var(--border-default-width);
+    border-color: var(--color-4);
 }
 
 .card-amount{
-    width: 100%;
+    width: 50%;
     height: 15%;
+    float:right;
 
     display: flex;
     align-items: center;
@@ -180,11 +189,6 @@
     text-align: right;
 
     color: var(--color-2);
-
-    box-sizing: border-box;
-    border-bottom:solid;
-    border-bottom-width: 2px;
-    border-color: var(--color-4);
 }
 
 .card-delete{
