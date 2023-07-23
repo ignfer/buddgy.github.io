@@ -277,7 +277,7 @@ function estado(id){
     }
 }
 
-function tendencias(){
+function start_carrousel(){
     var contenido = [
     'Usualmente tus gastos incrementan hasta un 15% los fines de semanas',
     'Sueles ahorrar 5% mas en los primeros 15 dias del mes',
