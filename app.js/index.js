@@ -68,7 +68,7 @@ function nueva_tarjeta(tipo){
 
     let balance = parseInt(document.getElementById('gbcjs').innerText); /* 'gbcjs' = get balance con java script */
     let monto = parseInt(document.getElementsByClassName('nuevo-monto-entrada')[0].value);
-    let empty = document.getElementById('if-empty-search');
+    let empty = document.getElementById('if-empty');
     
     /* esconde el div que se muestra si no hay tarjetas aun */
     if(empty.checkVisibility()){
@@ -91,7 +91,7 @@ function nueva_tarjeta(tipo){
     }else{
         resultado = balance + monto;
     }
-    let lateral = document.getElementsByClassName('lateral-contenido')[0];
+    let lateral = document.getElementsByClassName('side-bar-content')[0];
 
     /* declaracion de datos para la nueva tarjeta */
 
@@ -107,20 +107,20 @@ function nueva_tarjeta(tipo){
     /* creacion y asignacion de valores de la nueva tarjeta */
 
     let nueva_tarjeta = document.createElement("div");
-    nueva_tarjeta.className = "nueva-tarjeta";
+    nueva_tarjeta.className = "card";
     nueva_tarjeta.id = "tarjeta-" + indice_tarjeta;
 
     let nuevo_fecha = document.createElement("div");
-    nuevo_fecha.className = "tarjeta-fecha";
+    nuevo_fecha.className = "card-date";
     nuevo_fecha.innerHTML = tarjeta_dia + "/" + tarjeta_mes + "/" + tarjeta_anio; 
 
     let nuevo_titulo = document.createElement("div");
-    nuevo_titulo.className = "tarjeta-titulo";
+    nuevo_titulo.className = "card-tittle";
     nuevo_titulo.innerHTML = tarjeta_titulo;
 
     /* creacion de tags */
     let nuevo_tags = document.createElement("div");
-    nuevo_tags.className = "tarjeta-tags";
+    nuevo_tags.className = "card-tags";
     
     for (let i = 0; i < id_de_tags_seleccionados.length; i++) {
         let tag_individual = document.createElement("div");
@@ -136,11 +136,11 @@ function nueva_tarjeta(tipo){
     }
 
     let nuevo_descr = document.createElement("div");
-    nuevo_descr.className = "tarjeta-descr";
+    nuevo_descr.className = "card-descr";
     nuevo_descr.innerHTML = tarjeta_descr;
 
     let nuevo_monto = document.createElement("div");
-    nuevo_monto.className = "tarjeta-monto";
+    nuevo_monto.className = "card-amount";
     if( tipo === 0){
         nuevo_monto.innerHTML = "-$" + tarjeta_monto;
     }else{
@@ -148,10 +148,10 @@ function nueva_tarjeta(tipo){
     }
 
     let nuevo_eliminar = document.createElement("div");
-    nuevo_eliminar.className = "tarjeta-eliminar";
+    nuevo_eliminar.className = "card-delete";
 
     let nuevo_boton_eliminar = document.createElement("button");
-    nuevo_boton_eliminar.className = "boton-eliminar-tarjeta";
+    nuevo_boton_eliminar.className = "btn-card-delete";
     nuevo_boton_eliminar.onclick = function(){remover_tarjeta(nueva_tarjeta.id)};
     nuevo_eliminar.append(nuevo_boton_eliminar);
     
@@ -163,7 +163,6 @@ function nueva_tarjeta(tipo){
     nueva_tarjeta.append(nuevo_descr);
     nueva_tarjeta.append(nuevo_monto);
     nueva_tarjeta.append(nuevo_eliminar);
-    
     
     nueva_tarjeta.style.transform = 'translateX(-200%)';
     setTimeout(function actualizar(){
@@ -304,7 +303,6 @@ function tendencias(){
         }
         setTimeout(showSlides, 4000);
     }
-    open_modal_welcome();
 }
 
 function remover_tarjeta(id){
@@ -321,7 +319,7 @@ function remover_tarjeta(id){
         const element = hijos[i];
         /* una vez encontrado el div que contiene los tags, lo recorro y me guardo los ids de los 
         tags usados*/
-        if(element.className === "tarjeta-tags"){
+        if(element.className === "card-tags"){
             let tags = element.childNodes;
             for (let j = 0; j < tags.length; j++) {
                 const element = tags[j];
@@ -329,7 +327,7 @@ function remover_tarjeta(id){
             }
         }
         /* consigo el monto que tengo que restar */
-        if(element.className === "tarjeta-monto"){
+        if(element.className === "card-amount"){
             if(element.innerText[0] === "-"){
                 monto = element.innerText;
                 monto = monto.slice(2);

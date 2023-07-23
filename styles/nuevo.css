@@ -14,7 +14,7 @@
 }
 
 #gtt{
-    width: calc(100% - 20px);
+    width: calc(100% - 40px);
     height: 15%;
     display: flex;
     align-items: start;

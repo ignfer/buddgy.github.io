@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="styles/dialog.css">
 
         <script src="app.js/index.js"></script>
-        <script src="app.js/balance.js"></script>
+        <script type="module" src="app.js/balance.js"></script>
         
         <style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');</style>
         
@@ -35,13 +35,16 @@
             <dialog id="modal-welcome">Bienvenido!
                 <button id="btn-close-modal-welcome"></button>
             </dialog>
-            <aside class="panel" id="seccion_lateral">
+            <aside class="panel" id="side-bar">
                     <input type="text" placeholder="Busca un gasto o un ingreso...">
-                    <div id="if-empty-search">
-                        <h5 id="seccion-lateral-vacio">Todo esta tranquilo por aqui, prueba ingresar una nueva tarjeta!.</h5>
+
+                    <div id="if-empty">
+                        <h5>Todo esta tranquilo por aqui, prueba ingresar una nueva tarjeta!.</h5>
                         <img id="empty-search" src="ico/empty-search.png">
                     </div>
-                    <div class="lateral-contenido">
+
+                    <div class="side-bar-content">
+                        <!--The cards will be apended here!-->
                     </div>
             </aside>
 
