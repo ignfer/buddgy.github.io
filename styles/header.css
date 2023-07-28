@@ -12,7 +12,7 @@ header{
 }
 
 #header-logo > img{
-    height: clamp(30px,2.5vw,500px);
+    height: clamp(35px,2.5vw,55px);
     margin-top: 10px;
     cursor: pointer;
 }

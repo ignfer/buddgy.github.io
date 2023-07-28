@@ -12,6 +12,11 @@
      \______/                                       
 */
 
+window.addEventListener("load",start_carrousel);
+
+const header_logo = document.getElementById('header-logo');
+header_logo.addEventListener("click",to_github => window.location.href = "https://github.com/ignfer");
+
 /* @almacena las 'id_de_tags_seleccionados' para cada tarjeta
 @cada id corresponde con un lugar de 'tags_texto' */
 let id_de_tags_seleccionados = []; 
@@ -50,10 +55,6 @@ function agregar_tag(id){
         
     }
 
-}
-
-function to_github(){
-    window.location.href = "https://github.com/ignfer";
 }
 
 function nueva_tarjeta(tipo){
