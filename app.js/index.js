@@ -12,7 +12,6 @@
      \______/                                       
 */
 
-
 /* handlers start */
 window.addEventListener("load",start_carrousel);
 
@@ -153,7 +152,7 @@ function nueva_tarjeta(){
     template_individual_tag.className = 'solid-tag';
     template_individual_tag.id = 'n-tag' + key;
     template_individual_tag.innerHTML = '<h5>' + value + "</h5>";
-    template_individual_tag.setAttribute('desc',value);
+    template_individual_tag.setAttribute('data-desc',value);
     template_tags.appendChild(template_individual_tag);
   });
 
@@ -215,8 +214,6 @@ function calculate_amount(amount){
       let current_amount = tags_amount_map.get(key);
       let total_amount = current_amount += amount;
       tags_amount_map.set(key,total_amount);
-    }else{
-      tags_amount_map.set(key,amount);
     }
   });
 }
@@ -230,7 +227,7 @@ function update_amount(){
       if(tags_amount_map.has(element.dataset.tag)){
         amount = tags_amount_map.get(element.dataset.tag);
       }
-      element.innerHTML = '$' + amount;
+      element.innerText = `$ ${amount}`;
     }
 }
 
@@ -280,6 +277,8 @@ function clear_fields(){
   reset_opacity.forEach((element)=>{
     element.style.opacity = '0.5';
   });
+
+  tags_map.clear();
 
   document.querySelector('#new-card-tittle').value = '';
   document.querySelector('#new-card-desc').value = '';
@@ -333,14 +332,29 @@ function delete_card(){
   const card = document.querySelector(`#card-${this.dataset.id}`);
   const tags_to_update = [];
   let amount;
-  let tags;
-  
-  //find the tag container
-  //find each individual tag desc
-  //find the amount
-  //update the amount of each individual tag
+  let div_tags;
 
-  calculate_amount(amount,1);
+  //find the tag container
+  Array.from(card.children).forEach((element)=>{
+    if(element.className === 'card-tags'){div_tags = element}
+    //find the amount
+    if(element.className === 'card-amount'){amount = parseInt(element.innerHTML.slice(2))} //ignores the '-$ '
+  });
+
+  //find each individual tag desc
+  Array.from(div_tags.children).forEach((element)=>{
+    tags_to_update.push(element.dataset.desc);
+  });
+
+  tags_to_update.forEach((element) => {
+    let tag_name = element;
+    let tag_amount = parseInt(tags_amount_map.get(tag_name));
+    //console.log(`name: ${tag_name} amount: ${tag_amount}`);
+    tag_amount -= amount;
+    tags_amount_map.set(tag_name,tag_amount);  
+  });
+  
+  //update the amount of each individual tag
   update_amount();
   update_graphs();
 
