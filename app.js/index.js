@@ -12,6 +12,8 @@
      \______/                                       
 */
 
+
+/* handlers start */
 window.addEventListener("load",start_carrousel);
 
 const header_logo = document.getElementById('header-logo');
@@ -35,13 +37,23 @@ for (let i = 0; i < tags.length; i++) {
   element.addEventListener("click",add_tag);
 }
 
-const tags_map = new Map();
+/* handlers end*/
 
-/* @el monto que hay gastado en cada uno de los tags, cada posicion se corresponde con un tag unico */
-let tags_monto = [0,0,0,0,0,0,0,0];
+/* variable declaration start */
+const tags_map = new Map();
+const tags_amount_map = new Map();
+tags_amount_map.set("Comida",0);
+tags_amount_map.set("Trabajo",0);
+tags_amount_map.set("Ocio",0);
+tags_amount_map.set("Casa",0);
+tags_amount_map.set("Electrodomestico",0);
+tags_amount_map.set("Servicio",0);
+tags_amount_map.set("Subscripcion",0);
+tags_amount_map.set("Vestimenta",0);
 const MAX_AMOUNT = 999999;
 //let indice_tarjeta = 0; /* variable global que lleva la cuenta de tarjetas generadas*/
 
+/* variable declaration end*/
 
 /*
 * this function is added to all the tag buttons on the 'new-card' panel
@@ -79,200 +91,195 @@ function add_tag(){
 }
 
 function nueva_tarjeta(){
-    /*
-    @el parametro 'tipo' nos indica si la tarjeta pertenece a un gasto o a un ingreso ya que
-    son muy pocas las cosas que cambian en cada caso y asi evitamos repetir codigo inecesario.
+  let current_balance = parseInt(document.querySelector('#balance-total').innerText);
+  const amount = parseInt(document.querySelector('#new-card-amount').value);
+  const empty = document.querySelector('#if-empty');
+  const lateral = document.querySelector('.side-bar-content');
+  
+  /*controls start*/
 
-    @si bien siempre es buena practica usar nombres de variables descriptivos, para las ids
-    que se encuentran a simple vista en el documento html preferi no hacerlas tan explicitas
-    ya que me parecio mejor practica. 
-    */
+  /* hides the div if there is no cards availables to show*/
+  if(empty.checkVisibility()){
+    empty.style.display = "none";
+  }
 
-    let balance = parseInt(document.getElementById('gbcjs').innerText); /* 'gbcjs' = get balance con java script */
-    let monto = parseInt(document.getElementsByClassName('nuevo-monto-entrada')[0].value);
-    let empty = document.getElementById('if-empty');
-    
-    /* esconde el div que se muestra si no hay tarjetas aun */
-    if(empty.checkVisibility()){
-        empty.style.display = "none";
-    }
+  let final_result;
 
-    /* */
-    if(monto < 0){
-        alert("El monto ingresado no puede ser menor que 0!, intente nuevamente.")
-        limpiar_campos();
-        return;
-    }
+  if(amount < 0){
+    alert("El monto ingresado no puede ser menor que 0!, intente nuevamente.")
+    clear_fields();
+    return;
+  }else if(isNaN(current_balance) || isNaN(amount)){
+    alert('El titulo o el monto no pueden ser vacios!, intente nuevamente.');
+    return;
+  }else{
+    final_result = current_balance - amount;
+  }
 
-    if(isNaN(balance) || isNaN(monto)){
-        alert('El titulo o el monto no pueden ser vacios!, intente nuevamente.');
-        return;
-    }
-    
-    let resultado = balance - monto;
-    
-    let lateral = document.getElementsByClassName('side-bar-content')[0];
+  /*controls ends*/
 
-    /* declaracion de datos para la nueva tarjeta */
+  /* declaracion de datos para la nueva tarjeta */
 
-    let tarjeta_titulo = document.getElementById('gtt').value; //gtt = get titulo tarjeta
-    let tarjeta_descr = document.getElementById('gdt').value; //gtd = get descr tarjeta
-    let tarjeta_monto = document.getElementById('gmt').value; //gmt = get monto tarjeta
-    const tarjeta_date = new Date();
-    let tarjeta_dia = tarjeta_date.getDate();
-    let tarjeta_mes = tarjeta_date.getMonth();
-    tarjeta_mes += 1;
-    let tarjeta_anio = tarjeta_date.getFullYear();
+  const new_card_tittle = document.querySelector('#new-card-tittle').value;
 
-    /* creacion y asignacion de valores de la nueva tarjeta */
+  let new_card_desc = document.querySelector('#new-card-tittle').value;
 
-    let nueva_tarjeta = document.createElement("div");
-    nueva_tarjeta.className = "card";
-    nueva_tarjeta.id = "tarjeta-" + indice_tarjeta;
+  const new_card_date = new Date();
+  const new_card_day = new_card_date.getDate();
+  let new_card_month = new_card_date.getMonth();
+  new_card_month += 1;
+  const new_card_year = new_card_date.getFullYear();
 
-    let nuevo_fecha = document.createElement("div");
-    nuevo_fecha.className = "card-date";
-    nuevo_fecha.innerHTML = tarjeta_dia + "/" + tarjeta_mes + "/" + tarjeta_anio; 
+  /* creacion y asignacion de valores de la nueva tarjeta */
 
-    let nuevo_titulo = document.createElement("div");
-    nuevo_titulo.className = "card-tittle";
-    nuevo_titulo.innerHTML = tarjeta_titulo;
+  const template_card = document.createElement('div');
+  template_card.className = 'card';
+  template_card.id = 'card-' + this.dataset.index;
 
-    /* creacion de tags */
-    let nuevo_tags = document.createElement("div");
-    nuevo_tags.className = "card-tags";
-    
-    for (let i = 0; i < id_selected_tags.length; i++) {
-        let tag_individual = document.createElement("div");
-        /* 'solid-tag' hace referencia a todos aquellos tags a los que no se le cambiara
-        su opacidad una vez terminada esta operacion, permite reutilizar estilos manteniendo
-        el control individual de cada uno */
-        tag_individual.className = "solid-tag";
-        /* le asigna la id que se encuentre en la posicion i dentro del array
-        de ids seleccionadas */
-        tag_individual.id = "n-tag" + id_selected_tags[i];
-        tag_individual.innerHTML = "<h5>" + tags_texto[id_selected_tags[i]] + "</h5>";
-        nuevo_tags.appendChild(tag_individual);
-    }
+  const template_tittle = document.createElement('div');
+  template_tittle.className = 'card-tittle';
+  template_tittle.innerHTML = new_card_tittle;
 
-    let nuevo_descr = document.createElement("div");
-    nuevo_descr.className = "card-descr";
-    nuevo_descr.innerHTML = tarjeta_descr;
+  const template_date = document.createElement('div');
+  template_date.className = 'card-date';
+  template_date.innerHTML = `${new_card_day}/${new_card_month}/${new_card_year}`;
 
-    let nuevo_monto = document.createElement("div");
-    nuevo_monto.className = "card-amount";
-    
-    nuevo_monto.innerHTML = "-$" + tarjeta_monto;
-    
+  /* creacion de tags */
+  const template_tags = document.createElement('div');
+  template_tags.className = 'card-tags';
+  
+  tags_map.forEach((value,key)=>{
+    const template_individual_tag = document.createElement('div');
+    template_individual_tag.className = 'solid-tag';
+    template_individual_tag.id = 'n-tag' + key;
+    template_individual_tag.innerHTML = '<h5>' + value + "</h5>";
+    template_tags.appendChild(template_individual_tag);
+  });
 
-    let nuevo_eliminar = document.createElement("div");
-    nuevo_eliminar.className = "card-delete";
+  const template_desc = document.createElement('div');
+  template_desc.className = 'card-desc';
+  template_desc.innerHTML = new_card_desc;
 
-    let nuevo_boton_eliminar = document.createElement("button");
-    nuevo_boton_eliminar.className = "btn-card-delete";
-    nuevo_boton_eliminar.onclick = function(){remover_tarjeta(nueva_tarjeta.id)};
-    nuevo_eliminar.append(nuevo_boton_eliminar);
-    
-    /* appendear datos a la nueva tarjeta y esta ultima al panel lateral */
+  const template_amount = document.createElement('div');
+  template_amount.className = 'card-amount';
+  
+  template_amount.innerHTML = `-$ ${amount}`;
+  
 
-    nueva_tarjeta.append(nuevo_fecha);
-    nueva_tarjeta.append(nuevo_titulo);
-    nueva_tarjeta.append(nuevo_tags);
-    nueva_tarjeta.append(nuevo_descr);
-    nueva_tarjeta.append(nuevo_monto);
-    nueva_tarjeta.append(nuevo_eliminar);
-    
-    nueva_tarjeta.style.transform = 'translateX(-200%)';
-    setTimeout(function actualizar(){
-        nueva_tarjeta.style.transform = 'translateX(+0%)';
-    },250);
+  const template_delete = document.createElement('div');
+  template_delete.className = 'card-delete';
 
-    if(resultado < 0){
-        alert('El balance no puede ser negativo! intente de nuevo.');
-    }else if(resultado <= MAX_AMOUNT){
-        /* inserta la nueva tarjeta al principio de la lista de nodos hijo de 'lateral'*/ 
-        lateral.insertBefore(nueva_tarjeta, lateral.firstChild); 
-        document.getElementById('gbcjs').innerText = resultado;
-        calcular_monto(monto);
-        actualizar_monto();
-        actualizar_barras();
-        indice_tarjeta += 1;
-    }else if(resultado > MAX_AMOUNT){
-        alert('El balance no puede superar el monto de $999,999 (actualmente ;) ).');
-    }
+  const template_delete_btn = document.createElement('button');
+  template_delete_btn.className = 'btn-card-delete';
+  template_delete_btn.onclick = function(){remover_tarjeta(template_card.id)};
+  template_delete.append(template_delete_btn);
+  
+  /* appendear datos a la nueva tarjeta y esta ultima al panel lateral */
 
-    limpiar_campos();
+  template_card.append(template_date);
+  template_card.append(template_tittle);
+  template_card.append(template_tags);
+  template_card.append(template_desc);
+  template_card.append(template_amount);
+  template_card.append(template_delete);
+  
+  template_card.style.transform = 'translateX(-200%)';
+  setTimeout(function actualizar(){
+    template_card.style.transform = 'translateX(+0%)';
+  },250);
+
+  if(final_result < 0){
+    alert('El balance no puede ser negativo! intente de nuevo.');
+  }else if(final_result <= MAX_AMOUNT){
+    lateral.insertBefore(template_card, lateral.firstChild); 
+    document.getElementById('balance-total').innerText = final_result;
+    calculate_amount(amount);
+    update_amount();
+    update_graphs();
+    this.dataset.index += 1;
+  }else if(final_result > MAX_AMOUNT){
+    alert('El balance no puede superar el monto de $999,999 (actualmente ;) ).');
+  }
+
+  clear_fields();
 }
 
 /* @le suma a los 'tags_monto' involucrados en la transaccion, el monto que fue usado */
-function calcular_monto(monto){
-    id_selected_tags.forEach(element => {
-        tags_monto[element] += monto;
-    });
+function calculate_amount(amount){
+  tags_map.forEach((key)=>{
+    if(tags_amount_map.has(key)){
+      let current_amount = tags_amount_map.get(key);
+      let total_amount = current_amount += amount;
+      tags_amount_map.set(key,total_amount);
+    }else{
+      tags_amount_map.set(key,amount);
+    }
+  });
 }
 
 /* @actualiza uno a uno las distintas barras de gasto con su precio */
-function actualizar_monto(){
-    const montos_a_actualizar = document.getElementsByClassName('seccion-texto');
-    for (let i = 0; i < montos_a_actualizar.length; i++) {
-        const element = montos_a_actualizar[i];
-        element.innerHTML = '$' + tags_monto[i];
-    }  
+function update_amount(){
+  const graph_text_to_update = document.getElementsByClassName('seccion-texto');
+    for (let i = 0; i < graph_text_to_update.length; i++) {
+      const element = graph_text_to_update[i];
+      let amount;
+      if(tags_amount_map.has(element.dataset.tag)){
+        amount = tags_amount_map.get(element.dataset.tag);
+      }
+      element.innerHTML = '$' + amount;
+    }
 }
 
 /* @actualiza la altura de las barras de la grafica proporcionalmente 
 
-@definir el o los valores maximos como el 90% (el 100% ocupa demasiado espacio),
+@definir el o los valores maxs como el 90% (el 100% ocupa demasiado espacio),
 hacerle regla de tres al resto de valores para sacar su altura en porcentaje.
 
 */
-function actualizar_barras(){
-    const barras_a_actualizar = document.getElementsByClassName('barra');
-    let alturas = [];
-    let maximo = 0;
+function update_graphs(){
+  const graphs_to_update = document.getElementsByClassName('barra');
+  let heights = [];
+  let max = 0;
 
-    /* busco el maximo */
-    tags_monto.forEach(element => {
-        if(element >= maximo){
-            maximo = element;
-        }
-    });
-
-    if(maximo === 0){
-        maximo = 1;
+  /* search for the biggest amount of all the tags*/
+  tags_amount_map.forEach(value => {
+    if(value >= max){
+        max = value;
     }
+  });
 
-    /* defino el porcentaje de cada valor relativo al maximo y asi su altura en barra*/
-    tags_monto.forEach(element => {
-        let altura_individual;
-        altura_individual = parseInt((element * 100) / maximo);
+  if(max === 0){max = 1;}
 
-        /* limito los rangos que puede representar una altura, no puede ser mayor que 90% ni menor que 1% principalmente
-        por motivos esteticos */
-        if(altura_individual > 90){
-            altura_individual = 90;
-        }else if(altura_individual < 1){
-            altura_individual = 1;
-        }
-        alturas.push(altura_individual);
-    });
+  /* defino el porcentaje de cada valor relativo al max y asi su altura en barra*/
+  tags_amount_map.forEach(value => {
+    let individual_height;
+    individual_height = parseInt((value * 100) / max);
 
-    for (let i = 0; i < barras_a_actualizar.length; i++) {
-        const element = barras_a_actualizar[i];
-        element.style.height = alturas[i] + "%";
-    } 
+    /* limito los rangos que puede representar una altura, no puede ser mayor que 90% ni menor que 1% principalmente
+    por motivos esteticos */
+    if(individual_height > 90){
+        individual_height = 90;
+    }else if(individual_height < 1){
+        individual_height = 1;
+    }
+    heights.push(individual_height);
+  });
+
+  for (let i = 0; i < graphs_to_update.length; i++) {
+    const element = graphs_to_update[i];
+    element.style.height = heights[i] + "%";
+  }
 }
 
-function limpiar_campos(){
-    let reset_opacidad = document.getElementsByClassName('tag');
-    for (let i = 0; i < reset_opacidad.length; i++) {
-        const element = reset_opacidad[i];
-        element.style.opacity = '0.5';
-    }
-    id_selected_tags = [];
-    document.getElementById('gdt').value = '';
-    document.getElementById('gtt').value = '';
-    document.getElementById('gmt').value = '';
+function clear_fields(){
+  let reset_opacity = Array.from(document.getElementsByClassName('tag'));
+  reset_opacity.forEach((element)=>{
+    element.style.opacity = '0.5';
+  });
+
+  document.querySelector('#new-card-tittle').value = '';
+  document.querySelector('#new-card-desc').value = '';
+  document.querySelector('#new-card-amount').value = '';
 }
 
 function estado(id){
@@ -318,7 +325,7 @@ function start_carrousel(){
 }
 
 function remover_tarjeta(id){
-    limpiar_campos();
+    clear_fields();
     const tarjeta = document.getElementById(id);
     const tags_a_actualizar = [];
     let monto;
@@ -347,15 +354,15 @@ function remover_tarjeta(id){
         }
     }
 
-    calcular_monto(monto,1);
-    actualizar_monto();
-    actualizar_barras();
+    calculate_amount(monto,1);
+    update_amount();
+    update_graphs();
 
     tarjeta.style.transform = 'translateX(-200%)';
     setTimeout(function actualizar(){
         tarjeta.remove();
     },250);
     
-    limpiar_campos();
+    clear_fields();
 }
 

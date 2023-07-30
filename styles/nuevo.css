@@ -1,4 +1,4 @@
-#nuevo{
+#new-card{
     width: calc(30% - 10px);
     height: 60%;
     float:right;
@@ -6,14 +6,14 @@
 }
 
 @media screen and (max-width: 900px){
-    #nuevo{
+    #new-card{
         width: 100%;
         height: 35%;
         margin: 0px 0px 0px var(--margin-default-width);
     }
 }
 
-#gtt{
+#new-card-tittle{
     width: calc(100% - 40px);
     height: 15%;
     display: flex;
@@ -39,10 +39,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-#gmt{
-    height: 10%;
 }
 
 #nuevo_enviar{
@@ -94,7 +90,8 @@ textarea{
 }
 
 /*corresponde con la seccion nuevo_monto*/
-.nuevo-monto-entrada{
+.new-card-amount{
+    height: 10%;
     width: calc(100% - 10px);
     display: flex;
     justify-content: right;

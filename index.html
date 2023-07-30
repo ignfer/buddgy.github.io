@@ -13,8 +13,8 @@
         <link rel="stylesheet" href="styles/tendencia.css">
         <link rel="stylesheet" href="styles/dialog.css">
 
-        <script defer type="module" src="app.js/index.js"></script>
-        <script type="module" src="app.js/balance.js"></script>
+        <script defer src="app.js/index.js"></script>
+
         
         <style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');</style>
         
@@ -58,63 +58,63 @@
                                 <div class="seccion-barra">
                                     <div class="barra"></div>
                                 </div>
-                                <div class="seccion-texto">$0</div>
+                                <div class="seccion-texto" data-tag="Comida">$0</div>
                             </section>
 
                             <section id="grafica-col-1">
                                 <div class="seccion-barra">
                                     <div class="barra"></div>
                                 </div>
-                                <div class="seccion-texto">$0</div>
+                                <div class="seccion-texto" data-tag="Trabajo">$0</div>
                             </section>
 
                             <section id="grafica-col-2">
                                 <div class="seccion-barra">
                                     <div class="barra"></div>
                                 </div>
-                                <div class="seccion-texto">$0</div>
+                                <div class="seccion-texto" data-tag="Ocio">$0</div>
                             </section>
 
                             <section id="grafica-col-3">
                                 <div class="seccion-barra">
                                     <div class="barra"></div>
                                 </div>
-                                <div class="seccion-texto">$0</div>
+                                <div class="seccion-texto" data-tag="Casa">$0</div>
                             </section>
 
                             <section id="grafica-col-4">
                                 <div class="seccion-barra">
                                     <div class="barra"></div>
                                 </div>
-                                <div class="seccion-texto">$0</div>
+                                <div class="seccion-texto" data-tag="Electrodomestico">$0</div>
                             </section>
 
                             <section id="grafica-col-5">
                                 <div class="seccion-barra">
                                     <div class="barra"></div>
                                 </div>
-                                <div class="seccion-texto">$0</div>
+                                <div class="seccion-texto" data-tag="Servicio">$0</div>
                             </section>
 
                             <section id="grafica-col-6">
                                 <div class="seccion-barra">
                                     <div class="barra"></div>
                                 </div>
-                                <div class="seccion-texto">$0</div>
+                                <div class="seccion-texto" data-tag="Subscripcion">$0</div>
                             </section>
 
                             <section id="grafica-col-7">
                                 <div class="seccion-barra">
                                     <div class="barra"></div>
                                 </div>
-                                <div class="seccion-texto">$0</div>
+                                <div class="seccion-texto" data-tag="Vestimenta">$0</div>
                             </section>
 
                         </section> 
                 </section>
     
-                <section class ="panel" id="nuevo">
-                            <input maxlength="50" type="text" placeholder="Titulo..." id="gtt">
+                <section class ="panel" id="new-card">
+                            <input maxlength="50" type="text" placeholder="Titulo..." id="new-card-tittle">
 
                             <div id="nuevo_tag">
                                 <div class="tag" id="n-tag0" data-index="0" data-desc="Comida"><h5>Comida<h5></div>
@@ -128,10 +128,10 @@
                             </div>
 
                                 <div id="nuevo_descr">
-                                    <textarea maxlength="150"  type="text" placeholder="Añade una descripcion corta." id="gdt"></textarea>
+                                    <textarea maxlength="150"  type="text" placeholder="Añade una descripcion corta." id="new-card-desc"></textarea>
                                 </div>
 
-                                    <input maxlength="6" class="nuevo-monto-entrada" type="text" placeholder="0.00" id="gmt">                                  
+                                    <input maxlength="6" class="new-card-amount" type="text" placeholder="0.00" id="new-card-amount">                                  
 
                                         <div id="nuevo_enviar">
                                             <button class="new-card-send" data-index="0" id="gasto">enviar</button>
@@ -144,7 +144,7 @@
                         <div id="balance-header-config"></div>
                     </div>
                     <div id="balance-main">             
-                        <h3>$</h3><h3 id="gbcjs">37358</h3>
+                        <h3>$</h3><h3 id="balance-total">37358</h3>
                     </div>
                 </section>
     
