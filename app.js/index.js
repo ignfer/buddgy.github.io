@@ -153,6 +153,7 @@ function nueva_tarjeta(){
     template_individual_tag.className = 'solid-tag';
     template_individual_tag.id = 'n-tag' + key;
     template_individual_tag.innerHTML = '<h5>' + value + "</h5>";
+    template_individual_tag.setAttribute('desc',value);
     template_tags.appendChild(template_individual_tag);
   });
 
@@ -171,7 +172,8 @@ function nueva_tarjeta(){
 
   const template_delete_btn = document.createElement('button');
   template_delete_btn.className = 'btn-card-delete';
-  template_delete_btn.onclick = function(){remover_tarjeta(template_card.id)};
+  template_delete_btn.addEventListener("click",delete_card);
+  template_delete_btn.setAttribute('data-id',this.dataset.index);
   template_delete.append(template_delete_btn);
   
   /* appendear datos a la nueva tarjeta y esta ultima al panel lateral */
@@ -196,7 +198,9 @@ function nueva_tarjeta(){
     calculate_amount(amount);
     update_amount();
     update_graphs();
-    this.dataset.index += 1;
+    let int_index = parseInt(this.dataset.index);
+    int_index += 1;
+    this.dataset.index = int_index; 
   }else if(final_result > MAX_AMOUNT){
     alert('El balance no puede superar el monto de $999,999 (actualmente ;) ).');
   }
@@ -324,45 +328,27 @@ function start_carrousel(){
     }
 }
 
-function remover_tarjeta(id){
-    clear_fields();
-    const tarjeta = document.getElementById(id);
-    const tags_a_actualizar = [];
-    let monto;
-    
-    /* @recorro los hijos de la tarjeta eliminada para encontrar el monto que hay que 
-    restar a las graficas y para saber a que tags pertenecen*/
-    
-    let hijos = tarjeta.childNodes;
-    for (let i = 0; i < hijos.length; i++) {
-        const element = hijos[i];
-        /* una vez encontrado el div que contiene los tags, lo recorro y me guardo los ids de los 
-        tags usados*/
-        if(element.className === "card-tags"){
-            let tags = element.childNodes;
-            for (let j = 0; j < tags.length; j++) {
-                const element = tags[j];
-                id_selected_tags.push(element.id[5]);
-            }
-        }
-        /* consigo el monto que tengo que restar */
-        if(element.className === "card-amount"){
-            if(element.innerText[0] === "-"){
-                monto = element.innerText;
-                monto = monto.slice(2);
-            }
-        }
-    }
+function delete_card(){
+  clear_fields();
+  const card = document.querySelector(`#card-${this.dataset.id}`);
+  const tags_to_update = [];
+  let amount;
+  let tags;
+  
+  //find the tag container
+  //find each individual tag desc
+  //find the amount
+  //update the amount of each individual tag
 
-    calculate_amount(monto,1);
-    update_amount();
-    update_graphs();
+  calculate_amount(amount,1);
+  update_amount();
+  update_graphs();
 
-    tarjeta.style.transform = 'translateX(-200%)';
-    setTimeout(function actualizar(){
-        tarjeta.remove();
-    },250);
-    
-    clear_fields();
+  card.style.transform = 'translateX(-200%)';
+  setTimeout(function actualizar(){
+      card.remove();
+  },250);
+  
+  clear_fields();
 }
 
