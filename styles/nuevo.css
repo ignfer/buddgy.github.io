@@ -114,7 +114,7 @@ textarea{
     padding-right: 10px;
 }
 
-.nuevo_enviar_btn{
+.new-card-send{
     width: 100%;
     height: 100%;
 
@@ -128,7 +128,7 @@ textarea{
     transition-duration: 0.2s;
 }
 
-.nuevo_enviar_btn:hover{
+.new-card-send:hover{
     background-color: #d14b29;
     transform: translatey(-5px);
     transition-duration: 0.2s;

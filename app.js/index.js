@@ -17,47 +17,68 @@ window.addEventListener("load",start_carrousel);
 const header_logo = document.getElementById('header-logo');
 header_logo.addEventListener("click",to_github => window.location.href = "https://github.com/ignfer");
 
-/* @almacena las 'id_de_tags_seleccionados' para cada tarjeta
-@cada id corresponde con un lugar de 'tags_texto' */
-let id_de_tags_seleccionados = []; 
-let tags_texto = ['Comida','Trabajo','Ocio','Casa','Electrodomestico','Servicio','Subscripcion','Vestimenta'];
-/* @el monto que hay gastado en cada uno de los tags, cada posicion se corresponde con un tag unico */
-let tags_monto = [0,0,0,0,0,0,0,0];
-const VALOR_MAXIMO = 999999;
-let indice_tarjeta = 0; /* variable global que lleva la cuenta de tarjetas generadas*/
+const balance_cfg = document.getElementById('balance-header-config');
+balance_cfg.addEventListener("click",balance_modal);
 
-function agregar_tag(id){
-    if(!id_de_tags_seleccionados.includes(id)){
-        /*agrega el valor 'id' a la lista de 'id_de_tags_seleccionados' */
-        id_de_tags_seleccionados.push(id);
-        /*obtiene todos los tags que pertenecen al panel 'nuevo' y omite los
-        tags que pueden estar por ejemplo en el panel lateral */
-        let tags_nuevo = document.getElementsByClassName('tag');
-        for (let i = 0; i < tags_nuevo.length; i++) {
-            const element = tags_nuevo[i];
-            if(element.id === 'n-tag' + id){
-                element.style.opacity = '1';
-            }
-        }
-    }else{
-        /*remueve el valor 'id' de la lista de 'id_de_tags_seleccionados' */
-        id_de_tags_seleccionados.splice(id_de_tags_seleccionados.indexOf(id),1);
-
-        /*obtiene todos los tags que pertenecen al panel 'nuevo' y omite los
-        tags que pueden estar por ejemplo en el panel lateral */
-        let tags_nuevo = document.getElementsByClassName('tag');
-        for (let i = 0; i < tags_nuevo.length; i++) {
-            const element = tags_nuevo[i];
-            if(element.id === 'n-tag' + id){
-                element.style.opacity = '0.5';
-            }
-        }
-        
-    }
-
+function balance_modal(){
+  console.log("hola-balance");
+  saludar("pepe");
 }
 
-function nueva_tarjeta(tipo){
+const new_card_send = document.getElementById("gasto");
+new_card_send.addEventListener("click",nueva_tarjeta);
+
+const tags = document.getElementsByClassName("tag");
+
+for (let i = 0; i < tags.length; i++) {
+  const element = tags[i];
+  element.addEventListener("click",add_tag);
+}
+
+const tags_map = new Map();
+
+/* @el monto que hay gastado en cada uno de los tags, cada posicion se corresponde con un tag unico */
+let tags_monto = [0,0,0,0,0,0,0,0];
+const MAX_AMOUNT = 999999;
+//let indice_tarjeta = 0; /* variable global que lleva la cuenta de tarjetas generadas*/
+
+
+/*
+* this function is added to all the tag buttons on the 'new-card' panel
+* when a tag is clicked it'll be highlighted and added to the 'tags_map'
+* if the tag clicked was already highlighted, then it's removed from the 
+* 'tags_map' and its opacity will be diminshed
+* 
+* also there is a little filter in wich only the 'n-tags' or the tags 
+* which belong to the 'new-card' panel are afected, the tags on the side-panel
+* are ignored
+*/
+function add_tag(){
+  const index = this.dataset.index;
+  const desc = this.dataset.desc;
+
+  if(!tags_map.has(index)){
+    tags_map.set(index,desc);
+    const highlighted_tags = Array.from(document.getElementsByClassName('tag'));
+    
+    highlighted_tags.forEach((element)=>{
+        if(element.id === 'n-tag' + index){
+            element.style.opacity = '1';
+        }
+    });
+  }else{
+    tags_map.delete(index);
+    const highlighted_tags = Array.from(document.getElementsByClassName('tag'));
+    
+    highlighted_tags.forEach((element)=>{
+        if(element.id === 'n-tag' + index){
+            element.style.opacity = '0.5';
+        }
+    });     
+  }
+}
+
+function nueva_tarjeta(){
     /*
     @el parametro 'tipo' nos indica si la tarjeta pertenece a un gasto o a un ingreso ya que
     son muy pocas las cosas que cambian en cada caso y asi evitamos repetir codigo inecesario.
@@ -87,11 +108,9 @@ function nueva_tarjeta(tipo){
         alert('El titulo o el monto no pueden ser vacios!, intente nuevamente.');
         return;
     }
-    if( tipo === 0){
-        resultado = balance - monto;
-    }else{
-        resultado = balance + monto;
-    }
+    
+    let resultado = balance - monto;
+    
     let lateral = document.getElementsByClassName('side-bar-content')[0];
 
     /* declaracion de datos para la nueva tarjeta */
@@ -123,7 +142,7 @@ function nueva_tarjeta(tipo){
     let nuevo_tags = document.createElement("div");
     nuevo_tags.className = "card-tags";
     
-    for (let i = 0; i < id_de_tags_seleccionados.length; i++) {
+    for (let i = 0; i < id_selected_tags.length; i++) {
         let tag_individual = document.createElement("div");
         /* 'solid-tag' hace referencia a todos aquellos tags a los que no se le cambiara
         su opacidad una vez terminada esta operacion, permite reutilizar estilos manteniendo
@@ -131,8 +150,8 @@ function nueva_tarjeta(tipo){
         tag_individual.className = "solid-tag";
         /* le asigna la id que se encuentre en la posicion i dentro del array
         de ids seleccionadas */
-        tag_individual.id = "n-tag" + id_de_tags_seleccionados[i];
-        tag_individual.innerHTML = "<h5>" + tags_texto[id_de_tags_seleccionados[i]] + "</h5>";
+        tag_individual.id = "n-tag" + id_selected_tags[i];
+        tag_individual.innerHTML = "<h5>" + tags_texto[id_selected_tags[i]] + "</h5>";
         nuevo_tags.appendChild(tag_individual);
     }
 
@@ -142,11 +161,9 @@ function nueva_tarjeta(tipo){
 
     let nuevo_monto = document.createElement("div");
     nuevo_monto.className = "card-amount";
-    if( tipo === 0){
-        nuevo_monto.innerHTML = "-$" + tarjeta_monto;
-    }else{
-        nuevo_monto.innerHTML = "+$" + tarjeta_monto;
-    }
+    
+    nuevo_monto.innerHTML = "-$" + tarjeta_monto;
+    
 
     let nuevo_eliminar = document.createElement("div");
     nuevo_eliminar.className = "card-delete";
@@ -172,15 +189,15 @@ function nueva_tarjeta(tipo){
 
     if(resultado < 0){
         alert('El balance no puede ser negativo! intente de nuevo.');
-    }else if(resultado <= VALOR_MAXIMO){
+    }else if(resultado <= MAX_AMOUNT){
         /* inserta la nueva tarjeta al principio de la lista de nodos hijo de 'lateral'*/ 
         lateral.insertBefore(nueva_tarjeta, lateral.firstChild); 
         document.getElementById('gbcjs').innerText = resultado;
-        calcular_monto(monto,tipo);
+        calcular_monto(monto);
         actualizar_monto();
         actualizar_barras();
         indice_tarjeta += 1;
-    }else if(resultado > VALOR_MAXIMO){
+    }else if(resultado > MAX_AMOUNT){
         alert('El balance no puede superar el monto de $999,999 (actualmente ;) ).');
     }
 
@@ -188,16 +205,10 @@ function nueva_tarjeta(tipo){
 }
 
 /* @le suma a los 'tags_monto' involucrados en la transaccion, el monto que fue usado */
-function calcular_monto(monto,tipo){
-    if(tipo === 0){
-        id_de_tags_seleccionados.forEach(element => {
-            tags_monto[element] += monto;
-        });
-    }else if(tipo === 1){
-        id_de_tags_seleccionados.forEach(element => {
-            tags_monto[element] -= monto;
-        });
-    }
+function calcular_monto(monto){
+    id_selected_tags.forEach(element => {
+        tags_monto[element] += monto;
+    });
 }
 
 /* @actualiza uno a uno las distintas barras de gasto con su precio */
@@ -258,7 +269,7 @@ function limpiar_campos(){
         const element = reset_opacidad[i];
         element.style.opacity = '0.5';
     }
-    id_de_tags_seleccionados = [];
+    id_selected_tags = [];
     document.getElementById('gdt').value = '';
     document.getElementById('gtt').value = '';
     document.getElementById('gmt').value = '';
@@ -324,7 +335,7 @@ function remover_tarjeta(id){
             let tags = element.childNodes;
             for (let j = 0; j < tags.length; j++) {
                 const element = tags[j];
-                id_de_tags_seleccionados.push(element.id[5]);
+                id_selected_tags.push(element.id[5]);
             }
         }
         /* consigo el monto que tengo que restar */
