@@ -1,7 +1,11 @@
 :root{
+    --min-width-responsive:500px;
     --margin-default-width:10px;
-    --border-default-width:2px;
-    --border-radius-default:5px;
+    --border-default-width:1px;
+    --border-radius-default:15px;
+    --default-half-padding:5px;
+    --default-padding:10px;
+    --default-double-width:20px;
     --header-height:60px;
     --color-0:#080E07;
     --color-1:#191C18;
@@ -18,6 +22,11 @@
     --tag-color-6:#820B8A;
     --tag-color-7:#26408B;
 }
+
+::-webkit-scrollbar{
+    display:none;
+}
+
 html,body{
     height: 100%;
     margin:0px; padding: 0px;
@@ -43,7 +52,6 @@ main{
     max-height: 1500px; /*permite que el main quede pegado al header cuando se hace zoom-out*/
     
     max-width: 2000px; /*limita el tamaño maximo horizontal*/
-
 }
 
 button{
@@ -57,8 +65,6 @@ button{
     color: var(--color-1);
 
     padding: 2px var(--margin-default-width) 4px var(--margin-default-width);
-
-    margin-right: 5px;
 
     transition-duration: 0.2s;
 }
@@ -105,8 +111,10 @@ section{
 }
 
 #seccion_contenido{
-    width: calc(75% - var(--margin-default-width));
+    width: calc(75% - 30px);
+    height: calc(100% - 20px);
     float: right;
+    margin:var(--margin-default-width);
 }
 
 /*estilos de cartas o paneles*/
@@ -130,7 +138,7 @@ section{
     background-color: var(--color-1);
 }
 
-@media screen and (max-width: 900px){
+@media screen and (max-width: 500px){
     main{
         width: 900px;
         height: 1920px;
@@ -144,7 +152,7 @@ section{
 }
 
 .tag{
-    margin: 6px 2px 0px 2px;
+    margin: 10px 10px 0px 0px;
     border-radius: 100px;
     float:left;
     cursor: pointer;
@@ -158,7 +166,7 @@ section{
 }
 
 .solid-tag{
-    margin: 6px 2px 0px 0px;
+    margin: 10px 10px 0px 0px;
     border-radius: 100px;
     float:left;
     transition-duration: 0.5s;

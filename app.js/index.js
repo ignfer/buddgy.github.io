@@ -97,11 +97,6 @@ function nueva_tarjeta(){
   
   /*controls start*/
 
-  /* hides the div if there is no cards availables to show*/
-  if(empty.checkVisibility()){
-    empty.style.display = "none";
-  }
-
   let final_result;
 
   if(amount < 0){
@@ -113,6 +108,11 @@ function nueva_tarjeta(){
     return;
   }else{
     final_result = current_balance - amount;
+  }
+
+   /* hides the div if there is no cards availables to show*/
+   if(empty.checkVisibility()){
+    empty.style.display = "none";
   }
 
   /*controls ends*/

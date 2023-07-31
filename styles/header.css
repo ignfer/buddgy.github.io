@@ -7,8 +7,6 @@ header{
     justify-content: center;
     align-items: center;
     overflow: hidden;
-
-    /* margin: 0px var(--margin-default-width) 0px var(--margin-default-width); */
 }
 
 #header-logo > img{
