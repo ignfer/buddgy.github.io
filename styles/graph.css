@@ -81,10 +81,6 @@
     font-size: clamp(25px, 1.5vw, 35px);
     color:var(--color-3);
 
-    border-style: solid;
-    border-width: 2px;
-    border-color: rgba(34, 34, 34, 0.528);
-
     transition-duration: 0.5s;
 }
 
@@ -93,7 +89,7 @@
 }
 
 #grafica-col-0 > .seccion-barra > .barra{
-    background-color: var(--tag-color-0);
+    background:linear-gradient(to top,var(--tag-color-0), var(--color-4));
 }
 
 #grafica-col-1 > .seccion-texto{
@@ -102,6 +98,7 @@
 
 #grafica-col-1 > .seccion-barra > .barra{ 
     background-color: var(--tag-color-1);
+    background:linear-gradient(to top,var(--tag-color-1), var(--color-4));
 }
 
 #grafica-col-2 > .seccion-texto{
@@ -110,6 +107,7 @@
 
 #grafica-col-2 > .seccion-barra > .barra{ 
     background-color: var(--tag-color-2);
+    background:linear-gradient(to top,var(--tag-color-2), var(--color-4));
 }
 
 #grafica-col-3 > .seccion-texto{
@@ -118,6 +116,7 @@
 
 #grafica-col-3 > .seccion-barra > .barra{ 
     background-color: var(--tag-color-3);
+    background:linear-gradient(to top,var(--tag-color-3), var(--color-4));
 }
 
 #grafica-col-4 > .seccion-texto{
@@ -126,6 +125,7 @@
 
 #grafica-col-4 > .seccion-barra > .barra{ 
     background-color: var(--tag-color-4);
+    background:linear-gradient(to top,var(--tag-color-4), var(--color-4));
 }
 
 #grafica-col-5 > .seccion-texto{
@@ -134,6 +134,7 @@
 
 #grafica-col-5 > .seccion-barra > .barra{ 
     background-color: var(--tag-color-5);
+    background:linear-gradient(to top,var(--tag-color-5), var(--color-4));
 }
 
 #grafica-col-6 > .seccion-texto{
@@ -142,6 +143,7 @@
 
 #grafica-col-6 > .seccion-barra > .barra{ 
     background-color: var(--tag-color-6);
+    background:linear-gradient(to top,var(--tag-color-6), var(--color-4));
 }
 
 #grafica-col-7 > .seccion-texto{
@@ -150,4 +152,5 @@
 
 #grafica-col-7 > .seccion-barra > .barra{ 
     background-color: var(--tag-color-7);
+    background:linear-gradient(to top,var(--tag-color-7), var(--color-4));
 }
