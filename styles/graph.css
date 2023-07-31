@@ -1,6 +1,6 @@
 #grafica{
     width: calc(70% - 10px);
-    height: calc(80% - 10px);
+    height: calc(85% - 10px);
     float:left;
     
     display: flex;

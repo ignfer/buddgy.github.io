@@ -1,6 +1,6 @@
 #new-card{
     width: calc(30%);
-    height: calc(60% - 10px);
+    height: calc(65% - 10px);
     float:right;
     min-height: 300px;
     margin-bottom: 10px;
@@ -41,41 +41,35 @@ input{
 }
 
 #new-card-tag{
-    height: calc(30% - 20px);
+    cursor:ns-resize;
+    height: 30%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: left;
     align-items:center;
-    overflow: scroll;
+    overflow-y: scroll;
 
-    scrollbar-width: none;
+    scrollbar-width:none;
     
     border-top-style: solid;
     border-bottom-style: solid;
     border-width: 1px;
     border-color:var(--color-4);
-    padding-left:10px;
+    padding-left:20px;
 }
 
 #nuevo_descr{
-    height: 35%;
+    height: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
+    
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-color: var(--color-4);
 }
 
-#nuevo_enviar{
-    width: 100%;
-    height:10%;
-
-    background-color: var(--color-1);
-
-    border-radius: 0px 0px var(--border-radius-default) var(--border-radius-default);
-}
-
-
-/*corresponde con la seccion nuevo_descr*/
 textarea{
     width: calc(100% - 30px);
     height: 90%;
@@ -98,9 +92,8 @@ textarea{
     word-wrap:normal;
 }
 
-/*corresponde con la seccion nuevo_monto*/
 .new-card-amount{
-    height: 10%;
+    height: 15%;
     width: calc(100% - 10px);
     display: flex;
     justify-content: right;
@@ -118,6 +111,15 @@ textarea{
 
     color: var(--color-2);
     padding-right: 10px;
+}
+
+#nuevo_enviar{
+    width: 100%;
+    height:10%;
+
+    background-color: var(--color-1);
+
+    border-radius: 0px 0px var(--border-radius-default) var(--border-radius-default);
 }
 
 .new-card-send{
