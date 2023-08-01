@@ -6,7 +6,7 @@
     --default-half-padding:5px;
     --default-padding:10px;
     --default-double-width:20px;
-    --header-height:60px;
+    --header-height:80px;
     --color-0:#080E07;
     --color-1:#191C18;
     --color-2:#D3350D;
@@ -105,11 +105,6 @@ h4{
 }
 
 /*estilos de secciones*/
-
-section{
-    height: 100%;
-    background-color: var(--color-0);
-}
 
 #seccion_contenido{
     width: calc(75% - 30px);
@@ -219,4 +214,12 @@ section{
 
 #n-tag7{
     background-color: var(--tag-color-7);
+}
+
+.default-ico{
+    transition: all 0.2s ease;
+}
+
+.default-ico:hover{
+    transform: scale(1.2) rotate(10deg);
 }

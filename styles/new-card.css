@@ -133,13 +133,12 @@ textarea{
     font-weight: 600;
     color: var(--color-1);
 
-    transition-duration: 0.2s;
+    transition:all 0.2s ease;
 }
 
 .new-card-send:hover{
     background-color: #d14b29;
     transform: translatey(-5px);
-    transition-duration: 0.2s;
 }
 
 #gasto{

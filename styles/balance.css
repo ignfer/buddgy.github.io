@@ -38,7 +38,14 @@
     height: 100%;
     cursor:pointer;
     float:right;
-    background: url("../ico/settings-25px.png") no-repeat center;
+
+    fill:var(--color-5);
+}
+
+#balance-header-config>svg{
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 
 

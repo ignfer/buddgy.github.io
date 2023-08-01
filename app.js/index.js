@@ -15,8 +15,11 @@
 /* handlers start */
 window.addEventListener("load",start_carrousel);
 
-const header_logo = document.getElementById('header-logo');
-header_logo.addEventListener("click",to_github => window.location.href = "https://github.com/ignfer");
+const github_icon = document.querySelector('#social-git-hub');
+github_icon.addEventListener("click",to_github => window.location.href = "https://github.com/ignfer");
+
+const linkedin_icon = document.querySelector('#social-linkedin');
+linkedin_icon.addEventListener("click",to_linkedin => window.location.href = "https://www.linkedin.com/in/ignaciofernández");
 
 const balance_cfg = document.getElementById('balance-header-config');
 balance_cfg.addEventListener("click",balance_modal);
