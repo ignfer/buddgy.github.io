@@ -21,12 +21,19 @@ github_icon.addEventListener("click",to_github => window.location.href = "https:
 const linkedin_icon = document.querySelector('#social-linkedin');
 linkedin_icon.addEventListener("click",to_linkedin => window.location.href = "https://www.linkedin.com/in/ignaciofernández");
 
-const balance_cfg = document.getElementById('balance-header-config');
-balance_cfg.addEventListener("click",balance_modal);
+/* handlers for the welcome-modal start*/
+const info_icon = document.querySelector('#info');
+const info_modal = document.querySelector('#modal-welcome');
+const info_modal_close = document.querySelector('#modal-welcome-close');
 
-function balance_modal(){
-  console.log("hola-balance");
-}
+info_icon.addEventListener("click",() =>{
+  info_modal.showModal();
+});
+
+info_modal_close.addEventListener("click",() =>{
+  info_modal.close();
+});
+/* handlers for the welcome-modal end*/
 
 const new_card_send = document.getElementById("gasto");
 new_card_send.addEventListener("click",nueva_tarjeta);
