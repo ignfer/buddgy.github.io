@@ -7,7 +7,7 @@
     overflow:hidden;
 }
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 600px){
     #side-bar{
         width: calc(100% - 20px);
         height: 30%;
@@ -193,8 +193,13 @@
 }
 
 #if-empty{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    margin-top: 50%;
+
+    margin-top: 50px;
     padding: 0px 20px 0px 20px;
 
     font-family: 'Inter';

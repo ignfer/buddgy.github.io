@@ -11,7 +11,7 @@
     min-height: 400px;
 }
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 600px){
     #grafica{
         width: 100%;
         height: 40%;
@@ -33,6 +33,10 @@
     justify-content: center;
     flex-direction: row;
     margin-bottom:10px;
+    background-image: radial-gradient(
+    var(--color-4) 10%,transparent 5%);
+    background-position: 0% 0%;
+    background-size: 4vh 4vh;
 }
 
 #grafica-contenido section{

@@ -26,7 +26,6 @@ balance_cfg.addEventListener("click",balance_modal);
 
 function balance_modal(){
   console.log("hola-balance");
-  saludar("pepe");
 }
 
 const new_card_send = document.getElementById("gasto");
@@ -113,11 +112,6 @@ function nueva_tarjeta(){
     final_result = current_balance - amount;
   }
 
-   /* hides the div if there is no cards availables to show*/
-   if(empty.checkVisibility()){
-    empty.style.display = "none";
-  }
-
   /*controls ends*/
 
   /* declaracion de datos para la nueva tarjeta */
@@ -194,6 +188,8 @@ function nueva_tarjeta(){
 
   if(final_result < 0){
     alert('El balance no puede ser negativo! intente de nuevo.');
+    clear_fields();
+    return;
   }else if(final_result <= MAX_AMOUNT){
     lateral.insertBefore(template_card, lateral.firstChild); 
     document.getElementById('balance-total').innerText = final_result;
@@ -202,12 +198,18 @@ function nueva_tarjeta(){
     update_graphs();
     let int_index = parseInt(this.dataset.index);
     int_index += 1;
-    this.dataset.index = int_index; 
+    this.dataset.index = int_index;
+     /* hides the div if there is no cards availables to show*/
+      if(empty.checkVisibility()){
+        empty.style.display = "none";
+      }
+    clear_fields();
+    return;
   }else if(final_result > MAX_AMOUNT){
     alert('El balance no puede superar el monto de $999,999 (actualmente ;) ).');
+    clear_fields();
+    return;
   }
-
-  clear_fields();
 }
 
 /* @le suma a los 'tags_monto' involucrados en la transaccion, el monto que fue usado */
@@ -309,7 +311,7 @@ function start_carrousel(){
     'La categoria en la que mas gastas actualmente es: comida',
     'Tus gastos aumentan hasta un 50% cuando sales con amigos'];
 
-    const elemento = document.getElementsByClassName('tendencias-mensaje')[0];
+    const elemento = document.getElementsByClassName('trends-text')[0];
 
     let i = 0;
     showSlides();
@@ -366,6 +368,14 @@ function delete_card(){
       card.remove();
   },250);
   
+  /* check if all the cards were erased, in this case the 'if-empty' div will show up again*/
+  const card_container = document.querySelector('.side-bar-content');
+  const amount_of_cards = card_container.children.length -= 1;
+  const empty = document.querySelector('#if-empty');
+  if(amount_of_cards === 0){
+    empty.style.display = "block";
+  }
+
   clear_fields();
 }
 

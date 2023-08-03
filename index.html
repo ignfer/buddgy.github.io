@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="styles/header.css">
         <link rel="stylesheet" href="styles/new-card.css">
         <link rel="stylesheet" href="styles/graph.css">
-        <link rel="stylesheet" href="styles/tendencia.css">
+        <link rel="stylesheet" href="styles/trends.css">
         <link rel="stylesheet" href="styles/dialog.css">
 
         <script defer src="app.js/index.js"></script>
@@ -112,8 +112,10 @@
                     <input type="text" placeholder="Busca un gasto o un ingreso...">
 
                     <div id="if-empty">
-                        <h5>Todo esta tranquilo por aqui, prueba ingresar una nueva tarjeta!.</h5>
-                        <img id="empty-search" src="ico/empty-search.png">
+                        <h5>Todo esta tranquilo por aqui, prueba ingresar un nuevo gasto!</h5>
+                        <svg width="100" height="100" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21.71 20.29 18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 7-7 7 7 0 0 1-7 7Z" fill="#414641"/>
+                        </svg>
                     </div>
 
                     <div class="side-bar-content">
@@ -225,9 +227,9 @@
                     </div>
                 </section>
     
-                <section class="panel" id="tendencias">
-                            <div class="tendencias-contenido">
-                                <h4 class ="tendencias-mensaje"></h4>
+                <section class="panel" id="trends">
+                            <div class="trends-content">
+                                <h4 class ="trends-text"></h4>
                                 <span class="punto-off" id="punto-0"></span>
                                 <span class="punto-off" id="punto-1"></span>
                                 <span class="punto-off" id="punto-2"></span>
