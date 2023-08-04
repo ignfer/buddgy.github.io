@@ -38,8 +38,6 @@
     height: 100%;
     cursor:pointer;
     float:right;
-
-    fill:var(--color-5);
 }
 
 #balance-header-config>svg{

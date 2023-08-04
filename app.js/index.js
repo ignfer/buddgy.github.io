@@ -13,11 +13,16 @@
 */
 
 /* 
-to-do's
+* to-do's
 
-when a card is deleted, add its amount to the total balance
-create a function to generate error modals
-maybe, change the classname on the input field on the balance-modal
+* when a card is deleted, add its amount to the total balance --done
+* create a function to generate error modals
+* use stringify and local storage to store the cards on the browser session
+* give the chance to start the program with dummy cards or dummy data
+*
+* maybe, change the classname on the input field on the balance-modal
+* maybe, re-design the header
+
 */
 
 /* handlers start */
