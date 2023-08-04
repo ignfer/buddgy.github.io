@@ -12,6 +12,14 @@
      \______/                                       
 */
 
+/* 
+to-do's
+
+when a card is deleted, add its amount to the total balance
+create a function to generate error modals
+maybe, change the classname on the input field on the balance-modal
+*/
+
 /* handlers start */
 window.addEventListener("load",start_carrousel);
 
@@ -34,6 +42,33 @@ info_modal_close.addEventListener("click",() =>{
   info_modal.close();
 });
 /* handlers for the welcome-modal end*/
+
+
+/* handlers for the balance-modal start*/
+const balance_settings = document.querySelector('#balance-header-config');
+const balance_modal = document.querySelector('#modal-balance');
+const balance_modal_close = document.querySelector('#modal-balance-close');
+const balance_modal_send = document.querySelector('#modal-balance-send');
+
+balance_settings.addEventListener("click",() =>{
+  balance_modal.showModal();
+});
+
+balance_modal_close.addEventListener("click",() =>{
+  balance_modal.close();
+});
+
+balance_modal_send.addEventListener("click",() =>{
+  balance_modal.close();
+  const new_balance = parseInt(document.querySelector('#new-balance-amount').value);
+  if(isNaN(new_balance)){
+    alert("Error! balance no valido!");
+  }else{
+    const current_balance = document.querySelector('#balance-total');
+    current_balance.innerText = new_balance;
+  }
+});
+/* handlers for the balance-modal end*/
 
 const new_card_send = document.getElementById("gasto");
 new_card_send.addEventListener("click",nueva_tarjeta);
@@ -353,7 +388,7 @@ function delete_card(){
     if(element.className === 'card-amount'){amount = parseInt(element.innerHTML.slice(2))} //ignores the '-$ '
   });
 
-  //find each individual tag desc
+  /*find each individual tag desc*/
   Array.from(div_tags.children).forEach((element)=>{
     tags_to_update.push(element.dataset.desc);
   });
@@ -366,10 +401,17 @@ function delete_card(){
     tags_amount_map.set(tag_name,tag_amount);  
   });
   
-  //update the amount of each individual tag
+  /*update the amount of each individual tag*/
   update_amount();
   update_graphs();
 
+  /* when a card is deleted, its amount is added to the balance*/
+  let current_balance = parseInt(document.querySelector('#balance-total').innerText);
+  const int_amount = parseInt(amount);
+  const sum_result = current_balance += int_amount;
+  document.querySelector('#balance-total').innerText = sum_result;
+
+  /*animation*/
   card.style.transform = 'translateX(-200%)';
   setTimeout(function actualizar(){
       card.remove();
