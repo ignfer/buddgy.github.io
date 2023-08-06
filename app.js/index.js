@@ -45,6 +45,7 @@ linkedin_icon.addEventListener("click",to_linkedin => window.location.href = "ht
 const info_icon = document.querySelector('#info');
 const info_modal = document.querySelector('#modal-welcome');
 const info_modal_close = document.querySelector('#modal-welcome-close');
+const info_modal_reset = document.querySelector('#modal-welcome-reset');
 
 info_icon.addEventListener("click",() =>{
   info_modal.showModal();
@@ -52,6 +53,12 @@ info_icon.addEventListener("click",() =>{
 
 info_modal_close.addEventListener("click",() =>{
   info_modal.close();
+});
+
+info_modal_reset.addEventListener("click",()=>{
+  modal_error("Exito en la operacion","Almacenamiento local borrado correctamente!");
+  info_modal.close();
+  localStorage.clear();
 });
 /* handlers for the welcome-modal end*/
 
@@ -491,6 +498,8 @@ function modal_error(tittle,desc){
   const modal_close = document.createElement("button");
   modal_close.innerText = "cerrar";
 
+  const modal_section = document.createElement("section");
+
   modal_close.addEventListener("click",()=>{
     e_modal.close();
     e_modal.remove();
@@ -498,7 +507,8 @@ function modal_error(tittle,desc){
 
   e_modal.appendChild(_tittle);
   e_modal.appendChild(_desc);
-  e_modal.appendChild(modal_close);
+  modal_section.appendChild(modal_close);
+  e_modal.appendChild(modal_section);
 
 
   document.body.appendChild(e_modal);
