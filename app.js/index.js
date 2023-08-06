@@ -98,15 +98,27 @@ for (let i = 0; i < tags.length; i++) {
 /* variable declaration start */
 const tags_map = new Map();
 const tags_amount_map = new Map();
-tags_amount_map.set("Comida",0);
-tags_amount_map.set("Trabajo",0);
-tags_amount_map.set("Ocio",0);
-tags_amount_map.set("Casa",0);
-tags_amount_map.set("Electrodomestico",0);
-tags_amount_map.set("Servicio",0);
-tags_amount_map.set("Subscripcion",0);
-tags_amount_map.set("Vestimenta",0);
+/*
+* fill the 'tags_amount_map' with 0 if there is no value associated in the local storage
+* or with the value if already exists on the local storage
+* 
+* after that updates the text of the graph and the graph heights with the loaded values
+*/
+const tag_names = ["Comida","Trabajo","Ocio","Casa","Electrodomestico","Servicio","Subscripcion","Vestimenta"];
+tag_names.forEach(name=>{
+  if(localStorage.getItem(name) === null){
+    localStorage.setItem(name,0);
+    tags_amount_map.set(name,parseInt(localStorage.getItem(name)));
+  }else{
+    tags_amount_map.set(name,parseInt(localStorage.getItem(name)));
+  }
+});
+update_amount();
+update_graphs();
+
+
 const MAX_AMOUNT = 999999;
+
 
 /*
 * if the card index is not yet set on the local storage, is initialized on
@@ -135,9 +147,6 @@ if(localStorage.getItem("storage_balance") === null){
   const DOM_balance = document.querySelector('#balance-total');
   DOM_balance.innerText = localStorage.getItem("storage_balance");
 }
-
-console.log(`card_index = ${localStorage.getItem("card_index")}`);
-console.log(`storage_balance = ${localStorage.getItem("storage_balance")}`);
 
 /* variable declaration end*/
 
@@ -329,7 +338,10 @@ function calculate_amount(amount){
   });
 }
 
-/* @actualiza uno a uno las distintas barras de gasto con su precio */
+/* 
+* given the map wich indicates the amount of each tag, iterates through the graph
+* text fields and updates them
+*/
 function update_amount(){
   const graph_text_to_update = document.getElementsByClassName('seccion-texto');
     for (let i = 0; i < graph_text_to_update.length; i++) {
@@ -340,7 +352,7 @@ function update_amount(){
       }
       element.innerText = `$ ${amount}`;
     }
-    save_tags_amounts(tags_amount_map); 
+    save_tags_amounts(tags_amount_map); // 
 }
 
 /* @actualiza la altura de las barras de la grafica proporcionalmente 
