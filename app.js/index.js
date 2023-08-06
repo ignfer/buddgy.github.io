@@ -80,7 +80,7 @@ balance_modal_close.addEventListener("click",() =>{
 balance_modal_send.addEventListener("click",() =>{
   balance_modal.close();
   const new_balance = parseInt(document.querySelector('#new-balance-amount').value);
-  if(isNaN(new_balance)){
+  if(isNaN(new_balance) || new_balance < 0){
     modal_error("Error","balance no valido!");
   }else{
     const current_balance = document.querySelector('#balance-total');
