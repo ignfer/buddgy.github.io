@@ -16,7 +16,7 @@
 * to-do's
 
 * when a card is deleted, add its amount to the total balance --done
-* create a function to generate error modals
+* create a function to generate error modals --done
 * use stringify and local storage to store the cards on the browser session
 * give the chance to start the program with dummy cards or dummy data
 *
@@ -67,7 +67,7 @@ balance_modal_send.addEventListener("click",() =>{
   balance_modal.close();
   const new_balance = parseInt(document.querySelector('#new-balance-amount').value);
   if(isNaN(new_balance)){
-    alert("Error! balance no valido!");
+    modal_error("Error","balance no valido!");
   }else{
     const current_balance = document.querySelector('#balance-total');
     current_balance.innerText = new_balance;
@@ -149,11 +149,11 @@ function nueva_tarjeta(){
   let final_result;
 
   if(amount < 0){
-    alert("El monto ingresado no puede ser menor que 0!, intente nuevamente.")
+    modal_error('Error','El monto ingresado no puede ser menor que 0!, intente nuevamente.');
     clear_fields();
     return;
   }else if(isNaN(current_balance) || isNaN(amount)){
-    alert('El titulo o el monto no pueden ser vacios!, intente nuevamente.');
+    modal_error('Error','El titulo o el monto no pueden ser vacios!, intente nuevamente.');
     return;
   }else{
     final_result = current_balance - amount;
@@ -234,7 +234,7 @@ function nueva_tarjeta(){
   },250);
 
   if(final_result < 0){
-    alert('El balance no puede ser negativo! intente de nuevo.');
+    modal_error('Error','El balance no puede ser negativo! intente de nuevo.');
     clear_fields();
     return;
   }else if(final_result <= MAX_AMOUNT){
@@ -253,7 +253,7 @@ function nueva_tarjeta(){
     clear_fields();
     return;
   }else if(final_result > MAX_AMOUNT){
-    alert('El balance no puede superar el monto de $999,999 (actualmente ;) ).');
+    modal_error('Error','El balance no puede superar el monto de $999,999 ( por ahora ;)');
     clear_fields();
     return;
   }
@@ -433,3 +433,43 @@ function delete_card(){
   clear_fields();
 }
 
+/**
+ * 
+ * @param {*} tittle the tittle of the error modal
+ * @param {*} descr the description of the error modal
+ */
+function modal_error(tittle,desc){
+
+  /*check if the modal is already created and in that
+  case, is removed*/
+  const check = document.querySelector("#modal-error");
+  if(check !== null){check.remove();}
+
+  /*creates the modal with the new tittle and desc*/
+  const e_modal = document.createElement("dialog");
+  e_modal.id="modal-error";
+  e_modal.className = "custom-modal";
+
+  let _tittle = document.createElement("h2");
+  _tittle.innerText = tittle;
+
+  let _desc = document.createElement("p");
+  _desc.innerText = desc;
+
+  const modal_close = document.createElement("button");
+  modal_close.innerText = "cerrar";
+
+  modal_close.addEventListener("click",()=>{
+    e_modal.close();
+    e_modal.remove();
+  });
+
+  e_modal.appendChild(_tittle);
+  e_modal.appendChild(_desc);
+  e_modal.appendChild(modal_close);
+
+
+  document.body.appendChild(e_modal);
+  e_modal.showModal();
+  
+}
