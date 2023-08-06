@@ -18,6 +18,7 @@
 * when a card is deleted, add its amount to the total balance --done
 * create a function to generate error modals --done
 * use stringify and local storage to store the cards on the browser session
+* create a modular function to 'render' cards, could be used in the creation and the loading of a card
 * give the chance to start the program with dummy cards or dummy data
 *
 * maybe, change the classname on the input field on the balance-modal
@@ -25,8 +26,14 @@
 
 */
 
+/* import start*/
+import { load_cards, save_card } from "./cardStorage.js"
+import { save_tags_amounts } from "./tagsAmountStorage.js";
+import { start_carrousel } from "./startCarrousel.js";
+/* import end*/
 /* handlers start */
 window.addEventListener("load",start_carrousel);
+window.addEventListener("load",load_cards);
 
 const github_icon = document.querySelector('#social-git-hub');
 github_icon.addEventListener("click",to_github => window.location.href = "https://github.com/ignfer");
@@ -70,7 +77,8 @@ balance_modal_send.addEventListener("click",() =>{
     modal_error("Error","balance no valido!");
   }else{
     const current_balance = document.querySelector('#balance-total');
-    current_balance.innerText = new_balance;
+    localStorage.setItem("storage_balance",new_balance);
+    current_balance.innerText = localStorage.getItem("storage_balance");
   }
 });
 /* handlers for the balance-modal end*/
@@ -99,7 +107,37 @@ tags_amount_map.set("Servicio",0);
 tags_amount_map.set("Subscripcion",0);
 tags_amount_map.set("Vestimenta",0);
 const MAX_AMOUNT = 999999;
-//let indice_tarjeta = 0; /* variable global que lleva la cuenta de tarjetas generadas*/
+
+/*
+* if the card index is not yet set on the local storage, is initialized on
+* 0, this index is extremly important to keep the order of the cards and to not
+* lose any. When a card is created this atribute increments in 1, when a card is deleted
+* it doesn't decreases.
+*/
+let card_index;
+if(localStorage.getItem("card_index") === null){
+  localStorage.setItem("card_index",0);
+  card_index = localStorage.getItem("card_index");
+  console.log(localStorage.getItem("card_index"));
+}else{
+  card_index = localStorage.getItem("card_index");
+}
+
+/*
+* if exist a record for the balance on the local storage, initialize the dom value
+* with that record
+*/
+let storage_balance;
+if(localStorage.getItem("storage_balance") === null){
+  const DOM_balance = document.querySelector('#balance-total');
+  localStorage.setItem("storage_balance",DOM_balance.innerText);
+}else{
+  const DOM_balance = document.querySelector('#balance-total');
+  DOM_balance.innerText = localStorage.getItem("storage_balance");
+}
+
+console.log(`card_index = ${localStorage.getItem("card_index")}`);
+console.log(`storage_balance = ${localStorage.getItem("storage_balance")}`);
 
 /* variable declaration end*/
 
@@ -157,15 +195,17 @@ function nueva_tarjeta(){
     return;
   }else{
     final_result = current_balance - amount;
+    localStorage.setItem("storage_balance",final_result);
   }
 
   /*controls ends*/
 
-  /* declaracion de datos para la nueva tarjeta */
+  /*
+  * declaration of the data that will fill the templates of the card
+  */
 
   const new_card_tittle = document.querySelector('#new-card-tittle').value;
-
-  let new_card_desc = document.querySelector('#new-card-tittle').value;
+  const new_card_desc = document.querySelector('#new-card-desc').value;
 
   const new_card_date = new Date();
   const new_card_day = new_card_date.getDate();
@@ -173,21 +213,27 @@ function nueva_tarjeta(){
   new_card_month += 1;
   const new_card_year = new_card_date.getFullYear();
 
-  /* creacion y asignacion de valores de la nueva tarjeta */
+  /*
+  * we define the 'templates' of the card, we fill these templates whith the
+  * data we gather previously from the DOM.
+  */
 
+  /* id template */
   const template_card = document.createElement('div');
   template_card.className = 'card';
-  template_card.id = 'card-' + this.dataset.index;
+  template_card.id = 'card-' + card_index;
 
+  /* tittle template */
   const template_tittle = document.createElement('div');
   template_tittle.className = 'card-tittle';
   template_tittle.innerHTML = new_card_tittle;
 
+  /* date template */
   const template_date = document.createElement('div');
   template_date.className = 'card-date';
   template_date.innerHTML = `${new_card_day}/${new_card_month}/${new_card_year}`;
 
-  /* creacion de tags */
+  /* tags template */
   const template_tags = document.createElement('div');
   template_tags.className = 'card-tags';
   
@@ -200,13 +246,14 @@ function nueva_tarjeta(){
     template_tags.appendChild(template_individual_tag);
   });
 
+  /* description template */
   const template_desc = document.createElement('div');
   template_desc.className = 'card-desc';
   template_desc.innerHTML = new_card_desc;
 
+  /* amount template */
   const template_amount = document.createElement('div');
   template_amount.className = 'card-amount';
-  
   template_amount.innerHTML = `-$ ${amount}`;
   
 
@@ -216,10 +263,12 @@ function nueva_tarjeta(){
   const template_delete_btn = document.createElement('button');
   template_delete_btn.className = 'btn-card-delete';
   template_delete_btn.addEventListener("click",delete_card);
-  template_delete_btn.setAttribute('data-id',this.dataset.index);
+  template_delete_btn.setAttribute('data-id',card_index);
   template_delete.append(template_delete_btn);
   
-  /* appendear datos a la nueva tarjeta y esta ultima al panel lateral */
+  /*
+  * append the templates to the new card
+  */
 
   template_card.append(template_date);
   template_card.append(template_tittle);
@@ -238,14 +287,24 @@ function nueva_tarjeta(){
     clear_fields();
     return;
   }else if(final_result <= MAX_AMOUNT){
+    /*
+    * append the new card to the side panel, most recent on top
+    */
     lateral.insertBefore(template_card, lateral.firstChild); 
-    document.getElementById('balance-total').innerText = final_result;
+    document.getElementById('balance-total').innerText = localStorage.getItem("storage_balance");
     calculate_amount(amount);
     update_amount();
     update_graphs();
-    let int_index = parseInt(this.dataset.index);
-    int_index += 1;
-    this.dataset.index = int_index;
+
+    /*
+    * saves a copy of the card on the local storage
+    */
+    save_card(card_index,new_card_year,new_card_month,
+    new_card_day,new_card_tittle,new_card_desc,tags_map,amount);
+  
+    card_index ++;
+    localStorage.setItem("card_index",card_index);
+
      /* hides the div if there is no cards availables to show*/
       if(empty.checkVisibility()){
         empty.style.display = "none";
@@ -281,6 +340,7 @@ function update_amount(){
       }
       element.innerText = `$ ${amount}`;
     }
+    save_tags_amounts(tags_amount_map); 
 }
 
 /* @actualiza la altura de las barras de la grafica proporcionalmente 
@@ -337,63 +397,21 @@ function clear_fields(){
   document.querySelector('#new-card-amount').value = '';
 }
 
-function estado(id){
-    let id_concatenada = 'punto-' + id;
-    const punto = document.getElementById(id_concatenada);
-    const puntos = document.getElementsByClassName('punto-on');
-
-    for (var i = 0; i < puntos.length; i++) {
-        puntos[i].className = 'punto-off';
-    }
-    
-    if(punto.className='punto-off'){
-        punto.className = 'punto-on';
-    }
-}
-
-function start_carrousel(){
-    var contenido = [
-    'Usualmente tus gastos incrementan hasta un 15% los fines de semanas',
-    'Sueles ahorrar 5% mas en los primeros 15 dias del mes',
-    'La categoria en la que mas gastas actualmente es: comida',
-    'Tus gastos aumentan hasta un 50% cuando sales con amigos'];
-
-    const elemento = document.getElementsByClassName('trends-text')[0];
-
-    let i = 0;
-    showSlides();
-
-    function showSlides() {
-        elemento.style.transform = 'translateX(-150%)';
-        setTimeout(function actualizar(){
-        elemento.style.transform = 'translateX(+0%)';
-        elemento.innerHTML = contenido[i];
-        },1000);
-        estado(i);
-
-        i++;
-        if (i >= 4){
-            i = 0
-        }
-        setTimeout(showSlides, 4000);
-    }
-}
-
-function delete_card(){
+export function delete_card(){
   clear_fields();
   const card = document.querySelector(`#card-${this.dataset.id}`);
   const tags_to_update = [];
   let amount;
   let div_tags;
 
-  //find the tag container
+  /* find the tag container */
   Array.from(card.children).forEach((element)=>{
     if(element.className === 'card-tags'){div_tags = element}
     //find the amount
     if(element.className === 'card-amount'){amount = parseInt(element.innerHTML.slice(2))} //ignores the '-$ '
   });
 
-  /*find each individual tag desc*/
+  /* find each individual tag desc */
   Array.from(div_tags.children).forEach((element)=>{
     tags_to_update.push(element.dataset.desc);
   });
@@ -419,20 +437,19 @@ function delete_card(){
   card.style.transform = 'translateX(-200%)';
   setTimeout(function actualizar(){
       card.remove();
-
+      /* check if all the cards were erased, in this case the 'if-empty' div will show up again*/
       const card_container = document.querySelector('.side-bar-content');
       const amount_of_cards = card_container.children.length;
-      console.log(amount_of_cards);
       const empty = document.querySelector('#if-empty');
       if(amount_of_cards === 0){
         empty.style.display = "block";
       }
 
   },250);
-  
-  /* check if all the cards were erased, in this case the 'if-empty' div will show up again*/
-  
 
+  localStorage.removeItem(this.dataset.id);
+
+  
   clear_fields();
 }
 
