@@ -43,7 +43,6 @@ header{
     max-width: 300px;
 }
 
-
 #if-logo{
     opacity: 1;
     position: relative;
@@ -57,7 +56,7 @@ header{
 
 #if-logo>img{
     width: 90%;
-    max-width: 300px;
+    max-width: 250px;
 }
 
 #contact-info{

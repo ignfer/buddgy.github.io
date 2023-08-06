@@ -36,7 +36,7 @@
     background-image: radial-gradient(
     var(--color-4) 10%,transparent 5%);
     background-position: 0% 0%;
-    background-size: 4vh 4vh;
+    background-size: 2rem 2rem;
 }
 
 #grafica-contenido section{

@@ -401,7 +401,6 @@ function delete_card(){
   tags_to_update.forEach((element) => {
     let tag_name = element;
     let tag_amount = parseInt(tags_amount_map.get(tag_name));
-    //console.log(`name: ${tag_name} amount: ${tag_amount}`);
     tag_amount -= amount;
     tags_amount_map.set(tag_name,tag_amount);  
   });
@@ -420,15 +419,19 @@ function delete_card(){
   card.style.transform = 'translateX(-200%)';
   setTimeout(function actualizar(){
       card.remove();
+
+      const card_container = document.querySelector('.side-bar-content');
+      const amount_of_cards = card_container.children.length;
+      console.log(amount_of_cards);
+      const empty = document.querySelector('#if-empty');
+      if(amount_of_cards === 0){
+        empty.style.display = "block";
+      }
+
   },250);
   
   /* check if all the cards were erased, in this case the 'if-empty' div will show up again*/
-  const card_container = document.querySelector('.side-bar-content');
-  const amount_of_cards = card_container.children.length -= 1;
-  const empty = document.querySelector('#if-empty');
-  if(amount_of_cards === 0){
-    empty.style.display = "block";
-  }
+  
 
   clear_fields();
 }

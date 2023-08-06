@@ -87,7 +87,7 @@
     opacity: 0;
 
     box-sizing: border-box;
-    background-image: url("../ico/delete.png");
+    background-image: url("../resources/ico/delete.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center; 
