@@ -42,13 +42,18 @@
 
 .side-bar-content{
     width: 100%;
-    height: calc(90% - 20px);
+    height: 90%;
     overflow: scroll;
     scrollbar-width: none;
 
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    box-sizing: border-box;
+    border-width: var(--border-default-width);
+    border-color: var(--color-4);
+    border-top-style: solid;
 }
 
 .card{

@@ -17,7 +17,7 @@
 
 * when a card is deleted, add its amount to the total balance --done
 * create a function to generate error modals --done
-* use stringify and local storage to store the cards on the browser session
+* use stringify and local storage to store the cards on the browser session --done
 * create a modular function to 'render' cards, could be used in the creation and the loading of a card
 * give the chance to start the program with dummy cards or dummy data
 *
