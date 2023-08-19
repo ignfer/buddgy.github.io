@@ -137,8 +137,8 @@ textarea{
 }
 
 .new-card-send:hover{
-    background-color: #d14b29;
     transform: translatey(-5px);
+    opacity: 0.7;
 }
 
 #gasto{

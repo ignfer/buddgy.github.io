@@ -49,11 +49,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    box-sizing: border-box;
-    border-width: var(--border-default-width);
-    border-color: var(--color-4);
-    border-top-style: solid;
 }
 
 .card{
@@ -70,18 +65,16 @@
     border-width: 1px;
     border-color: var(--color-4);
 
-    scale: 1.0;
-    transition-duration: 0.25s;
+    transition: all 0.10s ease;
 }
 
 .card:hover{
-    scale: 1.01;
-    transition-duration: 0.25s;
-    background-color: #414641;
+    transform:scale(1.01);
+    transform:translateX(3px);
+    border-color:var(--color-5);
 }
 
 .card:hover > .card-delete > .btn-card-delete{
-    transition-duration: 0.25s;
     opacity: 1;
 }
 
